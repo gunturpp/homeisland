@@ -1,0 +1,55 @@
+<!--
+  Generated template for the UpdateAkunPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>updateAkun</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form #signupForm="ngForm" novalidate>
+		<ion-list no-lines>
+			
+			<ion-item>
+				<ion-label stacked color="primary">Username</ion-label>
+				<ion-input [(ngModel)]="user.username" placeholder="Username" name="username" type="text" #username="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+				Username is required
+			</p>
+
+			<ion-item>
+				<ion-label stacked color="primary">Password</ion-label>
+				<ion-input [(ngModel)]="user.password" placeholder="Password" name="password" type="password" #password="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+				Password is required
+			</p>
+
+			<ion-item>
+							<ion-label stacked color="primary">Status</ion-label>
+							<ion-input [(ngModel)]="user.role" placeholder="customer" name="role" type="text" #role="ngModel" required>
+							</ion-input>
+						</ion-item>
+						<p ion-text [hidden]="role.valid || submitted == false" color="danger" padding-left>
+						Please fill with	"customer"
+						</p>
+		</ion-list>
+
+		<div padding>
+			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Update Akun</button>
+			<button ion-button (click)="deleteAkun()" color="danger" block>Delete</button>
+		</div>
+	</form>
+
+
+</ion-content>
