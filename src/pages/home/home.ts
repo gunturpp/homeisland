@@ -4,6 +4,7 @@ import { HomestayPage } from '../homestay/homestay';
 import { ExplorePage } from '../explore/explore';
 import { NewsPage } from '../news/news';
 import { SouvenirPage } from '../souvenir/souvenir';
+import { SearchPage } from '../search/search';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ export class HomePage {
   }
 
 slide_homestay(){
-	this.navCtrl.push('HomestayPage');
+	this.navCtrl.push('SearchPage');
 }
 
 slide_explore(){
