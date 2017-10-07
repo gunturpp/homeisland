@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides style="height:200px;" pager>
+
+      <ion-slide style="background-color: green">
+        <!-- <h2>Slide 1</h2> -->
+        <img src="http://amabeltravel.com/wp-content/uploads/2015/12/Wisatawan-Pantai-Melur.jpg">
+      </ion-slide>
+
+      <ion-slide style="background-color: blue">
+        <h2>Slide 2</h2>
+      </ion-slide>
+
+      <ion-slide style="background-color: red">
+        <h2>Slide 3</h2>
+      </ion-slide>
+
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col col-3>
+        <button (click)='slide_homestay()' ion-button >
+          <ion-icon style="font-size: 30px;" name="home">           
+          </ion-icon>
+        </button><p style="font-size: 10px;">HOMESTAY</p>
+      </ion-col>
+
+       <ion-col col-3>
+        <button (click)='slide_explore()' ion-button >
+          <ion-icon style="font-size: 30px;" name="search">           
+          </ion-icon>
+        </button><p style="font-size: 10px;">EXPLORE</p>
+      </ion-col>
+
+       <ion-col col-3>
+        <button (click)='slide_souvenir()' ion-button >
+          <ion-icon style="font-size: 30px;" name="cart">           
+          </ion-icon>
+        </button><p style="font-size: 10px;">SOUVENIR</p>
+      </ion-col>
+
+       <ion-col col-3>
+        <button (click)='slide_news()' ion-button >
+          <ion-icon style="font-size: 30px;" name="paper">           
+          </ion-icon>
+        </button><p style="font-size: 10px;">NEWS & EVENTS</p>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
