@@ -1,18 +1,36 @@
 <!--
-  Generated template for the SouvenirPage page.
+  Generated template for the DetailBintanPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
+    
+      <ion-navbar>
+        <ion-title>Souvenir</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding>
+        <br>
+        <h5 class="h5">Nears You</h5>
 
-  <ion-navbar>
-    <ion-title>souvenir</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+        <ion-card item (click)="souvenir()">
+            <img class="pic" src="../assets/pic/market1.jpg">
+            <div class="card-title">Souvenir Bintan</div>
+            <div class="card-subtitle">2.5KM</div>
+          </ion-card>
+          <ion-card (click)="souvenir()">
+              <img  class="pic" src="../assets/pic/market2.jpg">
+              <div class="card-title">Souvenir Tanjung Pinang</div>
+              <div class="card-subtitle">5KM</div>
+            </ion-card>
+            <ion-card (click)="souvenir()">
+                <img  class="pic" src="../assets/pic/5.jpg">
+                <div class="card-title">Souvenir Riau</div>
+                <div class="card-subtitle">4KM</div>
+            </ion-card>
+    </ion-content>
+    

@@ -1,3 +1,73 @@
 page-explore {
+    .toolbar-background-md {
+        border-color: #68a2ff;
+        background: #68a2ff;
+    }
+    .toolbar-title-md{
+        color: white;
+    }
 
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #ffffff;
+        background-color: transparent;
+    }
+    .padding_helper {
+        margin: 10px;
+        padding: 2px;
+        border-radius: 5px;
+        background-color: white;
+      }
+
+    .image__padding {
+        padding: 20px;
+      }
+
+      .image {
+        background-image: url('../assets/pic/1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+      }
+      .image2 {
+        background-image: url('../assets/pic/2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+      }
+      .image3 {
+        background-image: url('../assets/pic/5.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 3px;
+      }
+
+      .image4 {
+        background-image: url('../assets/pic/5.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 3px;
+      }
+      .section__headline {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: .8px;
+        margin: 0;
+        text-transform: uppercase;
+        color: grey;
+      }
+      .category__headline {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: white;
+        line-height: 0.5;
+        margin: 5px;
+      }
+      h5.h5{
+        color:grey; 
+        text-align:center;
+      }
+    p.p{
+        text-align:center;
+    }
+    
 }

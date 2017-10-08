@@ -1,0 +1,111 @@
+page-detail-souvenir {
+    .toolbar-background-md {
+        border-color: #68a2ff;
+        background: #68a2ff;
+    }
+    .toolbar-title-md{
+        color: white;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #ffffff;
+        background-color: transparent;
+    }
+    h5.h5{
+        color:grey; 
+        text-align:left;
+        padding:0px;
+        margin-top: 0.6rem;
+        margin-bottom: 0rem;
+      }
+      img.pic{
+        width:350px; height:180px;
+        padding: 6px;
+        position: relative;
+        left: 3px;
+      }
+
+      .slide-zoom {
+        height: 190%;
+        width: 190%;
+      }
+      .button-md{
+          height:1.5rem;
+          font-size: 1rem;
+          position: relative;
+          top: -5px;
+      }
+    
+    //   .slide-title {
+    //     margin-top: 0rem;
+    //   }
+    
+      ion-slides {
+      width: 100%;
+      height: 30%;
+      padding: 0px;
+      display: block;
+    }
+    
+      .slide-image {
+        max-width: 100%;
+        padding: 0px;
+        // margin: 1vw 0;
+      }
+    
+      .slider {
+        height: 70vw; /* slider height you want */
+       }
+        .slider-slide {
+         color: #000;
+         background-color: #fff;
+         height: 100%;
+         padding: 0px;
+        } 
+    
+      b {
+        font-weight: 500;
+      }
+    
+    
+
+      .ion-card-content{
+        width: 100%;
+        padding:0px;
+      }
+    
+    
+    //   .social-cards ion-col {
+    //     padding: 0;
+    //   }
+    
+      .button-small {
+      padding: 0 0.9em;
+      height: 2.1em;
+      font-size: 2rem;
+    }
+    
+      .card .note {
+      font-size: 2rem;
+      align: right;
+    }
+    
+    .back-button {
+      color: #fff !important;
+    }
+    
+    .note{
+      color : grey;
+      font-size: 1rem;
+      height: 2rem;
+      padding:0px;
+      }
+    .scroll-content {
+        padding: 0px;
+      }
+    ion-slides.pic{
+        padding: 0px;
+    }
+    h6.h6{
+        color:grey;
+    }
+}

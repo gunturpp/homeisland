@@ -1,3 +1,43 @@
 page-souvenir {
+    .toolbar-background-md {
+        border-color: #68a2ff;
+        background: #68a2ff;
+    }
+    .toolbar-title-md{
+        color: white;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #ffffff;
+        background-color: transparent;
+    }
 
+    ion-card {
+        position: relative;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 85%;
+        font-size: 1.3em;
+        width: 100%;
+        // font-weight: bold;
+        color: #fff;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        left: 260px;
+        top: 85%;
+        width: 100%;
+        color: #fff;
+      }
+      h5.h5{
+        color:grey; 
+        text-align:center;
+      }
+      img.pic{
+        width:350px; height:120px
+      }
+      
 }

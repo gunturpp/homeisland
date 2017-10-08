@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetailBintanPage } from '../detail-bintan/detail-bintan';
 
 /**
  * Generated class for the ExplorePage page.
@@ -21,5 +22,7 @@ export class ExplorePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExplorePage');
   }
-
+  wisata_bintan(){
+    this.navCtrl.push('DetailBintanPage');
+  }
 }
