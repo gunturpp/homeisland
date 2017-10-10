@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+//import { ListhomePage } from '../homestay/homestay';
+import { HomestayPage } from '../homestay/homestay';
 /**
  * Generated class for the ListhomePage page.
  *
@@ -20,6 +21,10 @@ export class ListhomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListhomePage');
+  }
+
+  homestaylog(){
+  	this.navCtrl.push(HomestayPage);
   }
 
 }
