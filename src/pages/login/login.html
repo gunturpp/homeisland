@@ -23,23 +23,23 @@
 			<ion-col col-4></ion-col>
 		</ion-row>
 	</ion-grid>
-
+  <form #LoginForm="ngForm" novalidate>
 	<ion-list>
 
 		  <ion-item>
 		    <ion-label floating>Username</ion-label>
-		    <ion-input type="text"></ion-input>
+		    <ion-input [(ngModel)]="user.username" type="text"  #username="ngModel" name="username" required></ion-input>
 		  </ion-item>
 
 		  <ion-item>
 		    <ion-label floating>Password</ion-label>
-		    <ion-input type="password"></ion-input>
+		    <ion-input [(ngModel)]="user.password" type="password" #password="ngModel" name="password" required></ion-input>
 		  </ion-item>
 
    </ion-list>
 
-   <button ion-button block (click)='geser()'>Log In</button>
- 	
+   <button ion-button block (click)='onLogin(LoginForm)'>Log In</button>
+ 	 </form>
    <p text-center><a href="">Forgot Password?</a></p>
 
     <button (click)='daftar()' ion-button block outline color="secondary">Register</button>
