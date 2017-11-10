@@ -40,11 +40,11 @@ export class UserDataProvider {
     this.storage.set('user_id', id);
   }
 
-  login(id,username,status) {
+  login(id,username) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_id', id);
     this.storage.set('username', username);
-    this.storage.set('user_status', status);
+    //this.storage.set('user_status', status);
    // this.storage.set('name',name);
     //this.storage.set('phone_number',phone_number);
     //this.storage.set('email',email);
