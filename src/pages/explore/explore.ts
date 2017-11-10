@@ -32,4 +32,8 @@ export class ExplorePage {
   wisata(data1){
     this.navCtrl.push('DetailBintanPage', data1);
   }
+
+  wisata2(data2){
+    this.navCtrl.push('DetailBintanPage', data2);
+  }
 }
