@@ -15,6 +15,8 @@ import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { UpdateAkunPage} from '../pages/update-akun/update-akun';
+import { ListhomePage} from '../pages/listhome/listhome';
+import {HomestayPage} from '../pages/homestay/homestay';
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +26,9 @@ import { UpdateAkunPage} from '../pages/update-akun/update-akun';
     TabsPage,
     LoginPage,
     SignupPage,
-    UpdateAkunPage
+    UpdateAkunPage,
+    ListhomePage,
+    HomestayPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -43,7 +47,9 @@ import { UpdateAkunPage} from '../pages/update-akun/update-akun';
     TabsPage,
     LoginPage,
     SignupPage,
-    UpdateAkunPage
+    UpdateAkunPage,
+    ListhomePage,
+    HomestayPage
   ],
   providers: [
     StatusBar,
