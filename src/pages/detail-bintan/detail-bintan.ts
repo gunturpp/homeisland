@@ -19,11 +19,13 @@ export class DetailBintanPage {
   data: string;
   nama_wisata: string;
   alamat: string; 
+  nama_kabupaten : string;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http:Http
             ) {
               this.data = this.navParams.data;
+              this.nama_kabupaten = this.data;
               console.log(this.data);
   }
 

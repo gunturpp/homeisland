@@ -162,6 +162,10 @@ export class UserDataProvider {
       return value;
     });
   }
-
+	isLogin(){
+		return this.storage.get(this.HAS_LOGGED_IN).then((value)=>{
+			return value;
+		});
+	} 
 
 }
