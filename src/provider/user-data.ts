@@ -79,15 +79,15 @@ export class UserDataProvider {
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_id');
-    this.storage.remove('username');
-    this.storage.remove('user_status');
-    this.storage.remove('phone_number');
-    this.storage.remove('email');
-    this.storage.remove('token');
-    this.storage.remove('addres_name');
-    this.storage.remove('address_user');
-    this.storage.remove('latitude');
-    this.storage.remove('longitude');
+    // this.storage.remove('username');
+    // this.storage.remove('user_status');
+    // this.storage.remove('phone_number');
+    // this.storage.remove('email');
+    // this.storage.remove('token');
+    // this.storage.remove('addres_name');
+    // this.storage.remove('address_user');
+    // this.storage.remove('latitude');
+    // this.storage.remove('longitude');
     this.events.publish('user:logout');
     this.loginState = false;
     // location.reload();

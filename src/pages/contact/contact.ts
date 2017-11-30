@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams,ToastController,LoadingController } from 'ionic-angular';
+import { NavController,NavParams,ToastController,LoadingController,  App} from 'ionic-angular';
 import { Http } from '@angular/http';
 import { UpdateAkunPage } from '../update-akun/update-akun';
 import {TabsPage} from '../tabs/tabs';
+import { LoginPage } from '../login/login';
+import { UserDataProvider } from '../../provider/user-data';
+
 
 @Component({
   selector: 'page-contact',
@@ -11,8 +14,14 @@ import {TabsPage} from '../tabs/tabs';
 export class ContactPage {
   
   akun : any;
-  constructor(public navCtrl: NavController,public navParams: NavParams, public http: Http,
-    public toastCtrl: ToastController, public loadCtrl: LoadingController) {}
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams, 
+              public http: Http,
+              public toastCtrl: ToastController, 
+              public loadCtrl: LoadingController,
+              public data: UserDataProvider,
+              public app: App              
+            ) {}
 ionViewWillEnter() {
     this.getdataAkun();
    }
@@ -64,5 +73,10 @@ ionViewWillEnter() {
     });
     toast.present();
    }
+
+  LogOut(){
+    this.data.logout();
+    this.app.getRootNav().setRoot(LoginPage);
+  }
 
 }
