@@ -24,7 +24,7 @@ export class ExplorePage {
     console.log('ionViewDidLoad ExplorePage');
   }
   wisata(data){
-    this.navCtrl.push('DetailBintanPage', data);
+    this.navCtrl.push('BintanPage', data);
   }
 
 }

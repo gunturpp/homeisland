@@ -14,12 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'bintan.html',
 })
 export class BintanPage {
+  data:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.data = this.navParams.data;
+    console.log(this.data);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BintanPage');
+  }
+
+  wisata(data){
+    this.navCtrl.push('DetailBintanPage', data);
   }
 
 }
