@@ -11,16 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserDataProvider } from '../provider/user-data';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
- } from '@ionic-native/google-maps';
-//import { Geolocation, GeolocationOptions ,Geoposition ,PositionError }  from '@ionic-native/geolocation';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
