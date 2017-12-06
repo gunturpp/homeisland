@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams,ToastController,LoadingController,  App} from 'ionic-angular';
+import { NavController,NavParams,ToastController,LoadingController, AlertController, App} from 'ionic-angular';
 import { Http } from '@angular/http';
 import { UpdateAkunPage } from '../update-akun/update-akun';
 import {TabsPage} from '../tabs/tabs';
@@ -15,7 +15,8 @@ export class ContactPage {
   
   akun : any;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams, 
+              public navParams: NavParams,
+              public alertCtrl: AlertController, 
               public http: Http,
               public toastCtrl: ToastController, 
               public loadCtrl: LoadingController,
@@ -75,8 +76,31 @@ ionViewWillEnter() {
    }
 
   LogOut(){
-    this.data.logout();
-    this.app.getRootNav().setRoot(LoginPage);
+    let confirm = this.alertCtrl.create({
+      title: '',
+      subTitle: 'Apakah kamu yakin ingin keluar?',
+      buttons: [
+        {
+          text: 'Tidak',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Ya',
+          handler: () => {
+            console.log('Agree clicked')
+            // this.navCtrl.setRoot(MyApp);
+            this.data.logout();
+            this.app.getRootNav().setRoot(LoginPage);
+            // ,
+            // this.data.logout();
+            // this.app.getRootNav().setRoot(MyApp);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
