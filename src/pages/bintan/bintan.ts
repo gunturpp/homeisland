@@ -15,9 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BintanPage {
   data:string;
+  nama_kabupaten: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.data;
+    this.nama_kabupaten = this.data;
     console.log(this.data);
   }
 

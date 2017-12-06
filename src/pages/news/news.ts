@@ -22,4 +22,8 @@ export class NewsPage {
     console.log('ionViewDidLoad NewsPage');
   }
 
+  news(data){
+    this.navCtrl.push('DetailBintanPage', data);    
+  }
+
 }

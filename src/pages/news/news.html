@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="Primary">
-    <ion-title>news</ion-title>
+    <ion-title>NEWS AND EVENTS</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,15 +16,35 @@
 <ion-content padding>
 	<h5 class="h5">News</h5>
 
-        <ion-card item (click)="souvenir()">
+        <ion-card item (click)="news(data)">
             <img class="pic" src="../assets/pic/market1.jpg">
             <div class="card-title">Souvenir Bintan</div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
+          <div width="80%" id="scroll" >
+            
+                    <img class="image" width="25%" src="../../assets/pic/1.jpg" (click)="news(data)">
+                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/3.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/1.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/5.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/6.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/7.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/3.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/5.jpg">
+                    <img class="image" width="25%" src="../../assets/pic/6.jpg">
+                    <img class="image" width="30%" src="../../assets/pic/7.jpg">
+              </div>
+
     <h5 class="h5">Event</h5>
 
-        <ion-card item (click)="souvenir()">
+        <ion-card item (click)="event(data)">
             <img class="pic" src="../assets/pic/market1.jpg">
             <div class="card-title">Souvenir Bintan</div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
