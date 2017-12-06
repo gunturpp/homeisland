@@ -22,7 +22,7 @@ export class SouvenirPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SouvenirPage');
   }
-  souvenir(){
-    this.navCtrl.push("DetailSouvenirPage");
+  souvenir(data){
+    this.navCtrl.push("DetailSouvenirPage", data);
   }
 }

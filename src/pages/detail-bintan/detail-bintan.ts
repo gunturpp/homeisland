@@ -39,11 +39,11 @@ export class DetailBintanPage {
   }
 
   ionViewWillEnter() {
-    this.getdataPembeli();
+    this.getdataExplore();
    }
 
 
-   getdataPembeli(){
+   getdataExplore(){
      let data = JSON.stringify({
                       nama_kabupaten: this.data 
                   });

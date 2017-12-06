@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Daftar</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -37,11 +37,11 @@
 
 			<ion-item>
 				<ion-label stacked color="primary">Username</ion-label>
-				<ion-input [(ngModel)]="user.username" placeholder="Username" name="username" type="text" #username="ngModel" required>
+				<ion-input [(ngModel)]="user.username" [ngModelOptions]="{standalone:true}" pattern='[A-Za-z0-9\S]{1,25}' placeholder="Username" name="username" type="text" #username="ngModel" required>
 				</ion-input>
 			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
+			<p ion-text [hidden]="username.valid || submitted == false"  color="danger" padding-left>
+				Username is required (Without spacess)
 			</p>
 
 			<ion-item>
