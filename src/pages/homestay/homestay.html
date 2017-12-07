@@ -7,7 +7,7 @@
 <ion-header>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <ion-navbar color="primary">
-    <ion-title text-centered>homestay Night Watch</ion-title>
+    <ion-title text-centered>{{namaHomestay}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,15 +20,15 @@
 
       <ion-slide style="background-color: green">
         <!-- <h2>Slide 1</h2> -->
-        <img src="../../assets/img/2.jpg">
+        <img src="{{foto1}}">
       </ion-slide>
 
       <ion-slide style="background-color: blue">
-        <img src="../../assets/img/2.jpg">
+        <img src="{{foto1}}">
       </ion-slide>
 
       <ion-slide style="background-color: red">
-        <img src="../../assets/img/2.jpg">
+        <img src="{{foto1}}">
       </ion-slide>
 
   </ion-slides>
@@ -58,30 +58,7 @@
 		</ion-row>
 	</ion-grid>
 <!-- ../../assets/pic/1.jpg -->
-	<h4 style="padding-left: 20px;">Tipe Kamar</h4>
-	<ion-list>
-		<ion-item>
-			<ion-thumbnail item-start>
-				<img src="../../assets/pic/1.jpg">
-			</ion-thumbnail>
-			<h2> Premium </h2>
-			<button ion-button clear item-end> View </button>
-		</ion-item>
-		<ion-item>
-			<ion-thumbnail item-start>
-				<img src="../../assets/pic/1.jpg">
-			</ion-thumbnail>
-			<h2> Happy Hour </h2>
-			<button ion-button clear item-end> View </button>
-		</ion-item>
-		<ion-item>
-			<ion-thumbnail item-start>
-				<img src="../../assets/pic/1.jpg">
-			</ion-thumbnail>
-			<h2> Reguler </h2>
-			<button ion-button clear item-end> View </button>
-		</ion-item>
-	</ion-list>
+	
 
 	<h5 text-center>Rating & Reviews</h5>
 

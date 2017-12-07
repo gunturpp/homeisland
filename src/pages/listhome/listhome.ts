@@ -43,8 +43,8 @@ export class ListhomePage {
 
   }
 
-  homestaylog(){
-  	this.navCtrl.push(HomestayPage);
+  homestaylog(data){
+  	this.navCtrl.push(HomestayPage,data);
   }
 
 }

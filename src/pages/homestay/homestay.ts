@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 /**
  * Generated class for the HomestayPage page.
@@ -14,8 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'homestay.html',
 })
 export class HomestayPage {
+  dataHomestay: any;
+  namaHomestay: any;
+  foto1: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  	public http: Http) {
   }
 
   ionViewDidLoad() {
@@ -45,5 +50,22 @@ export class HomestayPage {
 	// 	//document.getElementById("demo").innerHTML = "jaraknya:"+Math.round(y*1000)+"KM";
   }
   
-	
+  ionViewWillEnter(){
+  	this.getdataHomestay();
+  }
+	 getdataHomestay(){
+  	this.http.get("http://127.0.0.1/homeisland/backend/getDetailHomestay.php?id="+ this.navParams.get('id_homestay')).subscribe(data => {
+  		let response = data.json();
+      console.log(response);
+      if(response.status=="200"){
+        this.dataHomestay = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        this.namaHomestay = this.dataHomestay[0].Nama_homestay;
+        this.foto1 = this.dataHomestay[0].foto1;
+      }
+      else{
+        console.log("Error coy");
+      }
+    });
+
+  }
 }
