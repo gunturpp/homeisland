@@ -19,6 +19,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { UpdateAkunPage} from '../pages/update-akun/update-akun';
 import { ListhomePage} from '../pages/listhome/listhome';
 import {HomestayPage} from '../pages/homestay/homestay';
+import {DetailNewsPage} from '../pages/detail-news/detail-news';
 @NgModule({
   declarations: [
     MyApp,
@@ -30,7 +31,8 @@ import {HomestayPage} from '../pages/homestay/homestay';
     SignupPage,
     UpdateAkunPage,
     ListhomePage,
-    HomestayPage
+    HomestayPage,
+    DetailNewsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -51,7 +53,8 @@ import {HomestayPage} from '../pages/homestay/homestay';
     SignupPage,
     UpdateAkunPage,
     ListhomePage,
-    HomestayPage
+    HomestayPage,
+    DetailNewsPage
   ],
   providers: [
     StatusBar,
