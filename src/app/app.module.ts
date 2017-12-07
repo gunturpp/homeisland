@@ -1,3 +1,4 @@
+import { TesPage } from './../pages/tes/tes';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -12,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserDataProvider } from '../provider/user-data';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
+//import { GoogleMaps } from '../provider/google-maps';
 import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
@@ -32,7 +34,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     UpdateAkunPage,
     ListhomePage,
     HomestayPage,
-    DetailNewsPage
+    DetailNewsPage,
+    TesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,7 +57,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     UpdateAkunPage,
     ListhomePage,
     HomestayPage,
-    DetailNewsPage
+    DetailNewsPage,
+    TesPage
   ],
   providers: [
     StatusBar,
@@ -62,6 +66,7 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     UserDataProvider,
     GoogleMaps,
     Geolocation,
+    GoogleMaps,
     //Storage,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
