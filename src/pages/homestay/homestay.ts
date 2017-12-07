@@ -16,12 +16,15 @@ import { HomePage } from '../home/home';
   templateUrl: 'homestay.html',
 })
 export class HomestayPage {
+  idz: string;
+  isRating : boolean;
   dataHomestay: any;
   namaHomestay: any;
   foto1: any;
   id_homestay: any;
   namauser: any;
   iduser: any;
+  data:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
@@ -60,11 +63,17 @@ export class HomestayPage {
   	this.getdataHomestay();
     this.getiduser();
     this.getnamauser();
+    this.isRating = false;
+    console.log(this.iduser);
     
   }
+
   getiduser(){
       this.userDataProvider.getIDuser().then((id) => {
       this.iduser = id;
+      console.log(this.iduser);
+      this.CekReview();  
+
     });
   }
 
@@ -90,6 +99,24 @@ export class HomestayPage {
       }
     });
 
+  }
+
+  CekReview(){
+    //let idz = {id: this.iduser}
+    let data = JSON.stringify({
+                      id_user: this.iduser 
+                  });
+    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser ).subscribe(data => {
+      let response = data.json();
+      console.log(response);
+      if(response.status=="200"){
+        this.dataHomestay = response.data;      //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        this.isRating = true;
+      }
+      else{
+        console.log("Error coy");
+      }
+    });
   }
 
   order() {
