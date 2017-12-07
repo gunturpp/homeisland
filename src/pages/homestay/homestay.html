@@ -40,7 +40,7 @@
 			<ion-col col-8>
 				<ion-grid>
 					<ion-row>
-						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>Wifi</h6>
+						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>{{id_homestay}}</h6>
 </ion-col>
 						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-map-marker" aria-hidden="true"></i><h6 style="font-size: 11px;">Parking</h6>
 </ion-col>
@@ -65,14 +65,16 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-6>
-				<h6 text-center style="font-size: 11px;">Homeisland</h6>
-				<h4 text-center>8.3/10</h4>
-				<h6 text-center style="font-size: 11px;">From 209 guest</h6>
+				<h6 text-center style="font-size: 11px;">{{iduser}}</h6>
+				<h4 text-center>{{namauser}}</h4>
+				<h6 text-center style="font-size: 11px;">pocut</h6>
 			</ion-col>
 			<ion-col col-6>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
+
+	<button ion-button (click)="order()">Order Now</button>
 
 <!-- 	<button onclick="getDistanceFromLatLonInKm(-6.627006,106.822782,-6.625834,106.821408)" ion-button>tes</button>
 <script type="text/javascript">	  
