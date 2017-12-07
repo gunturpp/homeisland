@@ -93,10 +93,9 @@ export class UserDataProvider {
     // location.reload();
   }
 
-  getID() {
-     return this.storage.get('user_id').then((res) => {
-        this.ids = res;
-        return this.ids;
+  getIDuser() {
+     return this.storage.get('user_id').then((value) => {
+        return value;
      });
   }
   getUsername() {
