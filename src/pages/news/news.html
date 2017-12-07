@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="Primary">
-    <ion-title>NEWS AND EVENTS</ion-title>
+    <ion-title>news</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,38 +16,39 @@
 <ion-content padding>
 	<h5 class="h5">News</h5>
 
-        <ion-card item (click)="news(data)">
+        <ion-card *ngFor="let data of news1" item (click)="detailnews(data)">
             <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title">Souvenir Bintan</div>
+            <div class="card-title"><p style="color: #ffffff; margin-top: -21px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
-          <div width="80%" id="scroll" >
-            
-                    <img class="image" width="25%" src="../../assets/pic/1.jpg" (click)="news(data)">
-                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/3.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/1.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/5.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/6.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/7.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/2.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/4.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/3.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/5.jpg">
-                    <img class="image" width="25%" src="../../assets/pic/6.jpg">
-                    <img class="image" width="30%" src="../../assets/pic/7.jpg">
-              </div>
+          <ion-list>
+    <ion-item *ngFor="let data of news">
+      <ion-thumbnail item-start>
+        <img src="{{data.foto}}">
+      </ion-thumbnail>
+      <p> {{data.judul}} </p>
+      <button ion-button clear item-end (click)="detailnews(data)"> View </button>
+    </ion-item>
+    
+  </ion-list>
 
     <h5 class="h5">Event</h5>
 
-        <ion-card item (click)="event(data)">
+        <ion-card item (click)="detailnews()">
             <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title">Souvenir Bintan</div>
+            <div class="card-title"><p style="color: #ffffff; margin-top: -21px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
+
+          <ion-list>
+            <ion-item *ngFor="let data of news">
+      <ion-thumbnail item-start>
+        <img src="{{data.foto}}">
+      </ion-thumbnail>
+      <p> {{data.judul}} </p>
+      <button ion-button clear item-end (click)="detailnews(data)"> View </button>
+    </ion-item>
+          </ion-list>
 
 </ion-content>

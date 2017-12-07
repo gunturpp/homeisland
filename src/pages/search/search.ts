@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,LoadingController } from 'ionic-angular';
 import { ListhomePage } from '../listhome/listhome';
+import { Http } from '@angular/http';
+import { NgForm } from '@angular/forms';
 
 /**
  * Generated class for the SearchPage page.
@@ -16,14 +18,20 @@ import { ListhomePage } from '../listhome/listhome';
 })
 export class SearchPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  homestaySearch: {destinasi?: string} = {};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public http: Http,
+             public toastCtrl: ToastController,
+             public loadCtrl: LoadingController
+    ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
 
-  search(){
-  	this.navCtrl.push(ListhomePage);
+  search(form: NgForm){
+  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi});
   }
 }

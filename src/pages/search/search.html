@@ -14,11 +14,12 @@
 
 
 <ion-content padding>
+	<form #SearchForm="ngForm" novalidate="">
 	<ion-list>
 
 		  <ion-item>
 		    <ion-label floating>Destination</ion-label>
-		    <ion-input type="text"></ion-input>
+		    <ion-input [(ngModel)]="homestaySearch.destinasi" type="text" #destinasi="ngModel" name="destinasi" required></ion-input>
 		  </ion-item>
 
 		  <ion-item>
@@ -43,5 +44,6 @@
 
    </ion-list>
 
-   <button ion-button block (click)='search()'>Search</button>
+   <button ion-button block (click)='search(SearchForm)'>Search</button>
+ </form>
 </ion-content>

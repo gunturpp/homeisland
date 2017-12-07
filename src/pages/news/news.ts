@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams,ToastController,LoadingController } from 'ionic-angular';
+import {DetailNewsPage} from '../detail-news/detail-news';
+import { Http } from '@angular/http';
 /**
  * Generated class for the NewsPage page.
  *
@@ -14,16 +15,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'news.html',
 })
 export class NewsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  news: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,
+    public toastCtrl: ToastController, public loadCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
   }
 
-  news(data){
-    this.navCtrl.push('DetailBintanPage', data);    
-  }
+  ionViewWillEnter() {
+    this.getdataNews();
+   }
+ getdataNews(){
+ 	this.http.get("http://127.0.0.1/homeisland/backend/getListNews.php").subscribe(data => {
+      let response = data.json();
+      console.log(response);
+      if(response.status=="200"){
+        this.news = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+      }
+    });
+ }
+detailnews(data){
+	this.navCtrl.push(DetailNewsPage,data);
+}
 
 }
