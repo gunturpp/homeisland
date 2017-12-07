@@ -14,6 +14,7 @@ import { UserDataProvider } from '../../provider/user-data';
 export class ContactPage {
   
   akun : any;
+  username : string;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController, 
@@ -25,7 +26,17 @@ export class ContactPage {
             ) {}
 ionViewWillEnter() {
     this.getdataAkun();
+    this.getUsername();
    }
+
+   getUsername() {
+    this.data.getUsername().then((user) => {
+      this.username = user;
+      console.log(this.username)
+    });
+  }
+
+
    getdataAkun(){
     this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php").subscribe(data => {
       let response = data.json();
@@ -101,6 +112,10 @@ ionViewWillEnter() {
       ]
     });
     confirm.present();
+  }
+
+  edit(){
+
   }
 
 }

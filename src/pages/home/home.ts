@@ -19,12 +19,12 @@ export class HomePage {
 
   ngAfterViewInit(){
     this.getUsername();
-    console.log(this.username);
   }
 
   getUsername() {
-    this.data.getUsername().then((username) => {
-      this.username = username;
+    this.data.getUsername().then((user) => {
+      this.username = user;
+      console.log(this.username)
     });
   }
 

@@ -116,7 +116,7 @@ export class DetailBintanPage {
     
      getUserPosition(){
        this.options = {
-         enableHighAccuracy : false
+         enableHighAccuracy : true
        };
        this.geolocation.getCurrentPosition(this.options)
        .then((pos : Geoposition) => {
@@ -136,7 +136,7 @@ export class DetailBintanPage {
         let request = {
             location : latLng,
             radius : 8047 ,
-            types: ["yayasan"]
+            types: ["restaurants"]
         };
         return new Promise((resolve,reject)=>{
             service.nearbySearch(request,function(results,status){
@@ -158,8 +158,18 @@ export class DetailBintanPage {
         let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: place.geometry.location
+        position: place.geometry.location,
         });
+        let content = "<p>Restoran cooy !</p>";
+        let infoWindow = new google.maps.InfoWindow({
+        content: content
+        });
+
+            
+        google.maps.event.addListener(marker, 'click', () => {
+        infoWindow.open(this.map, marker);
+        });
+    
     }
 
 }

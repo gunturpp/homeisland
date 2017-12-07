@@ -1,20 +1,78 @@
 page-contact {
-	.kanan {
-    position: absolute;
-    right: 5px;
-    //width: 300px;
-    padding: 10px;
+// 	.kanan {
+//     position: absolute;
+//     right: 5px;
+//     //width: 300px;
+//     padding: 10px;
+// }
+// 	.kanan2 {
+//     position: absolute;
+//     right: 49px;
+//     //width: 300px;
+//     padding: 10px;
+// }
+
+//     .logout{
+//         position: absolute;
+//         left: 126px;
+//     }
+
+ion-card img {
+    display: block;
+    width: 40vw;
+    margin: auto;
 }
-	.kanan2 {
-    position: absolute;
-    right: 49px;
-    //width: 300px;
-    padding: 10px;
+.scroll-content {
+background-color: #fff;
 }
 
-    .logout{
-        position: absolute;
-        left: 126px;
-    }
+.toolbar-background {
+background: #1B607C;
+border-color: transparent;
+}
+.edit {
+margin: 0 0 0 0;  
+border: 2px solid #3bc7bc;
+border-radius: 15px;
+
+}
+
+.logOut {
+margin: 0 0 0 0;  
+border: 2px solid color="danger";
+border-radius: 15px;
+
+}
+
+.toolbar-title {
+font-size: 2.3rem;
+font-weight: 600;
+text-align: center;
+color: #fff;
+pointer-events: auto;
+}
+.Pict{
+height: 30vw; 
+width: 30vw; 
+border-radius: 100%;
+display: block; 
+margin: auto;
+margin-top: 7vw;
+}
+.Content{
+color: #2c2f33;
+font-size: 6vw;
+font-weight: 500;
+}
+.Content2{
+color: #2c2f33;
+font-size: 4vw;
+font-weight: 500;
+}
+
+.MainButton {
+  height: 8vh;
+}
+
 
 }

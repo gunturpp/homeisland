@@ -7,16 +7,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Daftar Akun</ion-list-header>
-    <ion-item *ngFor="let data of akun">
-      <ion-icon name="ionic" item-left></ion-icon>
-      {{data.username}} 
-      <button class="kanan" ion-button color="secondary" (click)="updateAkun(data)">Edit</button>
-      <button class="kanan2" ion-button color="danger" (click)="deleteAkun(data)">Delete</button>
-      </ion-item>
-  </ion-list>
-  <div class="logout">
-    <button ion-button color="danger" (click)="LogOut()">Log Out</button>
+  <img src="assets/img/profile.png" *ngIf="!image" class="Pict" />
+  <!-- <img [src]="image" *ngIf="image" class="Pict"/> -->
+
+
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Username</p>
+    <h2 class="Content"> {{username}} </h2>
+  </ion-item>
+
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Nomor Telepon</p>
+    <h2 class="Content"> {{hp}} </h2>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Email</p>
+    <h2 class="Content"> {{email}} </h2>
+  </ion-item>
+  
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Kota</p>
+    <h2 class="Content"> {{kota}} </h2>
+  </ion-item>
+
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Alamat</p>
+    <h2 class="Content2"> {{alamat}} </h2>
+  </ion-item>
+  
+<div padding>
+  <button class="edit" color="sumbangin" ion-button block (click)="edit()">Edit Profile</button>
+  <br />
+  <button class="logOut" ion-button color="danger" block (click)='LogOut()'>Log Out</button>
 </div>
 </ion-content>
