@@ -34,33 +34,74 @@
 			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
 				Email is required
 			</p> -->
-
 			<ion-item>
-				<ion-label stacked color="primary">Status</ion-label>
-				<ion-input [(ngModel)]="user.username" placeholder="Username" pattern="[A-Za-z0-9\S]{1,25}" name="username" type="text" #username="ngModel" required>
+				<ion-label stacked><p class="Head">Nama</p></ion-label>
+					<ion-input class="Head2"  [(ngModel)]="user.nama" [ngModelOptions]="{standalone:true}" name="nama" type="text" value="" #name="ngModel" spellcheck="false" autocapitalize="off"
+					required></ion-input>
+			</ion-item>
+	
+								<p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>Harap Masukan Nama</p>
+							
+						<!--<br>-->
+			<ion-item>
+				<ion-label stacked><p class="Head">Username</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="user.username" pattern="[A-Za-z0-9\S]{1,25}" name="username" type="text" #username="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
 			Username is Required (Without spaces)
 			</p>
 
+
 			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
-				<ion-input [(ngModel)]="user.password" placeholder="Password" name="password" type="password" #password="ngModel" required>
+				<ion-label><p class="Head">Jenis Kelamin</p></ion-label>
+				<ion-select class="Head2" name="kelamin" [(ngModel)]="user.kelamin" [ngModelOptions]="{standalone:true}" (ionChange)="cekKelamin()">
+				 <ion-option value="laki-laki">Laki-laki</ion-option>
+				 <ion-option value="perempuan">Perempuan</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<p style="color: red; font-size: 12px;" ion-text [hidden]="choose_kelamin || submitted == false" padding-left>
+				Gender is required</p>
+
+
+
+				<ion-item>
+					<ion-label stacked><p class="Head">Email</p></ion-label>
+					<ion-input class="Head2" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" type="text" value="" #emails="ngModel" spellcheck="false" autocapitalize="off"
+					required></ion-input>
+				</ion-item>
+	
+						<p ion-text [hidden]="emails.valid || submitted == false" style="color: red; font-size: 12px;" padding-left>Email is required</p>
+				<!--<br>-->
+
+
+				<ion-item>
+					<ion-label stacked><p class="Head">Nomor Telepon</p></ion-label>
+						<ion-input class="Head2" name="hp" [(ngModel)]="user.hp" [ngModelOptions]="{standalone:true}" maxlength="13" type="number" value="" #phone="ngModel" spellcheck="false" autocapitalize="off"
+						required></ion-input>
+				</ion-item>
+				<p ion-text [hidden]="phone.valid || submitted == false" style="color: red; font-size: 12px;" padding-left>Phone number is required</p>
+				
+	
+
+			<ion-item>
+				<ion-label stacked><p class="Head">Password</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
 				Password is required
 			</p>
 
-			<ion-item>
-							<ion-label stacked color="primary">Status</ion-label>
-							<ion-input [(ngModel)]="user.role" placeholder="customer" name="role" type="text" #role="ngModel" required>
+			<!-- <ion-item>
+							<ion-label stacked><p class="Head">Status</p></ion-label>
+							<ion-input class="Head2" [(ngModel)]="user.role" placeholder="customer" name="role" type="text" #role="ngModel" required>
 							</ion-input>
 						</ion-item>
 						<p ion-text [hidden]="role.valid || submitted == false" color="danger" padding-left>
 						Please fill with	"customer"
-						</p>
+						</p> -->
 
 
 			<!-- <ion-item>

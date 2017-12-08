@@ -23,8 +23,9 @@ import { LoginPage } from '../login/login';
 })
 export class SignupPage {
 
-   user: {username?: string, password?: string, role?:string} = {};
+   user: {nama?: string, username?: string, password?: string, role?:string, kelamin?:string, email?:string, hp?:number} = {};
    submitted = false;
+   choose_kelamin = false;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
@@ -39,10 +40,17 @@ export class SignupPage {
                 });
 
                 if (form.valid) {
+                  console.log(this.user.nama);
+                  console.log(this.user.hp);
+                  console.log(this.user.email);
                   loading.present();
                   let input = JSON.stringify({
+                    nama: this.user.nama,
                     username: this.user.username,
                     password: this.user.password,
+                    kelamin  : this.user.kelamin,
+                    email: this.user.email,
+                    hp : this.user.hp,
                     status: this.user.role="tourist"
                   });
                   this.http.post("http://127.0.0.1/homeisland/backend/signUpInfo.php",input).subscribe(data => {
@@ -82,6 +90,10 @@ export class SignupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+  }
+
+  cekKelamin() {
+    this.choose_kelamin = true;
   }
 
 }
