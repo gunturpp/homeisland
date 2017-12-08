@@ -45,9 +45,10 @@ export class UserDataProvider {
     this.storage.set('user_id', id);
     this.storage.set('username', username);
     //this.storage.set('user_status', status);
-   // this.storage.set('name',name);
-    //this.storage.set('phone_number',phone_number);
-    //this.storage.set('email',email);
+    // this.storage.set('nama',nama);
+    // this.storage.set('hp',hp);
+    // this.storage.set('email',email);
+    // this.storage.set('kelamin',kelamin);
     this.events.publish('user:login');
     this.loginState = true;
   }
@@ -79,10 +80,12 @@ export class UserDataProvider {
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_id');
-    // this.storage.remove('username');
+    this.storage.remove('username');
     // this.storage.remove('user_status');
-    // this.storage.remove('phone_number');
-    // this.storage.remove('email');
+    this.storage.remove('hp');
+    this.storage.remove('email');
+    this.storage.remove('kelamin');
+    this.storage.remove('nama');
     // this.storage.remove('token');
     // this.storage.remove('addres_name');
     // this.storage.remove('address_user');
@@ -103,8 +106,13 @@ export class UserDataProvider {
       return value;
     });
   }
-  getName() {
-    return this.storage.get('name').then((value) => {
+  getNama() {
+    return this.storage.get('nama').then((value) => {
+      return value;
+    });
+  }
+  getKelamin() {
+    return this.storage.get('kelamin').then((value) => {
       return value;
     });
   }
@@ -119,7 +127,7 @@ export class UserDataProvider {
     });
   }
   getPhoneNumber() {
-    return this.storage.get('phone_number').then((value) => {
+    return this.storage.get('hp').then((value) => {
       return value;
     });
   }

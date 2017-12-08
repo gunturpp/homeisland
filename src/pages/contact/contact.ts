@@ -15,6 +15,11 @@ export class ContactPage {
   
   akun : any;
   username : string;
+  nama : string;
+  kelamin : string;
+  hp : string;
+  email : string;
+  iduser : any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController, 
@@ -25,20 +30,67 @@ export class ContactPage {
               public app: App              
             ) {}
 ionViewWillEnter() {
-    this.getdataAkun();
+    
     this.getUsername();
+    this.getiduser();    
+    // this.getNama();
+    // this.getKelamin();
+    // this.getEmail();
+    // this.getPhoneNumber();
+    this.getdataAkun();
    }
+
+   getiduser(){
+    this.data.getIDuser().then((id) => {
+    this.iduser = id;
+    console.log(id);
+    //this.getdataAkun();
+
+  });
+}
 
    getUsername() {
     this.data.getUsername().then((user) => {
       this.username = user;
-      console.log(this.username)
+      console.log(this.username);
+     
     });
   }
+  // getNama() {
+  //   this.data.getNama().then((nama) => {
+  //     this.nama = nama;
+  //     console.log(this.nama)
+  //   });
+  // }
+
+  // getKelamin() {
+  //   this.data.getKelamin().then((kelamin) => {
+  //     this.kelamin = kelamin;
+  //     console.log(this.kelamin)
+  //   });
+  // }
+
+  // getEmail() {
+  //   this.data.getEmail().then((email) => {
+  //     this.email = email;
+  //     console.log(this.email)
+  //   });
+  // }
+
+  // getPhoneNumber() {
+  //   this.data.getPhoneNumber().then((hp) => {
+  //     this.hp = hp;
+  //     console.log(this.hp)
+  //   });
+  // }
 
 
    getdataAkun(){
-    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php").subscribe(data => {
+    let data = JSON.stringify({
+      username: this.username 
+  });
+    
+    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?username=11").subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){
