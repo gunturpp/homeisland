@@ -1,3 +1,4 @@
+import { ContactEditPage } from './../pages/contact-edit/contact-edit';
 import { TesPage } from './../pages/tes/tes';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,8 @@ import { UpdateAkunPage} from '../pages/update-akun/update-akun';
 import { ListhomePage} from '../pages/listhome/listhome';
 import {HomestayPage} from '../pages/homestay/homestay';
 import {DetailNewsPage} from '../pages/detail-news/detail-news';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +38,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     ListhomePage,
     HomestayPage,
     DetailNewsPage,
-    TesPage
+    TesPage,
+    ContactEditPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -58,7 +62,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     ListhomePage,
     HomestayPage,
     DetailNewsPage,
-    TesPage
+    TesPage,
+    ContactEditPage
   ],
   providers: [
     StatusBar,

@@ -1,3 +1,4 @@
+import { ContactEditPage } from './../contact-edit/contact-edit';
 import { Component } from '@angular/core';
 import { NavController,NavParams,ToastController,LoadingController, AlertController, App} from 'ionic-angular';
 import { Http } from '@angular/http';
@@ -171,7 +172,7 @@ ionViewWillEnter() {
   }
 
   edit(){
-
+    this.app.getRootNav().push(ContactEditPage);
   }
 
 }
