@@ -98,6 +98,7 @@ ionViewWillEnter() {
         this.hp = this.akun[0].hp;
         this.email = this.akun[0].email;
         this.kelamin = this.akun[0].kelamin;
+        this.nama = this.akun[0].nama;
       }
     });
    }

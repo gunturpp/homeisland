@@ -10,6 +10,11 @@
   <img src="../assets/img/profile.png" *ngIf="!image" class="Pict" />
   <!-- <img [src]="image" *ngIf="image" class="Pict"/> -->
 
+  <ion-item no-lines>
+    <p style="color:#3bc7bc; font-size: 3vw;">Nama Lengkap</p>
+    <h2 class="Content"> {{nama}} </h2>
+  </ion-item>
+
 
   <ion-item no-lines>
     <p style="color:#3bc7bc; font-size: 3vw;">Username</p>
@@ -27,14 +32,11 @@
   </ion-item>
   
   <ion-item no-lines>
-    <p style="color:#3bc7bc; font-size: 3vw;">Kota</p>
-    <h2 class="Content"> {{kota}} </h2>
+    <p style="color:#3bc7bc; font-size: 3vw;">Jenis Kelamin</p>
+    <h2 class="Content"> {{kelamin}} </h2>
   </ion-item>
 
-  <ion-item no-lines>
-    <p style="color:#3bc7bc; font-size: 3vw;">Alamat</p>
-    <h2 class="Content2"> {{alamat}} </h2>
-  </ion-item>
+
   
 <div padding>
   <button class="edit" color="sumbangin" ion-button block (click)="edit()">Edit Profile</button>
