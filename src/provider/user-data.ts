@@ -40,15 +40,15 @@ export class UserDataProvider {
     this.storage.set('user_id', id);
   }
 
-  login(id,username) {
+  login(id,username, nama, hp, email, kelamin) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_id', id);
     this.storage.set('username', username);
-    //this.storage.set('user_status', status);
-    // this.storage.set('nama',nama);
-    // this.storage.set('hp',hp);
-    // this.storage.set('email',email);
-    // this.storage.set('kelamin',kelamin);
+    this.storage.set('user_status', status);
+    this.storage.set('nama',nama);
+    this.storage.set('hp',hp);
+    this.storage.set('email',email);
+    this.storage.set('kelamin',kelamin);
     this.events.publish('user:login');
     this.loginState = true;
   }
@@ -101,6 +101,13 @@ export class UserDataProvider {
         return value;
      });
   }
+
+  getID() {
+    return this.storage.get('id').then((value) => {
+       return value;
+    });
+ }
+
   getUsername() {
     return this.storage.get('username').then((value) => {
       return value;

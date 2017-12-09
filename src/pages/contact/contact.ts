@@ -37,15 +37,14 @@ ionViewWillEnter() {
     // this.getKelamin();
     // this.getEmail();
     // this.getPhoneNumber();
-    this.getdataAkun();
+    // this.getdataAkun();
    }
 
    getiduser(){
     this.data.getIDuser().then((id) => {
     this.iduser = id;
     console.log(id);
-    //this.getdataAkun();
-
+    this.getdataAkun();
   });
 }
 
@@ -90,11 +89,15 @@ ionViewWillEnter() {
       username: this.username 
   });
     
-    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?username=11").subscribe(data => {
+    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?id="+ this.iduser).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){
         this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        console.log(this.akun[0].hp);
+        this.hp = this.akun[0].hp;
+        this.email = this.akun[0].email;
+        this.kelamin = this.akun[0].kelamin;
       }
     });
    }

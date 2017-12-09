@@ -6,6 +6,7 @@ import { SignupPage } from '../signup/signup';
 import { UserDataProvider } from '../../provider/user-data';
 import { Http } from '@angular/http';
 import { NgForm } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,6 +27,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              public http: Http,
+             public storage: Storage,
              public toastCtrl: ToastController,
              public userDataProvider: UserDataProvider,
              public loadCtrl: LoadingController) {
@@ -49,8 +51,9 @@ export class LoginPage {
            loading.dismiss();
            if(response.status == 200) {
              let user=response.data;
-             this.userDataProvider.login(user.user_id,user.username);
-             console.log(user);
+             this.userDataProvider.login(user.id,user.username, user.nama, user.email, user.hp, user.kelamin);
+             console.log(user);           
+             console.log(user.kelamin);
 
              this.navCtrl.setRoot(TabsPage,{},{animate:true, direction:'forward'});
              this.showAlert(response.message);
