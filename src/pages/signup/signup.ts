@@ -26,6 +26,9 @@ export class SignupPage {
    user: {nama?: string, username?: string, password?: string, role?:string, kelamin?:string, email?:string, hp?:number} = {};
    submitted = false;
    choose_kelamin = false;
+   lihat = true;
+   status: string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
@@ -90,10 +93,23 @@ export class SignupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+    this.status = 'password';
   }
 
   cekKelamin() {
     this.choose_kelamin = true;
+  }
+
+  hidePassword(){
+    this.status = "password";
+    this.lihat = true;
+    console.log(this.status);
+  }
+  
+  showPassword(){
+    this.status = "text";
+    this.lihat = false;
+    console.log(this.status);
   }
 
 }

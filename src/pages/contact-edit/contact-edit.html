@@ -32,7 +32,9 @@
 
     <ion-item>
       <ion-label stacked style="color:#3bc7bc; font-size: 3vw;">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"  name="password" value="{{password}}" ></ion-input>
+      <ion-input type="{{status}}" [(ngModel)]="password"  name="password" value="{{password}}" ></ion-input>
+      <button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='iconEye' color="primary2"> </ion-icon> </button>
+      <button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='iconEye' color="primary2"> </ion-icon> </button>
     </ion-item>
 
     <ion-item>

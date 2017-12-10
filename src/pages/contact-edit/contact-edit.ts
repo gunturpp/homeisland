@@ -26,7 +26,9 @@ export class ContactEditPage {
   email : string;
   iduser : any;
   password : string;
-
+  lihat = true;
+  status :string;
+  
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http: Http,
@@ -40,6 +42,8 @@ export class ContactEditPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactEditPage');
+    this.status = "password";
+    
   }
 
   ionViewWillEnter() {
@@ -149,4 +153,19 @@ loading.dismiss();
 this.showError(err);
 });
    }
+
+
+   showPassword(){
+    this.status = "text";
+    this.lihat = false;
+    console.log(this.status);
+  }
+  
+  
+  hidePassword(){
+    this.status = "password";
+    this.lihat = true;
+    console.log(this.status);
+  }
+  
 }
