@@ -5,10 +5,10 @@
     header('Access-Control-Allow-Header; Content-Type');
 
   include 'config.php';
-    $nama_kabupaten=$_GET['nama_kabupaten'];
+    $nama_toko=$_GET['nama_toko'];
 
 
-    $query_user = mysqli_query($conn, "SELECT * FROM explore1 Where nama_kabupaten = '$nama_kabupaten'");
+    $query_user = mysqli_query($conn, "SELECT * FROM souvenir Where nama_toko = '$nama_toko'");
 
 
     $result_set = array();
@@ -19,8 +19,9 @@ $data =array(
     'message' => "Get Data User Succses",
     'data' => $result_set,
     'status' => "200",
-    'nama_kabupaten' => $nama_kabupaten
+    'nama_wisata' => $nama_toko
 );
 
 echo json_encode($data);
+
 ?>

@@ -5,8 +5,8 @@
     header('Access-Control-Allow-Header; Content-Type');
 
   include 'config.php';
-    //$id=$_GET['user'];
-    $query_user = mysqli_query($conn, "SELECT * FROM user");
+    $id=$_GET['id'];
+    $query_user = mysqli_query($conn, "SELECT * FROM user WHERE id =$id");
 
     $result_set = array();
     while($result =mysqli_fetch_assoc($query_user)){
@@ -15,7 +15,8 @@
 $data =array(
     'message' => "Get Data User Succses",
     'data' => $result_set,
-    'status' => "200"
+    'status' => "200",
+    'id' => $id
 );
 
 echo json_encode($data);
