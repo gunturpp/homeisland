@@ -44,6 +44,7 @@ export class UserDataProvider {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_id', id);
     this.storage.set('username', username);
+    // this.storage.set('password', password);
     this.storage.set('user_status', status);
     this.storage.set('nama',nama);
     this.storage.set('hp',hp);
@@ -81,7 +82,7 @@ export class UserDataProvider {
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_id');
     this.storage.remove('username');
-    // this.storage.remove('user_status');
+    this.storage.remove('password');
     this.storage.remove('hp');
     this.storage.remove('email');
     this.storage.remove('kelamin');
@@ -113,6 +114,13 @@ export class UserDataProvider {
       return value;
     });
   }
+
+  getPassword() {
+    return this.storage.get('password').then((value) => {
+      return value;
+    });
+  }
+
   getNama() {
     return this.storage.get('nama').then((value) => {
       return value;

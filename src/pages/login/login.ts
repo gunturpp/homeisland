@@ -46,6 +46,8 @@ export class LoginPage {
         username: this.user.username,
         password: this.user.password
       });
+      this.storage.set('password', this.user.password);
+      console.log(this.user.password);
         this.http.post("http://127.0.0.1/homeisland/backend/login.php",input).subscribe(data => {
            let response = data.json();
            loading.dismiss();
@@ -53,7 +55,6 @@ export class LoginPage {
              let user=response.data;
              this.userDataProvider.login(user.id,user.username, user.nama, user.email, user.hp, user.kelamin);
              console.log(user);           
-             console.log(user.kelamin);
 
              this.navCtrl.setRoot(TabsPage,{},{animate:true, direction:'forward'});
              this.showAlert(response.message);
