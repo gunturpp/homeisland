@@ -1,126 +1,100 @@
 <!--
-  Generated template for the SignupPage page.
+  Generated template for the LoginPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Daftar</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content class="login-page" padding>
-
-	<form #signupForm="ngForm" novalidate>
-		<ion-list no-lines>
-			<!-- <ion-item>
-				<ion-label stacked color="primary">Nama lengkap</ion-label>
-				<ion-input [(ngModel)]="user.name" placeholder="Nama lengkap" name="nama" type="text" #nama="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="nama.valid || submitted == false" color="danger" padding-left>
-				Nama lengkap is required
-			</p>
-
-			<ion-item>
-				<ion-label stacked color="primary">Email</ion-label>
-				<ion-input [(ngModel)]="user.email" placeholder="Email" name="email" type="email" #email="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
-				Email is required
-			</p> -->
-			<ion-item>
-				<ion-label stacked><p class="Head">Nama</p></ion-label>
-					<ion-input class="Head2"  [(ngModel)]="user.nama" [ngModelOptions]="{standalone:true}" name="nama" type="text" value="" #name="ngModel" spellcheck="false" autocapitalize="off"
-					required></ion-input>
-			</ion-item>
+		<ion-navbar color="sumbangin">
+		  <ion-title>
+			  Daftar Akun Baru
+		  </ion-title>
+		</ion-navbar>
+	  </ion-header>
 	
-								<p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>Harap Masukan Nama</p>
-							
-						<!--<br>-->
-			<ion-item>
-				<ion-label stacked><p class="Head">Username</p></ion-label>
-				<ion-input class="Head2" [(ngModel)]="user.username" pattern="[A-Za-z0-9\S]{1,25}" name="username" type="text" #username="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-			Username is Required (Without spaces)
-			</p>
-
-
-			<ion-item>
-				<ion-label><p class="Head">Jenis Kelamin</p></ion-label>
-				<ion-select class="Head2" name="kelamin" [(ngModel)]="user.kelamin" [ngModelOptions]="{standalone:true}" (ionChange)="cekKelamin()">
-				 <ion-option value="laki-laki">Laki-laki</ion-option>
-				 <ion-option value="perempuan">Perempuan</ion-option>
-				</ion-select>
-			</ion-item>
-
-			<p style="color: red; font-size: 12px;" ion-text [hidden]="choose_kelamin || submitted == false" padding-left>
-				Gender is required</p>
-
-
-
+	<ion-content padding>
+		
+		<p class="Title">Daftar Sebagai Donatur</p>
+		<div class="TitleBorder"></div>
+			<!--<img img-center src="assets/img/logo-fix.png"/> <br><br>	-->
+		
+					<!-- <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p> -->
+		
+		<ion-list padding>
+			<form  #signupForm="ngForm" novalidate>
+		
 				<ion-item>
-					<ion-label stacked><p class="Head">Email</p></ion-label>
-					<ion-input class="Head2" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" type="text" value="" #emails="ngModel" spellcheck="false" autocapitalize="off"
-					required></ion-input>
-				</ion-item>
-	
-						<p ion-text [hidden]="emails.valid || submitted == false" style="color: red; font-size: 12px;" padding-left>Email is required</p>
-				<!--<br>-->
-
-
-				<ion-item>
-					<ion-label stacked><p class="Head">Nomor Telepon</p></ion-label>
-						<ion-input class="Head2" name="hp" [(ngModel)]="user.hp" [ngModelOptions]="{standalone:true}" maxlength="13" type="number" value="" #phone="ngModel" spellcheck="false" autocapitalize="off"
+					<ion-label stacked><p class="Head">Nama</p></ion-label>
+						<ion-input class="Head2"  [(ngModel)]="user.nama" name="nama" type="text" value="" #nama="ngModel" spellcheck="false" autocapitalize="off"
 						required></ion-input>
 				</ion-item>
-				<p ion-text [hidden]="phone.valid || submitted == false" style="color: red; font-size: 12px;" padding-left>Phone number is required</p>
-				
-	
+		
+									<p [hidden]="nama.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Nama</p>
+								
+							<!--<br>-->
+		
+							<br>
+					<ion-item>
+						<ion-label stacked><p class="Head">Email</p></ion-label>
+						<ion-input class="Head2" [(ngModel)]="user.email" name="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" type="email" value="" #email="ngModel" spellcheck="false" autocapitalize="off"
+						required></ion-input>
+					</ion-item>
+		
+							<p [hidden]="email.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Email dengan Benar</p>
+					<br>
 
-			<ion-item>
-				<ion-label stacked><p class="Head">Password</p></ion-label>
-				<ion-input class="Head2" [(ngModel)]="user.password" name="password" type="{{status}}" #password="ngModel" required>
-				</ion-input>
-
-				<button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='iconEye' color="primary2"> </ion-icon> </button>
-				<button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='iconEye' color="primary2"> </ion-icon> </button>
-				
-			</ion-item>
-			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
-			</p>
-
-			<!-- <ion-item>
-							<ion-label stacked><p class="Head">Status</p></ion-label>
-							<ion-input class="Head2" [(ngModel)]="user.role" placeholder="customer" name="role" type="text" #role="ngModel" required>
-							</ion-input>
+					<ion-item>
+							<ion-label stacked><p class="Head">Username</p></ion-label>
+							<ion-input class="Head2" [(ngModel)]="user.username" pattern="[A-Za-z0-9\S]{1,25}" type="text" name="username" value="" #username="ngModel" spellcheck="false" autocapitalize="off"
+							required></ion-input>
 						</ion-item>
-						<p ion-text [hidden]="role.valid || submitted == false" color="danger" padding-left>
-						Please fill with	"customer"
-						</p> -->
-
-
-			<!-- <ion-item>
-				<ion-label stacked color="primary">Phone Number</ion-label>
-				<ion-input [(ngModel)]="user.phone_number" placeholder="phone number" name="phone number" type="number" #phone_number="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="phone_number.valid || submitted == false" color="danger" padding-left>
-				Phone number is required
-			</p> -->
+			
+								<p [hidden]="username.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Username dengan Benar</p>
+						<!--<br>-->
+	
+				 <ion-item>
+						<ion-label stacked><p class="Head">Password</p></ion-label>
+						<ion-input  [(ngModel)]="user.password" name="password" class="Head2"  type="{{status}}" #password="ngModel" minlength = 6
+						required></ion-input>
+						<button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='iconEye' color="primary2"> </ion-icon> </button>
+					<button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='iconEye' color="primary2"> </ion-icon> </button>
+					</ion-item>
+					<p [hidden]="password.valid || submitted == false" style="color: red; font-size: 12px;">Masukan Password dengan benar (6 Karakter)</p>
+		
+					<ion-item>
+							<ion-label stacked><p class="Head">Nomor Telepon</p></ion-label>
+								<ion-input class="Head2" name="hp" [(ngModel)]="user.hp" maxlength="13" type="number" value="" #phone_number="ngModel"
+								required></ion-input>
+						</ion-item>
+						<p [hidden]="phone_number.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Nomor Telepon dengan Benar</p>
+						
+						<ion-item>
+								<ion-label><p class="Head">Jenis Kelamin</p></ion-label>
+								<ion-select class="Head2"  [(ngModel)]="user.kelamin" [ngModelOptions]="{standalone:true}" (ionChange)="cekKelamin()">
+								 <ion-option value="laki-laki">Laki-laki</ion-option>
+								 <ion-option value="perempuan">Perempuan</ion-option>
+								</ion-select>
+							 </ion-item>
+							 <p style="color: red; font-size: 12px;" ion-text [hidden]="choose_kelamin || submitted == false">
+									Harap Pilih Kota</p>
+						
+	
+					<!--<br>-->
+					<!-- [ngModelOptions]="{standalone:true} -->
+	
+	
+				
+							
+				
+				 
+		
+			</form>
+		
 		</ion-list>
-
-		<div padding>
-			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Daftar</button>
-		</div>
-	</form>
-
-</ion-content>
+		
+			<div padding>
+					<button ion-button class="MainButton" color="sumbangin" type="submit" block (click)='onSignup(signupForm)'><p class="HeadButton">Daftar</p></button>
+				</div>	
+		
+		</ion-content>
+		
