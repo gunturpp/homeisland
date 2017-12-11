@@ -18,7 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchPage {
 
-  homestaySearch: {destinasi?: string} = {};
+  homestaySearch: {destinasi?: string, sumGuest?: any} = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public http: Http,
@@ -31,7 +31,7 @@ export class SearchPage {
     console.log('ionViewDidLoad SearchPage');
   }
 
-  search(form: NgForm){
-  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi});
+  search(form: NgForm){ 
+  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi, sumGuest: this.homestaySearch.sumGuest});
   }
 }

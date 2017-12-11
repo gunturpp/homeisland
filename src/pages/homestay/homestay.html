@@ -33,7 +33,7 @@
 
   </ion-slides>
 	<h5 text-center>MAIN FACILITIES</h5>
-
+	{{nilaiRating}}
 	<ion-grid>
 		<ion-row>
 			<ion-col col-2></ion-col>
@@ -58,7 +58,8 @@
 		</ion-row>
 	</ion-grid>
 <!-- ../../assets/pic/1.jpg -->
-	
+	<button ion-button (click)="order()">Order Now</button>
+
 
 	<h5 text-center>Rating & Reviews</h5>
 
@@ -68,18 +69,66 @@
 				<h6 text-center style="font-size: 11px;">{{iduser}}</h6>
 				<h4 text-center>{{namauser}}</h4>
 				<h6 text-center style="font-size: 11px;">pocut</h6>
-				<h3 *ngIf="!isRating; else Udah">belum rating</h3>
+				<h1>{{ratingAVG}}</h1>
+				<!-- <ion-content *ngIf="!isRating; else Udah"> -->
+					
+				
 			<ng-template #Udah>
-				udah rating cuy :)
+				<h3>Anda Sudah Memberikan Rating kepada Homestay ini.</h3>
 			</ng-template>
+			
 			</ion-col>
 			<ion-col col-6>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 
-	<button ion-button (click)="order()">Order Now</button>
+	<ion-content *ngIf="!isRating; else Udah">
+					<form #RatingForm="ngForm" novalidate="">
+				<ion-list>
+							<ion-item>
+							  <ion-label floating>Rating</ion-label>
+							  <ion-select [(ngModel)]="ratingClass.rating"  #rating="ngModel" name="rating">
+							    <ion-option value="1">1</ion-option>
+							    <ion-option value="2">2</ion-option>
+							    <ion-option value="3">3</ion-option>
+							    <ion-option value="4">4</ion-option>
+							  	<ion-option value="5">5</ion-option>
+							  </ion-select>
+							</ion-item>	
 
+							<ion-item>
+								<ion-label floating>Comment</ion-label>
+				    			<ion-input [(ngModel)]="ratingClass.comment" type="text" #comment="ngModel" name="comment" required></ion-input>
+							</ion-item>
+				</ion-list>
+					<button ion-button (click)="Rate(RatingForm)" block Review type="submit">Submit</button>
+					</form>
+	</ion-content>
+
+	<ion-grid>
+
+	  <ion-row *ngFor="let data of listRatings" style="background-color: #F4F4F4;">
+	    <ion-col col-4></ion-col>
+	    <ion-col col-8>
+	    	<div style="font-size: 16px;">{{data.username}}</div>
+	    	<div style="font-size: 15px; color: #F7B733;">
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    	</div>
+	    	<div>
+	    		{{data.comment}}
+	    	</div>
+	    </ion-col>
+	  </ion-row>
+	 
+	</ion-grid>
+
+
+	
 <!-- 	<button onclick="getDistanceFromLatLonInKm(-6.627006,106.822782,-6.625834,106.821408)" ion-button>tes</button>
 <script type="text/javascript">	  
 	 

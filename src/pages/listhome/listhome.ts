@@ -30,7 +30,7 @@ export class ListhomePage {
   }
 
   getdatahomestay(){
-    this.http.get("http://127.0.0.1/homeisland/backend/getSearchHomestay.php?namahome="+ this.navParams.get('destination')).subscribe(data => {
+    this.http.get("http://127.0.0.1/homeisland/backend/getSearchHomestay.php?namahome="+ this.navParams.get('destination')+"&kuota="+this.navParams.get('sumGuest')).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){
