@@ -10,12 +10,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        CRUD
+        Homestay
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">CRUD</li>
+        <li class="active">Homestay</li>
       </ol>
     </section>
  
@@ -45,7 +45,7 @@
             <th>Nama Homestay</th>
             <th>Harga</th>
             <th>Kuota</th>
-            <th>Latitude</th>
+            <th>Langitude</th>
             <th>Longitude</th>
             <th>Foto1</th>
             <th>Foto2</th>
@@ -58,7 +58,7 @@
         <td>{{ $homestay->nama_homestay}}</td>
         <td>{{ $homestay->harga}}</td>
         <td>{{ $homestay->kuota}}</td>
-        <td>{{ $homestay->lat}}</td>
+        <td>{{ $homestay->lang}}</td>
         <td>{{ $homestay->long}}</td>
         <td><img src="{{ $homestay -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
         <td><img src="{{ $homestay -> foto_2 }}" style="height:50px;width:50px;text-align:center"></td>

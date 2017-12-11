@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'events';
-    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'admin',
+        'foto',
         'judul',
         'deskripsi',
-        'foto',
+        'lang',
+        'long',
     ];
 
     /**
@@ -25,6 +27,6 @@ class Event extends Model
      * @var array
      */
     protected $hidden = [
-        'remember_token',
+        // 'remember_token',
     ];
 }

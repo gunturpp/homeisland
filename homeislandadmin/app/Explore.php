@@ -4,15 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Homestay extends Model
+class Explore extends Model
 {
+    protected $table = 'explores';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'nama_homestay',  'harga', 'kuota', 'lang', 'long', 'foto_1', 'foto_2', 'foto_3'
+        'admin',
+        'nama_wisata',
+        'foto',
+        'alamat',
+        'lang',
+        'long',
     ];
 
     /**
@@ -21,6 +27,6 @@ class Homestay extends Model
      * @var array
      */
     protected $hidden = [
-        'remember_token',
+        // 'remember_token',
     ];
 }

@@ -19,16 +19,25 @@ class HomestayController extends Controller
         $this->middleware('auth:admin');
         //$this->middleware('auth');
     }
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        $user = Auth::user();
+		// if($user->cakupan=='daerah' || $user->cakupan=='pusat' ){
+		// 	$newsss = DB::table('newss')
+		// 	->count();
+        // }
+        // else {
+        //     return 'salah';
+        // }
         $homestays = Homestay::latest()->paginate(5);
         return view('homestays.index',compact('homestays'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+
     }
 
     /**
@@ -40,7 +49,6 @@ class HomestayController extends Controller
     {
         return view('homestays.create');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -55,7 +63,7 @@ class HomestayController extends Controller
             'nama_homestay' => 'required',
             'harga' => 'required',
             'kuota' => 'required',
-            'lat' => 'required',
+            'lang' => 'required',
             'long' => 'required',
             'foto_1' => 'required|image|mimes:jpeg,png,jpg|max:15000',
             'foto_2' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
@@ -150,7 +158,7 @@ class HomestayController extends Controller
             'nama_homestay' => 'required',
             'harga' => 'required',
             'kuota' => 'required',
-            'lat' => 'required',
+            'lang' => 'required',
             'long' => 'required',
             'foto_1' => 'required|image|mimes:jpeg,png,jpg|max:15000',
             'foto_2' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
@@ -212,47 +220,13 @@ class HomestayController extends Controller
      */
     public function destroy($id)
     {
-
-        // $data = Homestay::find($id);
-        // $homestay = Homestay::find($id)->delete();
-        // if($homestay){
-        //     if($data->image !== '') $this->deletePhoto($data->image);
-        //     Session::flash('flash_notification', ["level"=>"success", "message"=>"Berhasil menghapus Homestay '".$data->title."'"]);
-        //     return redirect()->route('homestays.index');
-        // }
-        // else {
-        //     Session::flash('flash_notification', ["level"=>"danger", "message"=>"Oops, gagal menghapus homestay"]);
-        //     return redirect() -> route('homestays.index')->withErrors($validator)->withInput();  
-        // }
-
         Homestay::find($id)->delete();
         return redirect()->route('homestays.index')
                         ->with('success','Homestay has been deleted successfully');
     }
 
-    // public function savePhoto(UploadedFile $photo) {
-    //     // dd($request -> all());
-
-
-    //     $fileName = str_random(40) . '.' . $photo->guessClientExtension();
-
-    //     // $fileName = $photo->getClientOriginalName();
-    //     $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'images/homestay';
-    //     $photo -> move($destinationPath, $fileName);
-    //     // move_uploaded_file($photo['file']['tmp_name'], $destinationPath);
-    //     return $fileName;
-    
+    // public function deletePhoto($filename){
+    //     $path = public_path() . DIRECTORY_SEPARATOR . 'images/homestay'.$filename;
+    //     return File::delete($path);
     // }
- 
-    public function deletePhoto($filename){
-        $path = public_path() . DIRECTORY_SEPARATOR . 'images/homestay'.$filename;
-        return File::delete($path);
-    }
-
-    public function getUserImage($id)
-    {
-        $file = Storage::disk('public')->get($id);
-    
-        return view('yourviewnamehere', ['myFile' => $file]);
-    }
 }

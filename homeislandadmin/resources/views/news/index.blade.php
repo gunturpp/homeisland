@@ -19,7 +19,7 @@
         <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Homeisland Userlist News Application</h2>
+                        <h2>News list</h2>
                     </div>
                     <div class="pull-right">
                         <a class="btn btn-success" href="{{ route('news.create') }}"> Create New News</a>
@@ -36,10 +36,11 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
+                    <th>Judul</th>
+                    {{--  <th>Writter</th>  --}}
+                    {{--  <th>Password</th>  --}}
                     <th>admin</th>
+                    <th>Deskripsi</th>
                     <th>Foto</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -47,9 +48,9 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $news->judul}}</td>
-                <td>{{ $news->foto}}</td>
-                <td>{{ $news->deskripsi}}</td>
                 <td>{{ $news->admin}}</td>
+                {{--  <td>{{ $news->foto}}</td>  --}}
+                <td>{{ $news->deskripsi}}</td>
                 <td><img src="{{ $news -> foto }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>
                     <a class="btn btn-info" href="{{ route('news.show',$news->id) }}">Show</a>

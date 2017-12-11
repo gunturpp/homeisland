@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Nama Event:</strong>
-            {!! Form::text('judul', null, array('placeholder' => 'Nama Event','class' => 'form-control')) !!}
+            <strong>Nama Tempat Wisata:</strong>
+            {!! Form::text('nama_wisata', null, array('placeholder' => 'Nama Tempat Wisata','class' => 'form-control')) !!}
         </div>
     </div>
 
@@ -14,8 +14,8 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Deskripsi Event:</strong>
-            {!! Form::textarea('deskripsi', null, array('placeholder' => 'Deskripsi Event','class' => 'form-control')) !!}
+            <strong>Alamat:</strong>
+            {!! Form::textarea('alamat', null, array('placeholder' => 'Alamat','class' => 'form-control')) !!}
         </div>
     </div>
 

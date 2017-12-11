@@ -1,7 +1,3 @@
-{{--  {!! Form::open(array('route' => 'image.upload.post','files'=>true)) !!}  --}}
-{{--  <form action="/images" method="post" enctype="multipart/form-data">  --}}
-{{--  {!! Form::open(array('url'=>'items','class'=>'register-form','files'=>true)) !!}      --}}
-
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -26,8 +22,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Latitude:</strong>
-                {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
+                <strong>Langitude:</strong>
+                {!! Form::text('lang', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
             </div>
         </div>
 
@@ -46,63 +42,33 @@
                 </div>  --}}
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-horizontal ">
+                <div class="form-group {!! $errors->has('foto_1') ? 'has-error' : '' !!}">
                     <strong>Foto 1:</strong>
-                    {!! Form::file('foto_1', array('class' => 'image')) !!}
-                    {{--  {!! Form::file('frontimage') !!}  --}}
-                </div>
-                <br />
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-horizontal">
-                    <strong>Foto 2:</strong>
-                    {!! Form::file('foto_2', null, array('class' => 'image')) !!}
-                </div>
-                <br />
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-horizontal">
-                    <strong>Foto 3:</strong>
-                    {!! Form::file('foto_3', null, array('class' => 'image')) !!}
-                </div>
-            </div>
-
-            <br />
-
-            {{--  @if ($message = Session::get('success'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
+                        {!! Form::file('foto_1') !!}
+                        <br />
+                        {!! Form::label('foto_1', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
                     </div>
-                    <img src="images/{{ Session::get('image') }}">
-                    @endif  --}}
-
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                    @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
                 </div>
-            @endif
 
-            {{--  <br />
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <div class="form-group {!! $errors->has('foto_2') ? 'has-error' : '' !!}">
+                    <strong>Foto 2:</strong>
+                        {!! Form::file('foto_2') !!}
+                        <br />
+                        {!! Form::label('foto_2', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
+                    </div>
+                </div>
+
+                <div class="form-group {!! $errors->has('foto_3') ? 'has-error' : '' !!}">
+                    <strong>Foto 3:</strong>
+                        {!! Form::file('foto_3') !!}
+                        <br />
+                        {!! Form::label('foto_3', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
+                    </div>
+                </div>
             </div>
-        </div>  --}}
-
         
         <br />
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-
-{{--  {!! Form::close() !!}    --}}
-{{--  </form>  --}}
-
 </div>

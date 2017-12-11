@@ -66,18 +66,28 @@ Route::put('event/update', 'EventController@update');
 Route::get('event/show', 'EventController@show');
 Route::get('event/edit', 'EventController@edit');
 
+// Explore
+Route::get('/explore', 'ExploreController@index');
+Route::get('explore/create', 'ExploreController@create');
+Route::post('explore/store', 'ExploreController@store');
+Route::delete('explore/destroy', 'ExploreController@destroy');
+Route::put('explore/update', 'ExploreController@update');
+Route::get('explore/show', 'ExploreController@show');
+Route::get('explore/edit', 'ExploreController@edit');
+
 // Souvenir
 Route::get('/souvenir', 'SouvenirController@index');
-// Route::get('souvenir/create', 'SouvenirController@create');
-// Route::post('souvenir/store', 'SouvenirController@store');
-// Route::delete('souvenir/destroy', 'SouvenirController@destroy');
-// Route::put('souvenir/update', 'SouvenirController@update');
+Route::get('souvenir/create', 'SouvenirController@create');
+Route::post('souvenir/store', 'SouvenirController@store');
+Route::delete('souvenir/destroy', 'SouvenirController@destroy');
+Route::put('souvenir/update', 'SouvenirController@update');
 Route::get('souvenir/show', 'SouvenirController@show');
-// Route::get('souvenir/edit', 'SouvenirController@edit');
+Route::get('souvenir/edit', 'SouvenirController@edit');
 
 // resources
 Route::resource('cruds','CrudController');
 Route::resource('homestays','HomestayController');
 Route::resource('news','NewsController');
-Route::resource('events','EventController');
+Route::resource('event','EventController');
+Route::resource('explore','ExploreController');
 Route::resource('souvenir','SouvenirController');
