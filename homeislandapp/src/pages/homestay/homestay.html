@@ -33,7 +33,7 @@
 
   </ion-slides>
 	<h5 text-center>MAIN FACILITIES</h5>
-	{{nilaiRating}}
+	
 	<ion-grid>
 		<ion-row>
 			<ion-col col-2></ion-col>
@@ -58,27 +58,96 @@
 		</ion-row>
 	</ion-grid>
 <!-- ../../assets/pic/1.jpg -->
-	<button ion-button (click)="order()">Order Now</button>
-
+<ion-row>
+	<ion-col col-4></ion-col>
+	<ion-col col-4>
+	<button ion-button style="text-align: center;" (click)="order()">Order Now</button>
+	</ion-col>
+	<ion-col col-4></ion-col>
+</ion-row>
 
 	<h5 text-center>Rating & Reviews</h5>
-
+	<div text-center style="color: #F7B733; font-size: 55px;">{{ratingAVG}}</div>
 	<ion-grid>
 		<ion-row>
-			<ion-col col-6>
-				<h6 text-center style="font-size: 11px;">{{iduser}}</h6>
-				<h4 text-center>{{namauser}}</h4>
-				<h6 text-center style="font-size: 11px;">pocut</h6>
-				<h1>{{ratingAVG}}</h1>
+			<ion-col col-2>
+			</ion-col>
+			<ion-col col-8>
+
+	    	<div *ngIf="ratinground == NULL" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
+
+	    	<div *ngIf="ratinground == 1" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
+
+	    	<div *ngIf="ratinground == 2" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
+
+	    	<div *ngIf="ratinground == 3" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
+
+	    	<div *ngIf="ratinground == 4" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star-outline"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
+
+	    	<div *ngIf="ratinground == 5" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{ratinground}}</p> -->
+
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<ion-icon name="star"></ion-icon>
+	    		<h4>from {{sumrate}} people(s)</h4>
+	    	</div>
 				<!-- <ion-content *ngIf="!isRating; else Udah"> -->
 					
 				
 			<ng-template #Udah>
-				<h3>Anda Sudah Memberikan Rating kepada Homestay ini.</h3>
+				<h5>Anda Sudah Memberikan Rating kepada Homestay ini.</h5>
 			</ng-template>
 			
 			</ion-col>
-			<ion-col col-6>
+			<ion-col col-2>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
@@ -129,7 +198,7 @@
 
 
 	
-<!-- 	<button onclick="getDistanceFromLatLonInKm(-6.627006,106.822782,-6.625834,106.821408)" ion-button>tes</button>
+<!-- 	<button onclick="getDistanceFromLatLonInKm(-6.627006,106.822782,-6.625834,106.821358)" ion-button>tes</button>
 <script type="text/javascript">	  
 	 
 

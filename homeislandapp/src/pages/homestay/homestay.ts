@@ -31,6 +31,10 @@ export class HomestayPage {
   ratingAVG: any;
   dataRATING: any;
   listRatings: any;
+  sumrate: any;
+  sumhome: any;
+  ratinground: any;
+  ratingroundData: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
@@ -115,6 +119,8 @@ export class HomestayPage {
       console.log(response);
       if(response.status=="200"){
         this.dataHomestay = response.data;      //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        this.sumhome = response.data2;
+        this.sumrate = this.sumhome[0].sum;
         this.id_homestay = this.dataHomestay[0].id_homestay;
         this.namaHomestay = this.dataHomestay[0].Nama_homestay;
         this.foto1 = this.dataHomestay[0].foto1;
@@ -137,7 +143,10 @@ export class HomestayPage {
       console.log(response);
       if(response.status=="200"){
         this.dataRATING = response.data;        //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        this.ratingAVG = this.dataRATING[0].rata;      
+        this.ratingAVG = this.dataRATING[0].rata;
+
+        this.ratingroundData = response.data2;        //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        this.ratinground = this.ratingroundData[0].rata;      
        // this.ratingAVG = 5.5;
      console.log(this.ratingAVG);
       }
@@ -153,7 +162,7 @@ export class HomestayPage {
     let data = JSON.stringify({
                       id_user: this.iduser 
                   });
-    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser ).subscribe(data => {
+    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser+"&id_homestay="+ this.navParams.get('id_homestay')).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){
