@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 @include('dashboard.header')
     <style>
         .photo{
@@ -78,3 +80,7 @@
 
 </section>
 </div>
+
+@include('dashboard.footer') 
+</body>
+</html>

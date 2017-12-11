@@ -66,5 +66,7 @@
             {!! $souvenirs->links() !!}
     </section>
 </div>
+
+@include('dashboard.footer') 
 </body>
 </html>

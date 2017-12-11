@@ -61,3 +61,5 @@
     </section>
 
 </div>
+
+@include('dashboard.footer') 
