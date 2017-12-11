@@ -47,9 +47,9 @@
             <th>Kuota</th>
             <th>Latitude</th>
             <th>Longitude</th>
-            {{--  <th>Foto 1</th>  --}}
-            {{--  <th>Foto 2</th>
-            <th>Foto 3</th>  --}}
+            <th>Foto1</th>
+            <th>Foto2</th>
+            <th>Foto3</th>
             <th width="140px">Action</th>
         </tr>
     @foreach ($homestays as $homestay)
@@ -60,10 +60,9 @@
         <td>{{ $homestay->kuota}}</td>
         <td>{{ $homestay->lat}}</td>
         <td>{{ $homestay->long}}</td>
-        {{--  <td>{!! Html::image('images/homestay/'. $homestay->foto_1, 'photo', ['class'=>'photo']) !!}</td>\  --}}
-        {{--  <td>{{ Html::image('images/homestay/'. $homestay->foto_1, 'Image') }}</td>  --}}
-        {{--  <td>{{ $homestay->foto_2}}</td>
-        <td>{{ $homestay->foto_3}}</td>  --}}
+        <td><img src="{{ $homestay -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
+        <td><img src="{{ $homestay -> foto_2 }}" style="height:50px;width:50px;text-align:center"></td>
+        <td><img src="{{ $homestay -> foto_3 }}" style="height:50px;width:50px;text-align:center"></td>
         <td>
             <a class="btn btn-info" href="{{ route('homestays.show',$homestay->id) }}">Show</a>
             <a class="btn btn-primary" href="{{ route('homestays.edit',$homestay->id) }}">Edit</a>
