@@ -5,8 +5,8 @@
     header('Access-Control-Allow-Header; Content-Type');
 
   include 'config.php';
-    //$id=$_GET['user'];
-    $query_user = mysqli_query($conn, "SELECT * FROM news");
+    $id=$_GET['id'];
+    $query_user = mysqli_query($conn, "SELECT * FROM rating INNER JOIN user WHERE rating.id_user = user.id AND rating.id_homestay = $id ORDER BY rating.id_rating DESC" );
 
     $result_set = array();
     while($result =mysqli_fetch_assoc($query_user)){

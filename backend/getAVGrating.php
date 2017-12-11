@@ -6,7 +6,8 @@
 
   include 'config.php';
     //$id=$_GET['user'];
-    $query_user = mysqli_query($conn, "SELECT * FROM news");
+    $id = $_GET['id_homestay'];
+    $query_user = mysqli_query($conn, "SELECT round(AVG(rating),1) as rata from rating WHERE id_homestay = $id");
 
     $result_set = array();
     while($result =mysqli_fetch_assoc($query_user)){

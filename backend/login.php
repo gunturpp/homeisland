@@ -16,10 +16,6 @@
     if(mysqli_num_rows($query_login)){
 
         $row=mysqli_fetch_assoc($query_login);
-
-        if(!isset($_SESSION))
-        session_start();
-    
         $data =array(
             'message' => "Login Success",
             'data' => $row,
