@@ -33,8 +33,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Latitude:</strong>
-                {{ $homestay->lat}}
+                <strong>Langitude:</strong>
+                {{ $homestay->lang}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -49,8 +49,10 @@
                 {{--  {{ Html::image('images/homestay/'. $homestay->foto_1, 'photo', ['class'=>'photo'])}}  --}}
                 {{--  <img src='{{ 'images/homestay/' . $homestay->foto_1}}' />  --}}
                 {{--  <img src="{{ asset('images/homestay/' . $homestay->foto_1) }}" alt="">  --}}
-                <img src="{!! url('/images/homestay/' . $homestay->foto_1) !!}" alt="{{ $homestay->foto_11 }}">
+                {{--  <img src="{!! url('/images/homestay/' . $homestay->foto_1) !!}" alt="{{ $homestay->foto_11 }}">  --}}
                 {{--  <img src="{{ URL::to('images/homestay/' . $homestay->foto_1) }}" alt="" class="img-responsive">  --}}
+                {{--  <img src="{{ $homestay -> foto_1 }}" style="height:300px;width:300px;text-align:center">  --}}
+                <img src="{{ asset('images/homestay/' . $homestay->image) }}" height="400" width="800" />
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

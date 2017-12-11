@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Auth;
+
+use DB;
+use App\Admin;
 use App\Event;
+
 class EventController extends Controller
 {
     public function __construct()
@@ -17,10 +23,19 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $events = Event::latest()->paginate(5);
-        return view('event.index',compact('events'))
+    {	
+        $user = Auth::user();
+		if($user->cakupan=='daerah'){
+			$events = DB::table('events')->count();
+        }
+        else {
+            return 'salah';
+        }
+        // $newss = News::latest()->paginate(5);
+        $events = DB::table('events')->where('admin', $user->email)->latest()->paginate(5);
+        return view('event.index',compact('events', 'admins'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+
     }
 
     /**
@@ -29,7 +44,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {    
+    {
         return view('event.create');
     }
 
@@ -41,16 +56,37 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         request()->validate([
             'judul' => 'required',
-            'dekskripsi' => 'required',
-        ]);
-        Event::create($request->all());
+            'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'deskripsi' => 'required',
+            'lang' => 'required',
+            'long' => 'required',
+            ]);
+            $data = $request->only('judul', 'foto', 'deskripsi', 'lang', 'long');
+            
+            // $data = $request->except(['image']);
+            $photo1 = "";
+            if ($request->hasFile('foto')){ //has file itu meminta nama databasenya bukan classnya
+                $ip = request()->ip();
+                $file = $request->foto;
+                $fileName = str_random(40) . '.' . $file->guessClientExtension();;
+                $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
+                $destinationPath = "images/event";
+                $data['foto'] = '../'. $destinationPath . '/' . $fileName;
+                $file -> move($destinationPath, $getPath,$fileName);
+                $photo1 = $fileName;
+                $data['admin'] = $user->email;
+                // return $getPath;
+
+    
+            }
+
+        Event::create($data);
         return redirect()->route('event.index')
-                        ->with('success','New Event has been created successfully');
-
+            ->with('success','New Event has been created successfully');
     }
-
     /**
      * Display the specified resource.
      *
@@ -59,9 +95,8 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $event = Event::find($id);
-        return view('event.show',compact('event'));
-
+        $events = Event::find($id);
+        return view('event.show',compact('events'));
     }
 
     /**
@@ -72,9 +107,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $event = Event::find($id);
-        return view('event.edit',compact('event'));
-
+        $events = Event::find($id);
+        return view('event.edit',compact('events'));
     }
 
     /**
@@ -86,14 +120,36 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
         request()->validate([
             'judul' => 'required',
-            'dekskripsi' => 'required',
-        ]);
-        Event::create($request->all());
-        return redirect()->route('event.index')
-                        ->with('success','New Event has been created successfully');
+            'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'deskripsi' => 'required',
+            'lang' => 'required',
+            'long' => 'required',
+            ]);
+            $data = $request->only('judul', 'foto', 'deskripsi', 'lang', 'long');
+            
+            // $data = $request->except(['image']);
+            $photo1 = "";
+            if ($request->hasFile('foto')){ //has file itu meminta nama databasenya bukan classnya
+                $ip = request()->ip();
+                $file = $request->foto;
+                $fileName = str_random(40) . '.' . $file->guessClientExtension();;
+                $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
+                $destinationPath = "images/event";
+                $data['foto'] = '../'. $destinationPath . '/' . $fileName;
+                $file -> move($destinationPath, $getPath,$fileName);
+                $photo1 = $fileName;
+                $data['admin'] = $user->email;
+                // return $getPath;
 
+    
+            }
+
+        Event::find($id)->update($data);
+        return redirect()->route('event.index')
+            ->with('success','New Event has been created successfully');
     }
 
     /**
@@ -106,6 +162,6 @@ class EventController extends Controller
     {
         Event::find($id)->delete();
         return redirect()->route('event.index')
-                        ->with('success','New event has been deleted successfully');
+                        ->with('success','Event has been deleted successfully');
     }
 }

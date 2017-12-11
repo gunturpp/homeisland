@@ -16,10 +16,11 @@ class CreateSouvenirsTable extends Migration
         Schema::defaultStringLength(191);        
         Schema::create('souvenirs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('admin');                                
             $table->string('nama_toko');
-            $table->string('foto_1', 200) ;            
+            $table->string('foto', 200) ;            
             $table->string('alamat');
-            $table->decimal('lat', 10, 7);
+            $table->decimal('lang', 10, 7);
             $table->decimal('long', 10, 7);            
             $table->timestamps();
         });

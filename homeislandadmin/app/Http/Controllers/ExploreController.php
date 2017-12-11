@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 use DB;
 use App\Admin;
-use App\News;
+use App\Explore;
 
-class NewsController extends Controller
+class ExploreController extends Controller
 {
     public function __construct()
     {
@@ -25,15 +25,15 @@ class NewsController extends Controller
     public function index()
     {	
         $user = Auth::user();
-		if($user->cakupan=='daerah' || $user->cakupan=='pusat' ){
-			$newss = DB::table('newss')->count();
+		if($user->cakupan=='daerah'){
+			$newss = DB::table('explores')->count();
         }
         else {
             return 'salah';
         }
         // $newss = News::latest()->paginate(5);
-        $newss = DB::table('newss')->where('admin', $user->email)->latest()->paginate(5);
-        return view('news.index',compact('newss', 'admins'))
+        $explores = DB::table('explores')->where('admin', $user->email)->latest()->paginate(5);
+        return view('explore.index',compact('explores', 'admins'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
@@ -45,7 +45,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
+        return view('explore.create');
     }
 
     /**
@@ -58,11 +58,13 @@ class NewsController extends Controller
     {
         $user = Auth::user();
         request()->validate([
-            'judul' => 'required|max:20',
-            'deskripsi' => 'required|max:255',
+            'nama_wisata' => 'required',
             'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'alamat' => 'required',
+            'lang' => 'required',
+            'long' => 'required',
             ]);
-            $data = $request->only('judul','deskripsi', 'foto', 'admin');
+            $data = $request->only('nama_wisata', 'foto', 'alamat', 'lang', 'long');
             
             // $data = $request->except(['image']);
             $photo1 = "";
@@ -71,7 +73,7 @@ class NewsController extends Controller
                 $file = $request->foto;
                 $fileName = str_random(40) . '.' . $file->guessClientExtension();;
                 $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
-                $destinationPath = "images/news";
+                $destinationPath = "images/explore";
                 $data['foto'] = '../'. $destinationPath . '/' . $fileName;
                 $file -> move($destinationPath, $getPath,$fileName);
                 $photo1 = $fileName;
@@ -81,9 +83,9 @@ class NewsController extends Controller
     
             }
 
-        News::create($data);
-        return redirect()->route('news.index')
-            ->with('success','New news has been created successfully');
+        Explore::create($data);
+        return redirect()->route('explore.index')
+            ->with('success','New Recreation Spot has been created successfully');
     }
     /**
      * Display the specified resource.
@@ -93,8 +95,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $newss = News::find($id);
-        return view('news.show',compact('newss'));
+        $explores = Explore::find($id);
+        return view('explore.show',compact('explores'));
     }
 
     /**
@@ -105,8 +107,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $newss = News::find($id);
-        return view('news.edit',compact('newss'));
+        $explores = Explore::find($id);
+        return view('explore.edit',compact('explores'));
     }
 
     /**
@@ -120,11 +122,13 @@ class NewsController extends Controller
     {
         $user = Auth::user();
         request()->validate([
-            'judul' => 'required|max:20',
-            'deskripsi' => 'required|max:255',
+            'nama_wisata' => 'required',
             'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'alamat' => 'required',
+            'lang' => 'required',
+            'long' => 'required',
             ]);
-            $data = $request->only('judul','deskripsi', 'foto');
+            $data = $request->only('nama_wisata', 'foto', 'alamat', 'lang', 'long');
             
             // $data = $request->except(['image']);
             $photo1 = "";
@@ -133,7 +137,7 @@ class NewsController extends Controller
                 $file = $request->foto;
                 $fileName = str_random(40) . '.' . $file->guessClientExtension();;
                 $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
-                $destinationPath = "images/news";
+                $destinationPath = "images/explore";
                 $data['foto'] = '../'. $destinationPath . '/' . $fileName;
                 $file -> move($destinationPath, $getPath,$fileName);
                 $photo1 = $fileName;
@@ -143,9 +147,9 @@ class NewsController extends Controller
     
             }
 
-        News::find($id)->update($data);
-        return redirect()->route('news.index')
-            ->with('success','New news has been created successfully');
+        Explore::find($id)->update($data);
+        return redirect()->route('explore.index')
+            ->with('success','New Recreation Spot been created successfully');
     }
 
     /**
@@ -156,8 +160,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::find($id)->delete();
-        return redirect()->route('news.index')
-                        ->with('success','News has been deleted successfully');
+        Explore::find($id)->delete();
+        return redirect()->route('explore.index')
+                        ->with('success','Recreation Spot has been deleted successfully');
     }
 }
