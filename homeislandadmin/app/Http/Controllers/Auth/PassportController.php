@@ -8,7 +8,7 @@ use App\User;
 use App\News;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-
+use DB;
 class PassportController extends Controller
 {
     public $successStatus = 200;
@@ -35,6 +35,7 @@ class PassportController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'c_password' => 'required|same:password',
+            'hp' => 'required|min:10|max:13',
         ]);
 
         if($validator->fails()){
@@ -43,7 +44,8 @@ class PassportController extends Controller
         }
 
         $input = $request->all();
-        $input['password'] = bcryt($input['password']);
+        $input['password'] = bcrypt($input['password']);
+        // $input['remember_token'] = $user->createToken('MyApp')->accessToken;
         $user = User::create($input);
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
@@ -61,12 +63,14 @@ class PassportController extends Controller
     public function getNews(Request $request,  $string=null)
 	{
 			$token = $request->header('Api-key');
-			$user = Auth::token()->toUser();
+			$user = Auth::user();
 			if($string!=null)
-				$newss = Event::Where('name','like','%'.$string.'%')->orderBy('created_at', 'asc')->get();
+				$newss = News::Where('judul','like','%'.$string.'%')->orderBy('id', 'deskripsi')->get();
 			else
-				$newss = Event::orderBy('created_at', 'asc')->get();
+
+				$newss = News::orderBy('id', 'deskripsi')->get();
 			$status=true;
-			return compact('newss','users');
+			return compact('status','newss');
 	}
+
 }
