@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\News;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -56,4 +57,16 @@ class PassportController extends Controller
         $user = Auth::user();
         return response()->json(['success'=>$user], $this->successStatus);
     }
+
+    public function getNews(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::token()->toUser();
+			if($string!=null)
+				$newss = Event::Where('name','like','%'.$string.'%')->orderBy('created_at', 'asc')->get();
+			else
+				$newss = Event::orderBy('created_at', 'asc')->get();
+			$status=true;
+			return compact('newss','users');
+	}
 }
