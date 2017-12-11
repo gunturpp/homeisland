@@ -70,7 +70,7 @@ class NewsController extends Controller
                 $ip = request()->ip();
                 $file = $request->foto;
                 $fileName = $file->getClientOriginalName();
-                $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
+                $getPath = 'http://172.18.16.36/homeislandadmin/public/img/' . $fileName;
                 $destinationPath = "images/news";
                 $data['foto'] = '../'. $destinationPath . '/' . $fileName;
                 $file -> move($destinationPath, $getPath,$fileName);
