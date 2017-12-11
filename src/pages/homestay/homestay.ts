@@ -153,7 +153,7 @@ export class HomestayPage {
     let data = JSON.stringify({
                       id_user: this.iduser 
                   });
-    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser ).subscribe(data => {
+    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser+"&id_homestay="+ this.navParams.get('id_homestay')).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){

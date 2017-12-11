@@ -18,7 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchPage {
 
-  homestaySearch: {destinasi?: string, sumGuest?: any} = {};
+  homestaySearch: {destinasi?: string, sumGuest?: any, duration?: any, checkin?: any} = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public http: Http,
@@ -32,6 +32,8 @@ export class SearchPage {
   }
 
   search(form: NgForm){ 
-  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi, sumGuest: this.homestaySearch.sumGuest});
+  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi, sumGuest: this.homestaySearch.sumGuest, duration: this.homestaySearch.duration,
+      checkin: this.homestaySearch.checkin
+    });
   }
 }

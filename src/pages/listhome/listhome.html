@@ -7,8 +7,8 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title text-center>Homestay near you</ion-title>
-    <!-- <h5 text-center style="color:white;">2 Aug 2017, 1 night(s)</h5> -->
+    <ion-title text-center>Homestay for you</ion-title>
+    <h5 text-center style="color:white;">{{checkin}}, {{duration}} night(s)</h5>
   </ion-navbar>
 
 </ion-header>
@@ -24,7 +24,7 @@
 	    	<div style="font-size: 16px;">{{data.Nama_homestay}}</div>
 
 
-	    	<div *ngIf="data.rate == 0" style="font-size: 15px; color: #F7B733;">
+	    	<div *ngIf="data.rate == NULL" style="font-size: 15px; color: #F7B733;">
 	    		<!-- <p>{{data.rate}}</p> -->
 
 	    		<ion-icon name="star-outline"></ion-icon>
@@ -32,6 +32,7 @@
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 
 	    	<div *ngIf="data.rate == 1" style="font-size: 15px; color: #F7B733;">
@@ -42,6 +43,7 @@
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 
 	    	<div *ngIf="data.rate == 2" style="font-size: 15px; color: #F7B733;">
@@ -52,6 +54,7 @@
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 
 	    	<div *ngIf="data.rate == 3" style="font-size: 15px; color: #F7B733;">
@@ -62,6 +65,7 @@
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 
 	    	<div *ngIf="data.rate == 4" style="font-size: 15px; color: #F7B733;">
@@ -72,6 +76,7 @@
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 
 	    	<div *ngIf="data.rate == 5" style="font-size: 15px; color: #F7B733;">
@@ -82,6 +87,7 @@
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
+	    		({{data.sumrate}})
 	    	</div>
 	    	
 	    	<div><p style="font-size: 18px; color: #FF9F00">Rp.{{data.harga}}</p></div>

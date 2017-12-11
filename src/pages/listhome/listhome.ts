@@ -18,6 +18,8 @@ import { Http } from '@angular/http';
 export class ListhomePage {
 
   listhomestay : any;
+  checkin: any;
+  duration: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
   }
 
@@ -27,6 +29,8 @@ export class ListhomePage {
 
   ionViewWillEnter(){
     this.getdatahomestay();
+    this.checkin = this.navParams.get('checkin');
+    this.duration = this.navParams.get('duration');
   }
 
   getdatahomestay(){
