@@ -48,9 +48,9 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $souvenir->nama_toko}}</td>
-                <td><img src="{{ $souvenir -> foto }}" style="height:50px;width:50px;text-align:center"></td>
+                <td><img src="{{ $souvenir -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $souvenir->alamat}}</td>
-                <td>{{ $souvenir->lang}}</td>
+                <td>{{ $souvenir->lat}}</td>
                 <td>{{ $souvenir->long}}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('souvenir.show',$souvenir->id) }}">Show</a>

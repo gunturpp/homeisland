@@ -1,3 +1,5 @@
+@include('layouts.app')
+
 @extends('layout')
 
 @section('content')
@@ -20,11 +22,11 @@
             </div>
         </div>
 
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Foto:</strong>
-                {{--  {{ $newss->handphone_number}}  --}}
-                <img src="{{ $souvenirs -> foto }}" style="height:50px;width:50px;text-align:center">
+                <strong>Open Sale:</strong>
+                {{ $souvenirs->open_sale}}
             </div>
         </div>
 
@@ -37,8 +39,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Langitude:</strong>
-                {{ $souvenirs->lang}}
+                <strong>Latitude:</strong>
+                {{ $souvenirs->lat}}
             </div>
         </div>
 
@@ -48,5 +50,30 @@
                 {{ $souvenirs->long}}
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 1:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $souvenirs -> foto_1 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 2:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $souvenirs -> foto_2 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 3:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $souvenirs -> foto_3 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+
     </div>
 @endsection

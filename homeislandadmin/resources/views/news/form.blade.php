@@ -14,7 +14,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Deskripsi:</strong>
-            {!! Form::textarea('deskripsi', null, array('placeholder' => 'Email, example@gmail.com','class' => 'form-control')) !!}
+            {!! Form::textarea('deskripsi', null, array('placeholder' => 'deskripsi','class' => 'form-control')) !!}
         </div>
     </div>
 
