@@ -31,8 +31,8 @@ export class HomePage {
   //   });
   // }
   getiduser(){
-    this.userDataProvider.getIDuser().then((id) => {
-    this.iduser = id;
+    this.userDataProvider.getPassword().then((password) => {
+    this.iduser = password;
     console.log(this.iduser);
     // this.CekReview();  
 

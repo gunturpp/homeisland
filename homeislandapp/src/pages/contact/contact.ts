@@ -33,6 +33,7 @@ export class ContactPage {
 ionViewWillEnter() {
     
     this.getUsername();
+    this.getEmail();
     this.getiduser();    
     // this.getNama();
     // this.getKelamin();
@@ -70,12 +71,12 @@ ionViewWillEnter() {
   //   });
   // }
 
-  // getEmail() {
-  //   this.data.getEmail().then((email) => {
-  //     this.email = email;
-  //     console.log(this.email)
-  //   });
-  // }
+  getEmail() {
+    this.data.getEmail().then((email) => {
+      this.email = email;
+      console.log(this.email)
+    });
+  }
 
   // getPhoneNumber() {
   //   this.data.getPhoneNumber().then((hp) => {

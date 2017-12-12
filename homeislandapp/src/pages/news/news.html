@@ -16,13 +16,13 @@
 <ion-content padding>
 	<h5 class="h5">News</h5>
 
-        <ion-card *ngFor="let data of news1" item (click)="detailnews(data)">
+        <ion-card item (click)="detailnews(data)">
             <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title"><p style="color: #ffffff; margin-top: -21px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
+            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{judul}}</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
-          <ion-list>
+          <!-- <ion-list>
     <ion-item *ngFor="let data of news">
       <ion-thumbnail item-start>
         <img src="{{data.foto}}">
@@ -31,24 +31,41 @@
       <button ion-button clear item-end (click)="detailnews(data)"> View </button>
     </ion-item>
     
-  </ion-list>
+  </ion-list> -->
+
+  <div width="80%" id="scroll">
+    <img *ngFor="let data of news" width="77" height="77" src="http://127.0.0.1:8000/{{data.foto}}" (click)="detailnews(data)">
+    <!-- <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg">
+    <img width="77" height="77" src="../../assets/pic/1.jpg"> -->
+    </div>
 
     <h5 class="h5">Event</h5>
 
         <ion-card item (click)="detailnews()">
             <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title"><p style="color: #ffffff; margin-top: -21px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
+            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
-          <ion-list>
+          <ion-card item (click)="detailnews(data)" *ngFor="let data of news">
+            <img class="pic" src="http://127.0.0.1:8000/{{data.foto}}">
+            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{judul}}i</p></div>
+            <!-- <div class="card-subtitle">2.5KM</div> -->
+          </ion-card>
+
+          <!-- <ion-list>
             <ion-item *ngFor="let data of news">
       <ion-thumbnail item-start>
-        <img src="{{data.foto}}">
-      </ion-thumbnail>
+        <!-- <img src="{{data.foto}}"> -->
+      <!-- </ion-thumbnail>
       <p> {{data.judul}} </p>
       <button ion-button clear item-end (click)="detailnews(data)"> View </button>
     </ion-item>
-          </ion-list>
+          </ion-list> --> 
 
 </ion-content>
