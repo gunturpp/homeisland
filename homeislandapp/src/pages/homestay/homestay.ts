@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { UserDataProvider } from '../../provider/user-data';
 import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
+import { OrderPage } from '../order/order';
 /**
  * Generated class for the HomestayPage page.
  *
@@ -36,6 +37,8 @@ export class HomestayPage {
   ratinground: any;
   ratingroundData: any;
   hargaHomestay: any;
+  alamat: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
@@ -126,7 +129,7 @@ export class HomestayPage {
         this.namaHomestay = this.dataHomestay[0].Nama_homestay;
         this.foto1 = this.dataHomestay[0].foto1;
         this.hargaHomestay = this.dataHomestay[0].harga;
-         
+        this.alamat = this.dataHomestay[0].alamat;
        
 
        // this.nilaiRating = (10+1)/3;
@@ -212,6 +215,20 @@ export class HomestayPage {
            this.showError(err);
         });
     
+  }
+
+  order2(){
+    this.navCtrl.push(OrderPage, {
+                    id_homestays: this.id_homestay,
+                    id_user: this.iduser,
+                    nama_homestay: this.namaHomestay,
+                    nama_user: this.namauser,
+                    durasi_nginap: this.navParams.get('duration'),
+                    checkin: this.navParams.get('checkin'),
+                    sumkamar: this.navParams.get('sumkamar'),
+                    harga: this.hargaHomestay
+
+    });
   }
 
   Rate(form: NgForm){

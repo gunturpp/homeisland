@@ -29,12 +29,12 @@
 
 		  <ion-item>
 		    <ion-label floating>Duration (days)</ion-label>
-		    <ion-input [(ngModel)]="homestaySearch.duration" type="text" pattern="[0-9]" #duration="ngModel" name="duration"></ion-input>
+		    <ion-input [(ngModel)]="homestaySearch.duration" type="number" pattern="[0-9]" #duration="ngModel" name="duration"></ion-input>
 		  </ion-item> 
 
 		  <ion-item>
 		    <ion-label floating>Room Needed</ion-label>
-		    <ion-input [(ngModel)]="homestaySearch.sumGuest" type="text" pattern="[0-9]" #sumGuest="ngModel" name="sumGuest" required></ion-input>
+		    <ion-input [(ngModel)]="homestaySearch.sumGuest" type="number" pattern="[0-9]" #sumGuest="ngModel" name="sumGuest" required></ion-input>
 		  </ion-item>
 
 		<!--   <ion-item>

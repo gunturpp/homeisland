@@ -18,10 +18,10 @@
 
 	<ion-grid>
 
-	  <ion-row *ngFor="let data of listhomestay" (click)="homestaylog(data)" style="background-color: #F4F4F4;">
-	    <ion-col col-4><img style="height: 100px; " src="{{data.foto1}}"></ion-col>
+	  <ion-row *ngFor="let data of listhomestay" (click)="homestaylog(data)">
+	    <ion-col col-4><img class="image" style="height: 100px; " src="{{data.foto1}}"></ion-col>
 	    <ion-col col-8>
-	    	<div style="font-size: 16px;">{{data.Nama_homestay}}</div>
+	    	<div style="font-size: 16px;"><b>{{data.Nama_homestay}}</b></div>
 
 
 	    	<div *ngIf="data.rate == NULL" style="font-size: 15px; color: #F7B733;">
@@ -91,9 +91,13 @@
 	    	</div>
 	    	
 	    	<div><p style="font-size: 18px; color: #FF9F00">Rp.{{data.harga}}</p></div>
+	    	<div block style="background-color: black; height: 1px;"></div>
 	    </ion-col>
+
+		 
 	  </ion-row>
-	 
 	</ion-grid>
+
+
 
 </ion-content>

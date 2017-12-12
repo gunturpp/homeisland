@@ -1,0 +1,55 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Booking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<h3 text-center>Checkout</h3>
+
+	<ion-list>
+		<ion-item>
+			<strong>Nama Pemesan :</strong> {{nama_pemesan}}
+ 		</ion-item>
+
+ 		<ion-item>
+			<strong>Nama Homestay :</strong> {{nama_homestay}}
+ 		</ion-item>
+		
+		<ion-item>
+			<strong>Checkin :</strong> {{checkin}}
+		</ion-item>
+
+		<ion-item>
+			<strong>Hari Menginap :</strong> {{hari}} hari
+		</ion-item>
+
+		<ion-item>
+			<strong>Jumlah Kamar :</strong> {{kamar}}
+		</ion-item>
+
+		<ion-item>
+			<strong>Harga Kamar per malam : Rp.</strong> {{harga}}
+		</ion-item>
+
+		<ion-item>
+			<!-- <h4>Tagihan : {{hari}} x {{kamar}} x {{harga}} = Rp.{{sum}}</h4>  -->
+			<h2 text-center><b>Total Tagihan:  </b></h2>
+			<h1 text-center style="color: #F7B733;">Rp.{{total_harga}}</h1>
+		</ion-item>
+
+	</ion-list>
+
+	<button full ion-button (click)="ORDER()">ORDER NOW</button>
+
+</ion-content>
