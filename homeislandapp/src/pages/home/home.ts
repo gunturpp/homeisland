@@ -1,4 +1,3 @@
-import { UserDataProvider } from './../../provider/user-data';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HomestayPage } from '../homestay/homestay';
@@ -6,7 +5,7 @@ import { ExplorePage } from '../explore/explore';
 import { NewsPage } from '../news/news';
 import { SouvenirPage } from '../souvenir/souvenir';
 import { SearchPage } from '../search/search';
-import { Http } from '@angular/http';
+import { UserDataProvider } from '../../provider/user-data';
 
 @Component({
   selector: 'page-home',
@@ -14,30 +13,20 @@ import { Http } from '@angular/http';
 })
 export class HomePage {
   username: string;
-  iduser: any;
 
-  constructor(public navCtrl: NavController, public userDataProvider: UserDataProvider, public http: Http) {
+  constructor(public navCtrl: NavController, public data: UserDataProvider) {
   }
 
   ngAfterViewInit(){
-    // this.getUsername();
-    this.getiduser();
+    this.getUsername();
+    console.log(this.username);
   }
 
-  // getUsername() {
-  //   this.data.getUsername().then((user) => {
-  //     this.username = user;
-  //     console.log(this.username)
-  //   });
-  // }
-  getiduser(){
-    this.userDataProvider.getIDuser().then((id) => {
-    this.iduser = id;
-    console.log(this.iduser);
-    // this.CekReview();  
-
-  });
-}
+  getUsername() {
+    this.data.getUsername().then((username) => {
+      this.username = username;
+    });
+  }
 
 slide_homestay(){
 	this.navCtrl.push('SearchPage');

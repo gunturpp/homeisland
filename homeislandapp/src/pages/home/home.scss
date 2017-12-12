@@ -10,8 +10,13 @@ page-home {
         color: #ffffff;
         background-color: transparent;
     }
-
+.image {
+    border-radius: 10px;
+        width: 100px;
+        height: 100px; 
+}
  //   * {
+
 //margin:0;
 //padding:0;
 //}
@@ -21,7 +26,7 @@ page-home {
 //}
 #scroll {
 width:500px;
-height:100px;
+height:120px;
 //margin:100px auto;
 //background:#A3CBE0;
 //border:2px solid #000;
