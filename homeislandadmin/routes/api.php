@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 Route::post('login', 'Auth\PassportController@login');
 Route::post('register', 'Auth\PassportController@register');
 Route::get('get-news', 'Auth\PassportController@getNews');
+Route::get('get-homestays', 'Auth\PassportController@getHomestays');
+Route::get('get-events', 'Auth\PassportController@getEvents');
+Route::get('get-souvenirs', 'Auth\PassportController@getSouvenirs');
+Route::get('get-reviews', 'Auth\PassportController@getReviews');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('get-details', 'Auth\PassportController@getDetails');

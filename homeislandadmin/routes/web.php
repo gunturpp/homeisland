@@ -25,8 +25,6 @@ Route::prefix('admin')->group(function() {
     Route::post('/', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   });
   Route::get('/dashboard', 'AdminController@index');
-// Route::get('image-upload',['as'=>'image.upload','uses'=>'HomestayController@store']);
-// Route::post('image-upload',['as'=>'image.upload.post','uses'=>'HomestayController@update']);
 
 // cruds
 // Route::get('cruds/index', 'CrudsController@index');

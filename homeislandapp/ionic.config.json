@@ -4,5 +4,12 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "http://http://127.0.0.1:8000/api",
+      "proxyUrl": "http://cors.api.com/api"
+    }
+  ]
+
 }

@@ -14,11 +14,16 @@ class Explore extends Model
      */
     protected $fillable = [
         'admin',
-        'nama_wisata',
-        'foto',
-        'alamat',
-        'lang',
+        'kabupaten',
+        'kategori',
+        'nama_tempat',
+        'open_sale',
+        'lat',
         'long',
+        'foto_1',
+        'foto_2',
+        'foto_3',
+        'alamat',
     ];
 
     /**

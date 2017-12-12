@@ -31,4 +31,8 @@ export class BintanPage {
     this.navCtrl.push('DetailBintanPage', data);
   }
 
+  // jarak(x, y){
+  //   cosiu
+  // }
+
 }

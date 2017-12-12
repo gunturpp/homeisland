@@ -18,6 +18,7 @@ class Booking extends Model
         'id_homestay',
         'id_user',
         'booking_code',
+        'id',
     ];
 
     /**
