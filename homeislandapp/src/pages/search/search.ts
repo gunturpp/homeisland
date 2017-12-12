@@ -32,7 +32,7 @@ export class SearchPage {
   }
 
   search(form: NgForm){ 
-  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi, sumGuest: this.homestaySearch.sumGuest, duration: this.homestaySearch.duration,
+  	this.navCtrl.push(ListhomePage, {destination: this.homestaySearch.destinasi, sumkamar: this.homestaySearch.sumGuest, duration: this.homestaySearch.duration,
       checkin: this.homestaySearch.checkin
     });
   }
