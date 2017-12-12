@@ -22,11 +22,28 @@ export class HomePage {
     console.log(this.username);
   }
 
+<<<<<<< HEAD
+  // getUsername() {
+  //   this.data.getUsername().then((user) => {
+  //     this.username = user;
+  //     console.log(this.username)
+  //   });
+  // }
+  getiduser(){
+    this.userDataProvider.getPassword().then((password) => {
+    this.iduser = password;
+    console.log(this.iduser);
+    // this.CekReview();  
+
+  });
+}
+=======
   getUsername() {
     this.data.getUsername().then((username) => {
       this.username = username;
     });
   }
+>>>>>>> f2a33021bcf76a5ab3d570bbfd294242d54453f4
 
 slide_homestay(){
 	this.navCtrl.push('SearchPage');
