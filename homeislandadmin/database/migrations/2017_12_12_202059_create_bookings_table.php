@@ -13,6 +13,7 @@ class CreateBookingsTable extends Migration
      */
     public function up()
     {
+        // gg
         Schema::defaultStringLength(191);                
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
