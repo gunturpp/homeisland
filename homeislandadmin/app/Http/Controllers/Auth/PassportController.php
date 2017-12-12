@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\News;
+use App\Explore;
+use App\Event;
+use App\Souvenir;
+use App\Review;
+use App\Booking;
+use App\Homestay;
+
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use DB;
@@ -71,6 +78,66 @@ class PassportController extends Controller
 				$newss = News::orderBy('id', 'deskripsi')->get();
 			$status=true;
 			return compact('status','newss');
-	}
+    }
+    public function getExplores(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::user();
+			if($string!=null)
+				$newss = Explore::Where('judul','like','%'.$string.'%')->orderBy('id', 'deskripsi')->get();
+			else
+
+				$newss = Explore::orderBy('id', 'deskripsi')->get();
+			$status=true;
+			return compact('status','explores');
+    }
+    public function getHomestays(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::user();
+			if($string!=null)
+				$homestays = Homestay::Where('nama_homestay','like','%'.$string.'%')->orderBy('id', 'deskripsi')->get();
+			else
+
+				$homestays = Homestay::orderBy('id', 'harga')->get();
+			$status=true;
+			return compact('status','homestays');
+    }
+    public function getEvents(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::user();
+			if($string!=null)
+				$events = Event::Where('judul','like','%'.$string.'%')->orderBy('id', 'deskripsi')->get();
+			else
+
+				$events = Event::orderBy('id', 'deskripsi')->get();
+			$status=true;
+			return compact('status','events');
+    }
+    public function getSouvenirs(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::user();
+			if($string!=null)
+				$souvenirs = Souvenir::Where('nama_toko','like','%'.$string.'%')->orderBy('id')->get();
+			else
+
+				$souvenirs = Souvenir::orderBy('id')->get();
+			$status=true;
+			return compact('status','souvenirs');
+    }
+    public function getReviews(Request $request,  $string=null)
+	{
+			$token = $request->header('Api-key');
+			$user = Auth::user();
+			if($string!=null)
+				$reviews = Review::Where('id_user','like','%'.$string.'%')->orderBy('id','id_user')->get();
+			else
+
+				$reviews = Review::orderBy('id','id_user')->get();
+			$status=true;
+			return compact('status','reviews');
+    }    
 
 }

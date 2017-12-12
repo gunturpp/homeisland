@@ -17,7 +17,7 @@ class Event extends Model
         'foto',
         'judul',
         'deskripsi',
-        'lang',
+        'lat',
         'long',
     ];
 

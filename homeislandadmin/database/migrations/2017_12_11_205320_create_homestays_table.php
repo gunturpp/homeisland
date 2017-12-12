@@ -12,14 +12,14 @@ class CreateHomestaysTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::defaultStringLength(191);                
+    {   
+        Schema::defaultStringLength(191);                
         Schema::create('homestays', function (Blueprint $table) {            
             $table->increments('id');
             $table->string('nama_homestay');
-            $table->decimal('harga', 12, 2);
+            $table->string('address');
+            $table->decimal('price', 12, 2);
             $table->integer('kuota');
-            $table->decimal('lat', 10, 7);
-            $table->decimal('long', 10, 7);
             $table->string('foto_1') ;            
             $table->string('foto_2') -> nullable();            
             $table->string('foto_3') -> nullable();            

@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dashboard;
-
+use App\Homestay;
+use App\Booking;
+use App\Souvenir;
+use App\User;
+use DB;
+use Auth;
 class AdminController extends Controller
 {
     
@@ -26,7 +31,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $user = Auth::user();
+		if($user->cakupan=='daerah'){
+            $users = DB::table('users')->count();
+            $homestays = DB::table('homestays')->count();
+            $bookings = DB::table('bookings')->count();
+            // $bookings = DB::table('bookings')->where('')->count();
+            $souvenirs = DB::table('souvenirs')->count();
+        }
+        else {
+            // return 'salah';
+            
+        }
+        return view('dashboard', compact('users','homestays','bookings','souvenirs'));        
     }
 
     /**

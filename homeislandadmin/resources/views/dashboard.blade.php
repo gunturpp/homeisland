@@ -24,9 +24,9 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$users}}</h3>
 
-              <p>New Orders</p>
+              <p>All Users</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -39,9 +39,10 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
+            <h3>{{$homestays}}</h3>
+            <!-- <h3>53<sup style="font-size: 20px">%</sup></h3> -->
+            
+              <p>All Homestays</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -56,7 +57,7 @@
             <div class="inner">
               <h3>44</h3>
 
-              <p>User Registrations</p>
+              <p>All Booking</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -71,7 +72,7 @@
             <div class="inner">
               <h3>65</h3>
 
-              <p>Unique Visitors</p>
+              <p>All Transactions</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

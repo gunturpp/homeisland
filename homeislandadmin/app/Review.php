@@ -16,6 +16,7 @@ class Review extends Model
     protected $fillable = [
         'id_user',
         'id_homestay',
+        'comment',
     ];
 
     /**
