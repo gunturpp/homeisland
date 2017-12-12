@@ -15,7 +15,7 @@ class Explore extends Model
     protected $fillable = [
         'admin',
         'kabupaten',
-        'kategori',
+        'category',
         'nama_tempat',
         'open_sale',
         'lat',

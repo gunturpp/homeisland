@@ -58,28 +58,60 @@ class ExploreController extends Controller
     {
         $user = Auth::user();
         request()->validate([
-            'nama_wisata' => 'required',
-            'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'kabupaten' => 'required',
+            'nama_tempat' => 'required',
+            'foto_1' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'foto_2' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
+            'foto_3' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             'alamat' => 'required',
-            'lang' => 'required',
+            'lat' => 'required',
             'long' => 'required',
+            'category' => 'required',
+            'open_sale' => 'required',
             ]);
-            $data = $request->only('nama_wisata', 'foto', 'alamat', 'lang', 'long');
+            $data = $request->only('kabupaten','nama_wisata', 
+            'foto_1', 'alamat', 'lat', 'long','category','nama_tempat'.'open_sale');
             
             // $data = $request->except(['image']);
             $photo1 = "";
-            if ($request->hasFile('foto')){ //has file itu meminta nama databasenya bukan classnya
+            if ($request->hasFile('foto_1')){ //has file itu meminta nama databasenya bukan classnya
                 $ip = request()->ip();
-                $file = $request->foto;
+                $file = $request->foto_1;
                 $fileName = str_random(40) . '.' . $file->guessClientExtension();;
                 $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
                 $destinationPath = "images/explore";
-                $data['foto'] = '../'. $destinationPath . '/' . $fileName;
+                $data['foto_1'] = '../'. $destinationPath . '/' . $fileName;
                 $file -> move($destinationPath, $getPath,$fileName);
                 $photo1 = $fileName;
                 $data['admin'] = $user->email;
                 // return $getPath;
-
+            }
+            $photo2 = "";
+            if ($request->hasFile('foto_2')){ //has file itu meminta nama databasenya bukan classnya
+                $ip = request()->ip();
+                $file = $request->foto_2;
+                $fileName = str_random(40) . '.' . $file->guessClientExtension();;
+                $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
+                $destinationPath = "images/explore";
+                $data['foto_2'] = '../'. $destinationPath . '/' . $fileName;
+                $file -> move($destinationPath, $getPath,$fileName);
+                $photo2 = $fileName;
+                $data['admin'] = $user->email;
+                // return $getPath;
+            }
+            $photo3 = "";
+            if ($request->hasFile('foto_3')){ //has file itu meminta nama databasenya bukan classnya
+                $ip = request()->ip();
+                $file = $request->foto_3;
+                $fileName = str_random(40) . '.' . $file->guessClientExtension();;
+                $getPath = 'http://192.168.43.85/homeislandadmin/public/img/' . $fileName;
+                $destinationPath = "images/explore";
+                $data['foto_3'] = '../'. $destinationPath . '/' . $fileName;
+                $file -> move($destinationPath, $getPath,$fileName);
+                $photo3 = $fileName;
+                $data['admin'] = $user->email;
+                // return $getPath;
+            
     
             }
 

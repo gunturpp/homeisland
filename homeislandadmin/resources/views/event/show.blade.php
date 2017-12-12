@@ -24,7 +24,7 @@
             <div class="form-group">
                 <strong>Foto:</strong>
                 {{--  {{ $newss->handphone_number}}  --}}
-                <img src="{{ $events -> foto }}" style="height:50px;width:50px;text-align:center">
+                <img src="{{ $events -> foto_1 }}" style="height:50px;width:50px;text-align:center">
             </div>
         </div>
         

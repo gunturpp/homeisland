@@ -7,9 +7,9 @@
     </div>
 
     <div class="form-group">
-        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
-        {!! Form::label('foto', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
-        {!! Form::file('foto') !!}
+        {{--  <div class="form-group {!! $errors->has('foto_1') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_1', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_1') !!}
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -21,8 +21,8 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Langitude:</strong>
-            {!! Form::text('lang', null, array('placeholder' => 'Langitude','class' => 'form-control')) !!}
+            <strong>Latitude:</strong>
+            {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
         </div>
     </div>
 

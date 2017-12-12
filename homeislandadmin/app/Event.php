@@ -13,12 +13,18 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'admin',
-        'foto',
         'judul',
         'deskripsi',
+        'foto_1',
+        'foto_2',
+        'foto_3',
         'lat',
         'long',
+        'web',
+        'id_ig',
+        'id_line',
+        'date_start',
+        'date_end',
     ];
 
     /**

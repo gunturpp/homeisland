@@ -1,17 +1,42 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Kabupaten:</strong>
+            {!! Form::text('kabupaten', null, array('placeholder' => 'kabupaten','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Kategori:</strong>
+            {!! Form::text('category', null, array('placeholder' => 'Kategori','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Nama Tempat Wisata:</strong>
-            {!! Form::text('nama_wisata', null, array('placeholder' => 'Nama Tempat Wisata','class' => 'form-control')) !!}
+            {!! Form::text('nama_tempat', null, array('placeholder' => 'Nama Tempat Wisata','class' => 'form-control')) !!}
         </div>
     </div>
 
     <div class="form-group">
-        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
-        {!! Form::label('foto', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
-        {!! Form::file('foto') !!}
+        {{--  <div class="form-group {!! $errors->has('foto_1') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_1', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_1') !!}
     </div>
 
+    <div class="form-group">
+        {{--  <div class="form-group {!! $errors->has('foto_2') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_2', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_2') !!}
+    </div>
+
+    <div class="form-group">
+        {{--  <div class="form-group {!! $errors->has('foto_3') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_3', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_3') !!}
+    </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Alamat:</strong>
@@ -21,8 +46,14 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Langitude:</strong>
-            {!! Form::text('lang', null, array('placeholder' => 'Langitude','class' => 'form-control')) !!}
+            <strong>Buka Jam:</strong>
+            {!! Form::date('open_sale') !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Latitude:</strong>
+            {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
         </div>
     </div>
 

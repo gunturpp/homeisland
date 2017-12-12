@@ -48,10 +48,10 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $event->judul}}</td>
-                <td><img src="{{ $event -> foto }}" style="height:50px;width:50px;text-align:center"></td>
+                <td><img src="{{ $event -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $event->deskripsi}}</td>
                 <td>{{ $event->lang}}</td>
-                <td>{{ $event->long}}</td>
+                <td>{{ $event->lat}}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('event.show',$event->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('event.edit',$event->id) }}">Edit</a>

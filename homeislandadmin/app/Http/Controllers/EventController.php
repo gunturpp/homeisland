@@ -59,9 +59,9 @@ class EventController extends Controller
         $user = Auth::user();
         request()->validate([
             'judul' => 'required',
-            'foto' => 'required|mimes:jpeg,png,jpg|max:15000',
+            'foto_1' => 'required|mimes:jpeg,png,jpg|max:15000',
             'deskripsi' => 'required',
-            'lang' => 'required',
+            'lat' => 'required',
             'long' => 'required',
             ]);
             $data = $request->only('judul', 'foto', 'deskripsi', 'lang', 'long');
