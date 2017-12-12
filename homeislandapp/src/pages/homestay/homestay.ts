@@ -35,6 +35,7 @@ export class HomestayPage {
   sumhome: any;
   ratinground: any;
   ratingroundData: any;
+  hargaHomestay: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
@@ -124,6 +125,7 @@ export class HomestayPage {
         this.id_homestay = this.dataHomestay[0].id_homestay;
         this.namaHomestay = this.dataHomestay[0].Nama_homestay;
         this.foto1 = this.dataHomestay[0].foto1;
+        this.hargaHomestay = this.dataHomestay[0].harga;
          
        
 
@@ -187,7 +189,12 @@ export class HomestayPage {
                     id_homestays: this.id_homestay,
                     id_user: this.iduser,
                     nama_homestay: this.namaHomestay,
-                    nama_user: this.namauser
+                    nama_user: this.namauser,
+                    durasi_nginap: this.navParams.get('duration'),
+                    checkin: this.navParams.get('checkin'),
+                    sumkamar: this.navParams.get('sumkamar'),
+                    harga: this.hargaHomestay
+                   // durasi_nginap: this.navParams.get('');
                   });
                   this.http.post("http://127.0.0.1/homeisland/backend/order.php",input).subscribe(data => {
                        loading.dismiss();

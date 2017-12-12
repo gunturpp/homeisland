@@ -20,6 +20,7 @@ export class ListhomePage {
   listhomestay : any;
   checkin: any;
   duration: any;
+  sumkamar: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
   }
 
@@ -31,10 +32,11 @@ export class ListhomePage {
     this.getdatahomestay();
     this.checkin = this.navParams.get('checkin');
     this.duration = this.navParams.get('duration');
+    this.sumkamar = this.navParams.get('sumkamar');
   }
 
   getdatahomestay(){
-    this.http.get("http://127.0.0.1/homeisland/backend/getSearchHomestay.php?namahome="+ this.navParams.get('destination')+"&kuota="+this.navParams.get('sumGuest')).subscribe(data => {
+    this.http.get("http://127.0.0.1/homeisland/backend/getSearchHomestay.php?namahome="+ this.navParams.get('destination')+"&kuota="+this.navParams.get('sumkamar')).subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status=="200"){
@@ -48,7 +50,8 @@ export class ListhomePage {
   }
 
   homestaylog(data){
-  	this.navCtrl.push(HomestayPage,data);
+
+  	this.navCtrl.push(HomestayPage,{id_homestay: data.id_homestay, checkin: this.checkin,duration: this.duration, sumkamar: this.sumkamar});
   }
 
 }
