@@ -22,12 +22,18 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Foto:</strong>
-                {{--  {{ $newss->handphone_number}}  --}}
-                <img src="{{ $events -> foto }}" style="height:50px;width:50px;text-align:center">
+                <strong>Date Start:</strong>
+                {{ $events->date_start}}
             </div>
         </div>
-        
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Date End:</strong>
+                {{ $events->date_end}}
+            </div>
+        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Deskripsi:</strong>
@@ -37,8 +43,29 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Langitude:</strong>
-                {{ $events->lang}}
+                <strong>Id Line:</strong>
+                {{ $events->id_line}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Id Instagram:</strong>
+                {{ $events->id_ig}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>web:</strong>
+                {{ $events->web}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Latitude:</strong>
+                {{ $events->lat}}
             </div>
         </div>
 
@@ -48,5 +75,29 @@
                 {{ $events->long}}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 1:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $events -> foto_1 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 2:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $events -> foto_2 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto 3:</strong>
+                {{--  {{ $newss->handphone_number}}  --}}
+                <img src="{{ $events -> foto_3 }}" style="height:50px;width:50px;text-align:center">
+            </div>
+        </div>
+
     </div>
 @endsection

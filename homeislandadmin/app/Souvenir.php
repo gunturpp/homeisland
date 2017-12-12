@@ -14,7 +14,7 @@ class Souvenir extends Model
      * @var array
      */
     protected $fillable = [
-        'admin', 'nama_toko', 'foto', 'alamat', 'lang', 'long'
+        'admin', 'nama_toko', 'open_sale', 'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3'
     ];
 
     /**

@@ -6,23 +6,24 @@
         </div>
     </div>
 
-    <div class="form-group">
-        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
-        {!! Form::label('foto', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
-        {!! Form::file('foto') !!}
-    </div>
-
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Alamat:</strong>
-            {!! Form::textarea('alamat', null, array('placeholder' => 'Alamat','class' => 'form-control')) !!}
+            <strong>Open Sale:</strong>
+            {!! Form::datetime('open_sale', null, array('placeholder' => 'example : 2017-12-12 13:13:13','class' => 'form-control')) !!}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Langitude:</strong>
-            {!! Form::text('lang', null, array('placeholder' => 'Langitude','class' => 'form-control')) !!}
+            <strong>Alamat:</strong>
+            {!! Form::textarea('alamat', null, array('placeholder' => 'Alamat Toko','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Latitude:</strong>
+            {!! Form::text('lat', null, array('placeholder' => 'Langitude','class' => 'form-control')) !!}
         </div>
     </div>
 
@@ -31,6 +32,24 @@
             <strong>Longitude:</strong>
             {!! Form::text('long', null, array('placeholder' => 'Longitude','class' => 'form-control')) !!}
         </div>
+    </div>
+
+    <div class="form-group">
+        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_1', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_1') !!}
+    </div>
+
+    <div class="form-group">
+        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_2', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_2') !!}
+    </div>
+
+    <div class="form-group">
+        {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
+        {!! Form::label('foto_3', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
+        {!! Form::file('foto_3') !!}
     </div>
 
     <!-- <div class="col-xs-12 col-sm-12 col-md-12">

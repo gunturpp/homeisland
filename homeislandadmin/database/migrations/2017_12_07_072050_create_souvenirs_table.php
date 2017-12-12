@@ -18,10 +18,13 @@ class CreateSouvenirsTable extends Migration
             $table->increments('id');
             $table->string('admin');                                
             $table->string('nama_toko');
-            $table->string('foto', 200) ;            
+            $table->timestamp('open_sale');
             $table->string('alamat');
-            $table->decimal('lang', 10, 7);
+            $table->decimal('lat', 10, 7);
             $table->decimal('long', 10, 7);            
+            $table->string('foto_1', 200) ;            
+            $table->string('foto_2', 200) ;            
+            $table->string('foto_3', 200) ;            
             $table->timestamps();
         });
     }

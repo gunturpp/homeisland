@@ -40,7 +40,7 @@
                     {{--  <th>Writter</th>  --}}
                     <th>Foto</th>
                     <th>Deskripsi Event</th>
-                    <th>Langitude</th>
+                    <th>Latitude</th>
                     <th>Latitude</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -48,9 +48,9 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $event->judul}}</td>
-                <td><img src="{{ $event -> foto }}" style="height:50px;width:50px;text-align:center"></td>
+                <td><img src="{{ $event -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $event->deskripsi}}</td>
-                <td>{{ $event->lang}}</td>
+                <td>{{ $event->lat}}</td>
                 <td>{{ $event->long}}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('event.show',$event->id) }}">Show</a>
