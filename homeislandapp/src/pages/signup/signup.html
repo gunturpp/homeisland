@@ -43,13 +43,13 @@
 							<p [hidden]="email.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Email dengan Benar</p>
 					<br>
 
-					<ion-item>
+					<!-- <ion-item>
 							<ion-label stacked><p class="Head">Username</p></ion-label>
 							<ion-input class="Head2" [(ngModel)]="user.username" pattern="[A-Za-z0-9\S]{1,25}" type="text" name="username" value="" #username="ngModel" spellcheck="false" autocapitalize="off"
 							required></ion-input>
 						</ion-item>
 			
-								<p [hidden]="username.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Username dengan Benar</p>
+								<p [hidden]="username.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Username dengan Benar</p> -->
 						<!--<br>-->
 	
 				 <ion-item>
@@ -68,7 +68,7 @@
 						</ion-item>
 						<p [hidden]="phone_number.valid || submitted == false" style="color: red; font-size: 12px;">Harap Masukan Nomor Telepon dengan Benar</p>
 						
-						<ion-item>
+						<!-- <ion-item>
 								<ion-label><p class="Head">Jenis Kelamin</p></ion-label>
 								<ion-select class="Head2"  [(ngModel)]="user.kelamin" [ngModelOptions]="{standalone:true}" (ionChange)="cekKelamin()">
 								 <ion-option value="laki-laki">Laki-laki</ion-option>
@@ -76,7 +76,7 @@
 								</ion-select>
 							 </ion-item>
 							 <p style="color: red; font-size: 12px;" ion-text [hidden]="choose_kelamin || submitted == false">
-									Harap Pilih Kota</p>
+									Harap Pilih Kota</p> -->
 						
 	
 					<!--<br>-->

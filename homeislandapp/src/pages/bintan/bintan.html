@@ -19,8 +19,8 @@
   <p class="pra">Food & Restaurant</p>  
     <div width="80%" id="scroll" >
 
-        <img class="image" width="25%" src="../../assets/pic/1.jpg" (click)="wisata(data)">
-        <img class="image" width="25%" src="../../assets/pic/2.jpg">
+        <img class="image" width="25%" src="http://127.0.0.1:8000/{{data.foto_2}}" *ngFor="let data of food" (click)="foods(data)">
+        <!-- <img class="image" width="25%" src="../../assets/pic/2.jpg">
         <img class="image" width="25%" src="../../assets/pic/3.jpg">
         <img class="image" width="25%" src="../../assets/pic/4.jpg">
         <img class="image" width="25%" src="../../assets/pic/2.jpg">
@@ -34,13 +34,13 @@
         <img class="image" width="25%" src="../../assets/pic/3.jpg">
         <img class="image" width="25%" src="../../assets/pic/5.jpg">
         <img class="image" width="25%" src="../../assets/pic/6.jpg">
-        <img class="image" width="30%" src="../../assets/pic/7.jpg">
+        <img class="image" width="30%" src="../../assets/pic/7.jpg"> -->
   </div>
 
   <div width="80%" id="scroll" >
       
-      <img class="image" width="25%" src="../../assets/pic/1.jpg">
-      <img class="image" width="25%" src="../../assets/pic/2.jpg">
+    <img class="image" width="25%" src="http://127.0.0.1:8000/{{data.foto_1}}" *ngFor="let data of food" (click)="foods(data)">    
+      <!-- <img class="image" width="25%" src="../../assets/pic/2.jpg">
       <img class="image" width="25%" src="../../assets/pic/3.jpg">
       <img class="image" width="25%" src="../../assets/pic/4.jpg">
       <img class="image" width="25%" src="../../assets/pic/5.jpg">
@@ -54,15 +54,15 @@
       <img class="image" width="25%" src="../../assets/pic/2.jpg">
       <img class="image" width="25%" src="../../assets/pic/5.jpg">
       <img class="image" width="25%" src="../../assets/pic/1.jpg">
-      <img class="image" width="25%" src="../../assets/pic/7.jpg">
+      <img class="image" width="25%" src="../../assets/pic/7.jpg"> -->
         </div>
 
 
         <p class="pra">Recreations</p>  
         <div width="80%" id="scroll" >
     
-            <img class="image" width="25%" src="../../assets/pic/1.jpg">
-            <img class="image" width="25%" src="../../assets/pic/2.jpg">
+            <img class="image" width="25%" src="http://127.0.0.1:8000/{{data1.foto_1}}" *ngFor="let data1 of recreation" (click)="wisata(data1)">
+            <!-- <img class="image" width="25%" src="../../assets/pic/2.jpg">
             <img class="image" width="25%" src="../../assets/pic/3.jpg">
             <img class="image" width="25%" src="../../assets/pic/4.jpg">
             <img class="image" width="25%" src="../../assets/pic/5.jpg">
@@ -76,7 +76,7 @@
             <img class="image" width="25%" src="../../assets/pic/3.jpg">
             <img class="image" width="25%" src="../../assets/pic/3.jpg">
             <img class="image" width="25%" src="../../assets/pic/5.jpg">
-            <img class="image" width="25%" src="../../assets/pic/5.jpg">
+            <img class="image" width="25%" src="../../assets/pic/5.jpg"> -->
       </div>
     
       <div width="80%" id="scroll" >

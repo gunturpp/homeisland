@@ -28,6 +28,7 @@ export class SignupPage {
    choose_kelamin = false;
    lihat = true;
    status: string;
+   c_password: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -43,34 +44,80 @@ export class SignupPage {
                 });
 
                 if (form.valid) {
+                  this.c_password = this.user.password;
                   console.log(this.user.nama);
                   console.log(this.user.hp);
                   console.log(this.user.email);
                   loading.present();
-                  let input = JSON.stringify({
-                    nama: this.user.nama,
-                    username: this.user.username,
+                  let input = ({
+                    name: this.user.nama,
+                    // username: this.user.username,
                     password: this.user.password,
-                    kelamin  : this.user.kelamin,
+                    c_password: this.c_password,
+                    // kelamin  : this.user.kelamin,
                     email: this.user.email,
                     hp : this.user.hp,
-                    status: this.user.role="tourist"
+                    // status: this.user.role="tourist"
                   });
-                  this.http.post("http://127.0.0.1/homeisland/backend/signUpInfo.php",input).subscribe(data => {
-                       loading.dismiss();
-                       let response = data.json();
-                       if(response.status == 200){
-                         let user=response.data;
-                        // this.userDataProvider.login(user.id,user.username,user.status);
-                        //  this.navCtrl.setRoot(LocationSelect);
+                  let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+                  
+                  this.http.post("http://127.0.0.1:8000/api/register", input, headers).subscribe(data => {
+                    
+                    // this.storage.set(this.HAS_LOGGED_IN, true); 
+                    // this.loginState = true;        
+                    
+                    let response = data.json();
+                    console.log(response);
+                    this.navCtrl.setRoot(LoginPage, {}, { animate: true, direction: 'forward' });        
+                    loading.dismiss();
+                    this.showAlert("Pendaftaran Berhasil");
+                    if (response.status == 200) {
+                      let user = response.data;
+                      //this.userDataProvider.login(user.id,user.username, user.nama, user.email, user.hp, user.kelamin);
+                      console.log(user);
+            
+                      this.navCtrl.setRoot(TabsPage, {}, { animate: true, direction: 'forward' });
+                      
+                      // if(response.data.user_status =="customer"){
+                      //  this.navCtrl.push(TabsCustomer);
+                      // }
+                      // else{
+                      //   this.navCtrl.push(TabsPage);
+                      //}
+            
+            
+                    } else {
+                      this.showAlert(response.message);
+                    }
+                  }, err => {
+                    loading.dismiss();
+                    this.showError(err);
+                  });
 
-                       }
-                       this.showAlert(response.message);
-                       this.navCtrl.setRoot(LoginPage,{},{animate:true, direction:'forward'});
-        }, err => {
-           loading.dismiss();
-           this.showError(err);
-        });
+
+
+
+
+
+
+        //           this.http.post("http://127.0.0.1/homeisland/backend/signUpInfo.php",input).subscribe(data => {
+        //                loading.dismiss();
+        //                let response = data.json();
+        //                if(response.status == 200){
+        //                  let user=response.data;
+        //                 // this.userDataProvider.login(user.id,user.username,user.status);
+        //                 //  this.navCtrl.setRoot(LocationSelect);
+
+        //                }
+        //                this.showAlert(response.message);
+        //                this.navCtrl.setRoot(LoginPage,{},{animate:true, direction:'forward'});
+        // }, err => {
+        //    loading.dismiss();
+        //    this.showError(err);
+        // });
+
+
+
     }
   }
   showError(err: any){

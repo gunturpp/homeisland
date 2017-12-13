@@ -110,7 +110,7 @@ export class LoginPage {
   showError(err: any) {
     err.status == 0 ?
       this.showAlert("Tidak ada koneksi. Cek kembali sambungan Internet perangkat Anda") :
-      this.showAlert("Tidak dapat menyambungkan ke server. Mohon muat kembali halaman ini");
+      this.showAlert("Password salah, mohon coba lagi");
   }
   showAlert(val) {
     let toast = this.toastCtrl.create({

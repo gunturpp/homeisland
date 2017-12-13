@@ -24,10 +24,9 @@ declare var google;
 export class DetailBintanPage {
 
   haha: any;
-  data: string;
+  data: any;
   nama_wisata: string;
   alamat: string; 
-  nama_kabupaten : string;
   options : GeolocationOptions;
   currentPos : Geoposition;
   @ViewChild('map') mapElement : ElementRef;
@@ -36,6 +35,15 @@ export class DetailBintanPage {
   places : Array<any> ;
   langt : string;
   longt : string;
+  foto_2: any;
+  foto_3: any;
+  hours : any;
+  minutes : any;
+  status : number = 0;
+  times : number;
+  tutup : number;
+  buka : number;
+  
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -43,8 +51,20 @@ export class DetailBintanPage {
               private geolocation: Geolocation
             ) {
               this.data = this.navParams.data;
-              this.nama_kabupaten = this.data;
+              this.langt = this.data.lat;
+              this.longt = this.data.long;
+              console.log(this.data.open_sale_hour);
               console.log(this.data);
+
+              this.hours = new Date().getHours();
+              this.minutes = new Date().getMinutes();
+
+              this.times = (this.hours*3600 + this.minutes*60);
+              this.buka = (this.data.open_hour*3600 + this.data.open_minute*60);
+              this.tutup = (this.data.close_hour*3600 + this.data.close_minute*60);
+
+              this.cekBuka(this.times, this.buka, this.tutup);
+              
   }
 
   ionViewDidLoad() {
@@ -53,31 +73,39 @@ export class DetailBintanPage {
   }
 
   ionViewWillEnter() {
-    this.getdataExplore();
+  
    }
 
 
-   getdataExplore(){
-     let data = JSON.stringify({
-                      nama_kabupaten: this.data 
-                  });
-      
-    this.http.get("http://127.0.0.1/homeisland/backend/getExplore.php?nama_kabupaten="+ this.data).subscribe(data => {
-      let response = data.json();
-      console.log(response);
-      if(response.status=="200"){
-        this.haha = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        this.nama_wisata = this.haha[0].nama_wisata;
-        this.alamat = this.haha[0].alamat;
-        this.langt = this.haha[0].langt;
-        this.longt = this.haha[0].longt;
-        console.log(this.langt);
-      }
-      else{
-        console.log("Error coy");
-      }
-    });
+   cekBuka(times, buka, tutup){
+    if(buka <= times && times <= tutup){
+        this.status = 1;
+    }
+  
   }
+
+
+  //  getdataExplore(){
+  //    let data = JSON.stringify({
+  //                     nama_kabupaten: this.data 
+  //                 });
+      
+  //   this.http.get("http://127.0.0.1/homeisland/backend/getExplore.php?nama_kabupaten="+ this.data).subscribe(data => {
+  //     let response = data.json();
+  //     console.log(response);
+  //     if(response.status=="200"){
+  //       this.haha = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+  //       this.nama_wisata = this.haha[0].nama_wisata;
+  //       this.alamat = this.haha[0].alamat;
+  //       this.langt = this.haha[0].langt;
+  //       this.longt = this.haha[0].longt;
+  //       console.log(this.langt);
+  //     }
+  //     else{
+  //       console.log("Error coy");
+  //     }
+  //   });
+  // }
   
   // addMap(lat,long){
     

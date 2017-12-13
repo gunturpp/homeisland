@@ -17,6 +17,8 @@ import { Http, Headers,RequestOptions } from '@angular/http'
 })
 export class ExplorePage {
   data : string;
+  // explore : any;
+  kabupatens: any;
   @ViewChild('map') mapElement: ElementRef;
 
   constructor(public navCtrl: NavController, 
@@ -26,26 +28,15 @@ export class ExplorePage {
               public loadCtrl: LoadingController
             ) {
               // this.getdataNews();
+              this.kabupatens = [];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExplorePage');
-    this.getdataExplore();
     
   }
 
-  getdataExplore(){
-    
-   // this.http.get("http://127.0.0.1/homeisland/backend/getListNews.php").subscribe(data => {
-     this.http.get("http://127.0.0.1:8000/api/get-explores").subscribe(data => {
-       let response = data.json();
-        console.log(response);
-       if(response.status=="200"){
-       }
-     });
- 
-     
-  }
+
 
   wisata(data){
     this.navCtrl.push('BintanPage', data);
