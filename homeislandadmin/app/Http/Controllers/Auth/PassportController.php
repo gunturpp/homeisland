@@ -44,6 +44,7 @@ class PassportController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'gender' => 'required',
             'c_password' => 'required|same:password',
             'hp' => 'required|min:10|max:13',
         ]);
@@ -57,8 +58,8 @@ class PassportController extends Controller
         $input['password'] = bcrypt($input['password']);
         // $input['remember_token'] = $user->createToken('MyApp')->accessToken;
         $user = User::create($input);
-        $success['token'] = $user->createToken('MyApp')->accessToken;
-        $success['name'] = $user->name;
+        // $success['token'] = $user->createToken('MyApp')->accessToken;
+        $success = $user;
 
         return response()->json(['success'=>$success], $this->successStatus);
 
