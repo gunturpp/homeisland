@@ -20,7 +20,11 @@ class Booking extends Model
         'id_homestay',
         'id_user',
         'status',
-    ];
+        'nama_pemesan',
+        'nama_homestay',
+        'date_checkin',
+        'sum_menginap',
+        'sum_room'    ];
 
     /**
      * The attributes that should be hidden for arrays.

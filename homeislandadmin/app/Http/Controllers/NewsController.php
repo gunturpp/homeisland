@@ -77,8 +77,6 @@ class NewsController extends Controller
                 $photo1 = $fileName;
                 $data['admin'] = $user->email;
                 // return $getPath;
-
-    
             }
 
         News::create($data);

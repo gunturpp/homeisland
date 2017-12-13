@@ -20,6 +20,11 @@ class CreateHomestaysTable extends Migration
             $table->string('address');
             $table->decimal('price', 12, 2);
             $table->integer('kuota');
+            $table->string('nama_pemesan');
+			$table->string('nama_homestay');
+			$table->string('date_checkin');
+			$table->integer('sum_menginap');
+            $table->integer('sum_room');            
             $table->string('foto_1') ;            
             $table->string('foto_2') -> nullable();            
             $table->string('foto_3') -> nullable();            
