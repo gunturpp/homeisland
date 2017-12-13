@@ -238,7 +238,7 @@ export class HomestayPage {
   order2(){
     this.navCtrl.push(OrderPage, {
                     id_homestays: this.id_homestay,
-                    //id_user: this.iduser,
+                    //id_user: this.navParams.get('email'),
                     id_user: 1,
                     nama_homestay: this.namaHomestay,
                     nama_user: this.navParams.get('email'),
