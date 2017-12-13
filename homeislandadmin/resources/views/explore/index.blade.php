@@ -36,8 +36,8 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
+                    <th>admin</th>
                     <th>Nama Tempat Wisata</th>
-                    {{--  <th>Writter</th>  --}}
                     <th>Foto</th>
                     <th>Alamat</th>
                     <th>Langitude</th>
@@ -47,10 +47,11 @@
             @foreach($explores as $explore)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $explore->nama_wisata}}</td>
-                <td><img src="{{ $explore -> foto }}" style="height:50px;width:50px;text-align:center"></td>
+                <td>{{ $explore->admin}}</td>
+                <td>{{ $explore->nama_tempat}}</td>
+                <td><img src="{{ $explore -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $explore->alamat}}</td>
-                <td>{{ $explore->lang}}</td>
+                <td>{{ $explore->lat}}</td>
                 <td>{{ $explore->long}}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('explore.show',$explore->id) }}">Show</a>

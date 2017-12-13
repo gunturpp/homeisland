@@ -4,28 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Rating extends Model
 {
-    protected $table = 'events';
+    protected $table = 'ratings';
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'admin',
-        'judul',
-        'date_start',
-        'date_end',
-        'deskripsi',
-        'id_line',
-        'id_ig',
-        'web',
-        'lat',
-        'long',
-        'foto_1',
-        'foto_2',
-        'foto_3',
+        'id',
+        'id_user',
+        'id_homestay',
+        'rating',
+        'comment',
+        'hide',
+        'average',
+        'created_at',
     ];
 
     /**
@@ -34,6 +30,6 @@ class Event extends Model
      * @var array
      */
     protected $hidden = [
-        // 'remember_token',
+        'remember_token',
     ];
 }

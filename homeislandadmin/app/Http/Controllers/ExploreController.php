@@ -59,7 +59,7 @@ class ExploreController extends Controller
         $user = Auth::user();
         request()->validate([
             'kabupaten' => 'required',
-            'nama_tempat' => 'required',
+            'nama_tempat' => 'required|max:100',
             'foto_1' => 'required|mimes:jpeg,png,jpg|max:15000',
             'foto_2' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
@@ -69,8 +69,8 @@ class ExploreController extends Controller
             'category' => 'required',
             'open_sale' => 'required',
             ]);
-            $data = $request->only('kabupaten','nama_wisata', 
-            'foto_1', 'alamat', 'lat', 'long','category','nama_tempat'.'open_sale');
+            $data = $request->only('kabupaten', 'nama_tempat','foto_1',
+            'foto_2','foto_3', 'alamat', 'lat', 'long','category','open_sale');
             
             // $data = $request->except(['image']);
             $photo1 = "";

@@ -4,28 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Bank extends Model
 {
-    protected $table = 'events';
+    protected $table = 'banks';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'admin',
-        'judul',
-        'date_start',
-        'date_end',
-        'deskripsi',
-        'id_line',
-        'id_ig',
-        'web',
-        'lat',
-        'long',
-        'foto_1',
-        'foto_2',
-        'foto_3',
+        'id',
+        'id_homestay',
+        'no_rekening',
+        'jenis_bank'
     ];
 
     /**
