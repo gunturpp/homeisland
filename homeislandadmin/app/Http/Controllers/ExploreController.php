@@ -160,7 +160,7 @@ class ExploreController extends Controller
         request()->validate([
             'kabupaten' => 'required',
             'category' => 'required|max:15',
-            'nama_tempat' => 'required',
+            'nama_tempat' => 'required|max:100',
             'open_sale_hour' => 'required|min:2|max:2',
             'open_sale_minute' => 'required|min:2|max:2',
             'close_sale_hour' => 'required|min:2|max:2',

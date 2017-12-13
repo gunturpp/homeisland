@@ -36,8 +36,9 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
-                    <th>admin</th>
-                    <th>Nama Tempat Wisata</th>
+                    <th>Admin</th>
+                    <th>Kategori</th>
+                    <th>Nama Tempat</th>
                     <th>Foto</th>
                     <th>Alamat</th>
                     <th>Kabupaten</th>
@@ -49,6 +50,7 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $explore->admin}}</td>
+                <td>{{ $explore->category}}</td>
                 <td>{{ $explore->nama_tempat}}</td>
                 <td><img src="{{ $explore -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $explore->alamat}}</td>

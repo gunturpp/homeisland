@@ -16,7 +16,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nama Tempat Wisata:</strong>
-            {!! Form::text('nama_tempat', null, array('placeholder' => 'Kategori','class' => 'form-control')) !!}
+            {!! Form::text('nama_tempat', null, array('placeholder' => 'Nama Tempat','class' => 'form-control')) !!}
         </div>
     </div>
 
@@ -81,7 +81,7 @@
             {!! Form::file('foto', null) !!}
         </div>
     </div> -->
-{{--  
+
     @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -91,7 +91,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif  --}}
+        @endif
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
