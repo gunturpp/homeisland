@@ -16,7 +16,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nama Tempat Wisata:</strong>
-            {!! Form::text('nama_tempat', null, array('placeholder' => 'Nama Tempat Wisata','class' => 'form-control')) !!}
+            {!! Form::text('nama_tempat', null, array('placeholder' => 'Kategori','class' => 'form-control')) !!}
         </div>
     </div>
 
