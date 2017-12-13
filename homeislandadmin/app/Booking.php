@@ -14,11 +14,12 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'id_booking',
+        'kode_booking',
+        'total_price',
+        'id_user',
         'id_homestay',
         'id_user',
-        'booking_code',
-        'id',
+        'status',
     ];
 
     /**

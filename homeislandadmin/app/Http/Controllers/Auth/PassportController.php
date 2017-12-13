@@ -180,38 +180,56 @@ class PassportController extends Controller
 			return compact('status','ratings');
 	}
 	
-	
 	public function postBookings(Request $request)
-		{
-		$token = $request->header('Authorization');
-		$user = Auth::user();
+    {   
+        
+        $bookings = Booking::create($request->json()->all());
+		$success = $bookings;  
+		// $bookings['kode_booking'] = '12345';
+		// $bookings['id_user']  = 'mobile@gmail.com';
+		// $bookings['id_homestay'] = 'bintan homestay';
+		// $bookings['status'] = '1';
+		// $bookings['total_price'] = '100000';
+		// $success = $bookings;  
+		// $success->save();		
+        if(!$success) {
+            return \Response::json(['message'=>"error saving"],500);
+        } else { 
+            
+            return \Response::json(['message'=>"success"],200);
+        }
+    }
+	// public function postBookings(Request $request)
+	// 	{
+	// 	$token = $request->header('Authorization');
+	// 	$user = Auth::user();
 		
-		// die($token);
-		// $data = $request->all();
-		// die($data);
-		if($token!=null){
+	// 	// die($token);
+	// 	// $data = $request->all();
+	// 	// die($data);
+	// 	if($token!=null){
 		
-				// if (isset($request['id_homestay']) && isset($request['status']) && isset($request['kode_booking'])
-				// 				&& isset($request['id_user']) 
-				// 				&& isset($request['total_price'])){
-				// $data = $request->only('id_user');
-				// $data->id = $request->input("id");
-				$data->id_user = $user->email;
-				$data->kode_booking = $request->input("kode_booking");
-				$kode = substr(md5(uniqid(mt_rand(), true)) , 0, 10);
-				$data->kode_booking = $kode;
-				$data->total_price = $request->input("total_price");
-				$data->status = $request->input("status");
-				$data->save();
-				$message = "success add order";
-				// }
-				// else{
-				// 	$message = "parameter not complete";
-				// }
-		}
-		else {
-			$message = "no user detected";
-		}
-		return compact('users','bookings', 'message');
-	}
+	// 			// if (isset($request['id_homestay']) && isset($request['status']) && isset($request['kode_booking'])
+	// 			// 				&& isset($request['id_user']) 
+	// 			// 				&& isset($request['total_price'])){
+	// 			// $data = $request->only('id_user');
+	// 			// $data->id = $request->input("id");
+	// 			$data->id_user = $user->email;
+	// 			$data->kode_booking = $request->input("kode_booking");
+	// 			$kode = substr(md5(uniqid(mt_rand(), true)) , 0, 10);
+	// 			$data->kode_booking = $kode;
+	// 			$data->total_price = $request->input("total_price");
+	// 			$data->status = $request->input("status");
+	// 			$data->save();
+	// 			$message = "success add order";
+	// 			// }
+	// 			// else{
+	// 			// 	$message = "parameter not complete";
+	// 			// }
+	// 	}
+	// 	else {
+	// 		$message = "no user detected";
+	// 	}
+	// 	return compact('users','bookings', 'message');
+	// }
 }
