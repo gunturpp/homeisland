@@ -1,6 +1,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Nama Kabupaten:</strong>
+                {!! Form::text('kabupaten', null, array('placeholder' => 'Nama Kabupaten','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Nama Homestay:</strong>
                 {!! Form::text('nama_homestay', null, array('placeholder' => 'Nama Homestay','class' => 'form-control')) !!}
             </div>
@@ -9,7 +16,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Harga:</strong>
-                {!! Form::number('harga', null, array('placeholder' => 'harga','class' => 'form-control')) !!}
+                {!! Form::number('price', null, array('placeholder' => 'Harga','class' => 'form-control')) !!}
             </div>
         </div>
 
@@ -22,8 +29,29 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Langitude:</strong>
-                {!! Form::text('lang', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
+                <strong>Fasilitas:</strong>
+                {!! Form::number('id_fasilitas', null, array('placeholder' => 'Fasilitas','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Rating:</strong>
+                {!! Form::number('id_rating', null, array('placeholder' => 'Rating','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Alamat:</strong>
+                {!! Form::textarea('address', null, array('placeholder' => 'Alamat','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Latitude:</strong>
+                {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
             </div>
         </div>
 

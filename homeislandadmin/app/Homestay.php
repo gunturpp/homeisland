@@ -12,7 +12,9 @@ class Homestay extends Model
      * @var array
      */
     protected $fillable = [
-        'id','kabupaten','nama_homestay',  'harga', 'kuota', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3'
+        'admin', 'kabupaten','nama_homestay', 'price', 'kuota', 
+        'id_fasilitas', 'id_rating',
+        'address', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3'
     ];
 
     /**
