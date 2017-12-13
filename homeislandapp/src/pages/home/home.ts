@@ -77,10 +77,12 @@ this.http.get("http://127.0.0.1:8000/api/get-users").subscribe(data => {
     }
  }
     this.iduser = this.users.id;
-    this.nama = this.users.nama
+    this.nama = this.users.name
+    console.log(this.nama);
     this.hp = this.users.hp;
     this.gender = this.users.gender;
 
+    this.storage.set('id',this.iduser);    
     this.storage.set('nama',this.nama);
     this.storage.set('hp',this.hp);
     this.storage.set('gender',this.gender);
