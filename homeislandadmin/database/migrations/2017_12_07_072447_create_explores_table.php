@@ -19,7 +19,10 @@ class CreateExploresTable extends Migration
             $table->string('admin');
             $table->string('kategori');
             $table->string('nama_tempat');
-            $table->timestamps('open_sale');
+            $table->string('open_sale_hour');
+            $table->string('open_sale_minute');
+            $table->string('close_sale_hour');
+            $table->string('close_sale_minute');
             $table->string('foto_1') ;            
             $table->string('foto_2') ;            
             $table->string('foto_3') ;            

@@ -40,6 +40,7 @@
                     {{--  <th>Writter</th>  --}}
                     <th>Foto</th>
                     <th>Alamat</th>
+                    <th>Kabupaten</th>
                     <th>Langitude</th>
                     <th>Latitude</th>
                     <th width="280px">Action</th>
@@ -47,10 +48,11 @@
             @foreach($explores as $explore)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $explore->nama_wisata}}</td>
+                <td>{{ $explore->nama_tempat}}</td>
                 <td><img src="{{ $explore -> foto }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $explore->alamat}}</td>
-                <td>{{ $explore->lang}}</td>
+                <td>{{ $explore->kabupaten}}</td>
+                <td>{{ $explore->lat}}</td>
                 <td>{{ $explore->long}}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('explore.show',$explore->id) }}">Show</a>
