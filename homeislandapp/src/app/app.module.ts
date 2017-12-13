@@ -23,6 +23,7 @@ import { UpdateAkunPage} from '../pages/update-akun/update-akun';
 import { ListhomePage} from '../pages/listhome/listhome';
 import {HomestayPage} from '../pages/homestay/homestay';
 import {DetailNewsPage} from '../pages/detail-news/detail-news';
+import {DetailEventPage} from '../pages/detail-event/detail-event';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     HomestayPage,
     DetailNewsPage,
     TesPage,
-    ContactEditPage
+    ContactEditPage,
+    DetailEventPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -63,7 +65,8 @@ import {DetailNewsPage} from '../pages/detail-news/detail-news';
     HomestayPage,
     DetailNewsPage,
     TesPage,
-    ContactEditPage
+    ContactEditPage,
+    DetailEventPage
   ],
   providers: [
     StatusBar,

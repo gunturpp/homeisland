@@ -17,12 +17,12 @@
         <br>
         <h5 class="h5">Nears You</h5>
 
-        <ion-card item (click)="souvenir(data = 'Bintan Store')">
-            <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title">Souvenir Bintan</div>
-            <div class="card-subtitle">2.5KM</div>
+        <ion-card *ngFor="let data of fix"   item (click)="souvenir(data)">
+            <img class="pic" src="http://127.0.0.1:8000/{{data.foto_1}}">
+            <div class="card-title">{{data.nama_toko}}</div>
+            <div class="card-subtitle">{{data.jarak}}KM</div>
           </ion-card>
-          <ion-card (click)="souvenir()">
+          <!-- <ion-card (click)="souvenir()">
               <img  class="pic" src="../assets/pic/market2.jpg">
               <div class="card-title">Souvenir Tanjung Pinang</div>
               <div class="card-subtitle">5KM</div>
@@ -31,6 +31,6 @@
                 <img  class="pic" src="../assets/pic/5.jpg">
                 <div class="card-title">Souvenir Riau</div>
                 <div class="card-subtitle">4KM</div>
-            </ion-card>
+            </ion-card> -->
     </ion-content>
     

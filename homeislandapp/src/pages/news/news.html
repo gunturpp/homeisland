@@ -52,9 +52,9 @@
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
-          <ion-card item (click)="detailnews(data)" *ngFor="let data of news">
-            <img class="pic" src="http://127.0.0.1:8000/{{data.foto}}">
-            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{judul}}i</p></div>
+          <ion-card item (click)="detailevent(data)" *ngFor="let data of events">
+            <img class="pic" src="http://127.0.0.1:8000/{{data.foto_1}}">
+            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{data.judul}}</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
 
