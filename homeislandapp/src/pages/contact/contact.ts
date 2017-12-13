@@ -21,6 +21,8 @@ export class ContactPage {
   hp : string;
   email : string;
   iduser : any;
+  user : any;
+  users : any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController, 
@@ -29,12 +31,15 @@ export class ContactPage {
               public loadCtrl: LoadingController,
               public data: UserDataProvider,
               public app: App              
-            ) {}
+            ) {
+
+              this.users = [];
+            }
 ionViewWillEnter() {
     
-    this.getUsername();
+    // this.getUsername();
     this.getEmail();
-    this.getiduser();    
+    // this.getiduser();    
     // this.getNama();
     // this.getKelamin();
     // this.getEmail();
@@ -42,21 +47,21 @@ ionViewWillEnter() {
     // this.getdataAkun();
    }
 
-   getiduser(){
-    this.data.getIDuser().then((id) => {
-    this.iduser = id;
-    console.log(id);
-    this.getdataAkun();
-  });
-}
+//    getiduser(){
+//     this.data.getIDuser().then((id) => {
+//     this.iduser = id;
+//     console.log(id);
+//     // this.getdataAkun();
+//   });
+// }
 
-   getUsername() {
-    this.data.getUsername().then((user) => {
-      this.username = user;
-      console.log(this.username);
+//    getUsername() {
+//     this.data.getUsername().then((user) => {
+//       this.username = user;
+//       console.log(this.username);
      
-    });
-  }
+//     });
+//   }
   // getNama() {
   //   this.data.getNama().then((nama) => {
   //     this.nama = nama;
@@ -75,7 +80,31 @@ ionViewWillEnter() {
     this.data.getEmail().then((email) => {
       this.email = email;
       console.log(this.email)
+      this.binding();
     });
+  }
+
+
+  binding(){
+     // this.http.get("http://127.0.0.1/homeisland/backend/getListNews.php").subscribe(data => {
+   this.http.get("http://127.0.0.1:8000/api/get-users").subscribe(data => {
+    let response = data.json();
+    this.user= response.users
+   //  this.news = response.newss;
+   //  this.data = this.news[0];
+   //  this.judul = this.news[0].judul;
+   //  this.foto  = this.news.foto
+    console.log("events", response);
+     console.log(this.user.length);
+     console.log(this.user.email);
+
+    for(var i=0  ; i < this.user.length ; i++){
+       if(this.user[i].email == this.email){
+         this.users = this.user[i];
+       }
+    }
+    console.log(this.users)
+  });
   }
 
   // getPhoneNumber() {
@@ -86,55 +115,55 @@ ionViewWillEnter() {
   // }
 
 
-   getdataAkun(){
-    let data = JSON.stringify({
-      username: this.username 
-  });
+  //  getdataAkun(){
+  //   let data = JSON.stringify({
+  //     username: this.username 
+  // });
     
-    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?id="+ this.iduser).subscribe(data => {
-      let response = data.json();
-      console.log(response);
-      if(response.status=="200"){
-        this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        console.log(this.akun[0].hp);
-        this.hp = this.akun[0].hp;
-        this.email = this.akun[0].email;
-        this.kelamin = this.akun[0].kelamin;
-        this.nama = this.akun[0].nama;
-      }
-    });
-   }
-   updateAkun(dataAkun){
-     this.navCtrl.push(UpdateAkunPage,dataAkun);
-   }
-  deleteAkun(dataAkun){
-   //  let akun1 = dataAkun.json();
-     let loading = this.loadCtrl.create({
-                    content: 'Tunggu sebentar...'
-                });
-     let input = JSON.stringify({
-                      id: this.navParams.get('id')
-                  });
+  //   this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?id="+ this.iduser).subscribe(data => {
+  //     let response = data.json();
+  //     console.log(response);
+  //     if(response.status=="200"){
+  //       this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+  //       console.log(this.akun[0].hp);
+  //       this.hp = this.akun[0].hp;
+  //       this.email = this.akun[0].email;
+  //       this.kelamin = this.akun[0].kelamin;
+  //       this.nama = this.akun[0].nama;
+  //     }
+  //   });
+  //  }
+  //  updateAkun(dataAkun){
+  //    this.navCtrl.push(UpdateAkunPage,dataAkun);
+  //  }
+  // deleteAkun(dataAkun){
+  //  //  let akun1 = dataAkun.json();
+  //    let loading = this.loadCtrl.create({
+  //                   content: 'Tunggu sebentar...'
+  //               });
+  //    let input = JSON.stringify({
+  //                     id: this.navParams.get('id')
+  //                 });
 
-      this.http.post("http://127.0.0.1/homeisland/backend/deleteAkun.php",input).subscribe(data => {
-      let response = data.json();
-      console.log(response);
-      if(response.status=="200"){
-        //this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        this.showAlert(response.message);
-        this.navCtrl.setRoot(TabsPage,{},{animate:true, direction:'forward'});
-      }
-    },err => {
-           loading.dismiss();
-           this.showError(err);
-        }); 
-   }
+  //     this.http.post("http://127.0.0.1/homeisland/backend/deleteAkun.php",input).subscribe(data => {
+  //     let response = data.json();
+  //     console.log(response);
+  //     if(response.status=="200"){
+  //       //this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+  //       this.showAlert(response.message);
+  //       this.navCtrl.setRoot(TabsPage,{},{animate:true, direction:'forward'});
+  //     }
+  //   },err => {
+  //          loading.dismiss();
+  //          this.showError(err);
+  //       }); 
+  //  }
 
-   showError(err: any){
-    err.status==0?
-    this.showAlert("Tidak ada koneksi. Cek kembali sambungan Internet perangkat Anda"):
-    this.showAlert("Tidak dapat menyambungkan ke server. Mohon muat kembali halaman ini");
-  }
+  //  showError(err: any){
+  //   err.status==0?
+  //   this.showAlert("Tidak ada koneksi. Cek kembali sambungan Internet perangkat Anda"):
+  //   this.showAlert("Tidak dapat menyambungkan ke server. Mohon muat kembali halaman ini");
+  // }
 
    showAlert(message){
      let toast = this.toastCtrl.create({

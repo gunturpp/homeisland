@@ -131,6 +131,13 @@ export class UserDataProvider {
       return value;
     });
   }
+
+  getGender() {
+    return this.storage.get('gender').then((value) => {
+      return value;
+    });
+  }
+
   getStatus() {
     return this.storage.get('user_status').then((value) => {
       return value;
