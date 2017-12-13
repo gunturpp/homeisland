@@ -18,7 +18,10 @@ class CreateSouvenirsTable extends Migration
             $table->increments('id');
             $table->string('admin');                                
             $table->string('nama_toko');
-            $table->timestamp('open_sale');
+            $table->string('open_sale_hour');
+            $table->string('open_sale_minute');
+            $table->string('close_sale_hour');
+            $table->string('close_sale_minute');
             $table->string('alamat');
             $table->decimal('lat', 10, 7);
             $table->decimal('long', 10, 7);            
