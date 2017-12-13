@@ -59,7 +59,10 @@ class SouvenirController extends Controller
         $user = Auth::user();
         request()->validate([
             'nama_toko' => 'required',
-            'open_sale' => 'required',
+            'open_sale_hour' => 'required|min:2|max:2',
+            'open_sale_minute' => 'required|min:2|max:2',
+            'close_sale_hour' => 'required|min:2|max:2',
+            'close_sale_minute' => 'required|min:2|max:2',
             'alamat' => 'required',
             'lat' => 'required',
             'long' => 'required',
@@ -67,7 +70,7 @@ class SouvenirController extends Controller
             'foto_2' => 'nullable|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|mimes:jpeg,png,jpg|max:15000',
             ]);
-            $data = $request->only('nama_toko', 'open_sale', 'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3');
+            $data = $request->only('nama_toko', 'open_sale_date', 'open_sale_hour', 'close_sale_date', 'close_sale_hour', 'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3');
             
             // $data = $request->except(['image']);
             $photo1 = "";
@@ -155,7 +158,10 @@ class SouvenirController extends Controller
         $user = Auth::user();
         request()->validate([
             'nama_toko' => 'required',
-            'open_sale' => 'required',
+            'open_sale_hour' => 'required|min:2|max:2',
+            'open_sale_minute' => 'required|min:2|max:2',
+            'close_sale_hour' => 'required|min:2|max:2',
+            'close_sale_minute' => 'required|min:2|max:2',
             'alamat' => 'required',
             'lat' => 'required',
             'long' => 'required',
@@ -163,7 +169,7 @@ class SouvenirController extends Controller
             'foto_2' => 'nullable|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|mimes:jpeg,png,jpg|max:15000',
             ]);
-            $data = $request->only('nama_toko', 'open_sale', 'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3');
+            $data = $request->only('nama_toko', 'open_sale_date', 'open_sale_hour', 'close_sale_date', 'close_sale_hour', 'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3');
             
             // $data = $request->except(['image']);
             $photo1 = "";

@@ -22,11 +22,21 @@
             </div>
         </div>
 
-    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Open Sale:</strong>
-                {{ $souvenirs->open_sale}}
+                {{ $souvenirs->open_sale_hour}}
+                :
+                {{ $souvenirs->open_sale_minute}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Closed Sale:</strong>
+                {{ $souvenirs->close_sale_hour}}
+                :
+                {{ $souvenirs->close_sale_minute}}
             </div>
         </div>
 

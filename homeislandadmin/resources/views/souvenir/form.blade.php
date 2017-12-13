@@ -9,7 +9,18 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Open Sale:</strong>
-            {!! Form::datetime('open_sale', null, array('placeholder' => 'example : 2017-12-12 13:13:13','class' => 'form-control')) !!}
+            {!! Form::text('open_sale_hour', null, array('placeholder' => 'Jam, example : 08, 13','class' => 'form-control')) !!}
+            :
+            {!! Form::text('open_sale_minute', null, array('placeholder' => 'menit, example : 01, 59','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Closed Sale:</strong>
+            {!! Form::text('close_sale_hour', null, array('placeholder' => 'Jam, example : 08, 13','class' => 'form-control')) !!}
+            :
+            {!! Form::text('close_sale_minute', null, array('placeholder' => 'menit, example : 01, 59','class' => 'form-control')) !!}
         </div>
     </div>
 

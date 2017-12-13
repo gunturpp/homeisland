@@ -16,7 +16,44 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nama Tempat Wisata:</strong>
-            {!! Form::text('nama_tempat', null, array('placeholder' => 'Nama Tempat Wisata','class' => 'form-control')) !!}
+            {!! Form::text('nama_tempat', null, array('placeholder' => 'Nama Tempat','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Open Sale:</strong>
+            {!! Form::text('open_sale_hour', null, array('placeholder' => 'Jam, example : 08, 13','class' => 'form-control')) !!}
+            {!! Form::text('open_sale_minute', null, array('placeholder' => 'menit, example : 01, 59','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Closed Sale:</strong>
+            {!! Form::text('close_sale_hour', null, array('placeholder' => 'Jam, example : 08, 13','class' => 'form-control')) !!}
+            {!! Form::text('close_sale_minute', null, array('placeholder' => 'menit, example : 01, 59','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Alamat:</strong>
+            {!! Form::textarea('alamat', null, array('placeholder' => 'Alamat','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Latitude:</strong>
+            {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Longitude:</strong>
+            {!! Form::text('long', null, array('placeholder' => 'Longitude','class' => 'form-control')) !!}
         </div>
     </div>
 
@@ -37,32 +74,6 @@
         {!! Form::label('foto_3', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
         {!! Form::file('foto_3') !!}
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Alamat:</strong>
-            {!! Form::textarea('alamat', null, array('placeholder' => 'Alamat','class' => 'form-control')) !!}
-        </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Buka Jam:</strong>
-            {!! Form::date('open_sale') !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Latitude:</strong>
-            {!! Form::text('lat', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
-        </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Longitude:</strong>
-            {!! Form::text('long', null, array('placeholder' => 'Longitude','class' => 'form-control')) !!}
-        </div>
-    </div>
 
     <!-- <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -70,7 +81,7 @@
             {!! Form::file('foto', null) !!}
         </div>
     </div> -->
-{{--  
+
     @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -80,7 +91,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif  --}}
+        @endif
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
