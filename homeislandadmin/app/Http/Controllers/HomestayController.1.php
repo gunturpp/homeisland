@@ -60,17 +60,23 @@ class HomestayController extends Controller
     {
         $user = Auth::user();
         request()->validate([
+            'kabupaten' => 'required',
             'nama_homestay' => 'required',
-            'harga' => 'required',
+            'price' => 'required',
+            'no_rek' => 'required',
             'kuota' => 'required',
-            'lang' => 'required',
+            'id_fasilitas' => 'required|max:11',
+            'id_rating' => 'required|max:11',
+            'address' => 'required',
+            'lat' => 'required',
             'long' => 'required',
             'foto_1' => 'required|image|mimes:jpeg,png,jpg|max:15000',
             'foto_2' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             ]);
             $data = $request->only(
-                'nama_homestay','harga', 'kuota', 'admin','lang','long','foto_1','foto_2','foto_3');
+                'kabupaten', 'nama_homestay','price', 'no_rek', 'kuota', 'id_fasilitas', 'id_rating',
+                'address', 'lat','long','foto_1','foto_2','foto_3');
             
             // $data = $request->except(['image']);
             $photo1 = "";
@@ -155,17 +161,23 @@ class HomestayController extends Controller
         // dd($request -> all());
         $user = Auth::user();
         request()->validate([
+            'kabupaten' => 'required',
             'nama_homestay' => 'required',
-            'harga' => 'required',
+            'price' => 'required',
+            'no_rek' => 'required',
             'kuota' => 'required',
-            'lang' => 'required',
+            'id_fasilitas' => 'required|max:11',
+            'id_rating' => 'required|max:11',
+            'address' => 'required',
+            'lat' => 'required',
             'long' => 'required',
             'foto_1' => 'required|image|mimes:jpeg,png,jpg|max:15000',
             'foto_2' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             ]);
             $data = $request->only(
-                'nama_homestay','harga', 'kuota', 'admin','lang','long','foto_1','foto_2','foto_3');
+                'kabupaten', 'nama_homestay','price', 'no_rek', 'kuota', 'id_fasilitas', 'id_rating',
+                'address', 'lat','long','foto_1','foto_2','foto_3');
             
             // $data = $request->except(['image']);
             $photo1 = "";

@@ -16,15 +16,17 @@ class CreateHomestaysTable extends Migration
         Schema::defaultStringLength(191);                
         Schema::create('homestays', function (Blueprint $table) {            
             $table->increments('id');
+            $table->string('admin');
+            $table->string('kabupaten');
             $table->string('nama_homestay');
-            $table->string('address');
             $table->decimal('price', 12, 2);
+            $table->integer('no_rek');
             $table->integer('kuota');
-            $table->string('nama_pemesan');
-			$table->string('nama_homestay');
-			$table->string('date_checkin');
-			$table->integer('sum_menginap');
-            $table->integer('sum_room');            
+            $table->integer('id_fasilitas', 11);
+            $table->integer('id_rating', 11);
+            $table->string('address');
+            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 10, 7);
             $table->string('foto_1') ;            
             $table->string('foto_2') -> nullable();            
             $table->string('foto_3') -> nullable();            

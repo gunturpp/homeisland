@@ -28,7 +28,7 @@ export class HomestayPage {
   id_homestay: any;
   namauser: any;
   iduser: any;
-  data:string;
+  data: any;
   ratingAVG: any;
   dataRATING: any;
   listRatings: any;
@@ -38,12 +38,14 @@ export class HomestayPage {
   ratingroundData: any;
   hargaHomestay: any;
   alamat: any;
-
+  panjang: any;
+  seleksi: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
 
               ) {
+    this.seleksi = [];
   }
 
   ionViewDidLoad() {
@@ -77,8 +79,8 @@ export class HomestayPage {
   
   ionViewWillEnter(){
   	this.getdataHomestay();
-    this.getiduser();
-    this.getnamauser();
+   // this.getiduser();
+   // this.getnamauser();
     this.isRating = false;
     console.log(this.iduser);
     this.ambilRating();
@@ -118,26 +120,41 @@ export class HomestayPage {
   }
 
 	 getdataHomestay(){
-  	this.http.get("http://127.0.0.1/homeisland/backend/getDetailHomestay.php?id="+ this.navParams.get('id_homestay')).subscribe(data => {
-  		let response = data.json();
+  	//this.http.get("http://127.0.0.1/homeisland/backend/getDetailHomestay.php?id="+ this.navParams.get('id_homestay')).subscribe(data => {
+  		this.http.get("http://127.0.0.1:8000/api/get-homestays").subscribe(data => {
+      let response = data.json();
+      this.data = response.homestays;
       console.log(response);
-      if(response.status=="200"){
-        this.dataHomestay = response.data;      //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        this.sumhome = response.data2;
-        this.sumrate = this.sumhome[0].sum;
-        this.id_homestay = this.dataHomestay[0].id_homestay;
-        this.namaHomestay = this.dataHomestay[0].Nama_homestay;
-        this.foto1 = this.dataHomestay[0].foto1;
-        this.hargaHomestay = this.dataHomestay[0].harga;
-        this.alamat = this.dataHomestay[0].alamat;
+      this.panjang = this.data.length;
+
+      for(var i=0, j=0; i<this.panjang;i++){
+         
+        
+         if(this.data[i].id == this.navParams.get('id_homestay'))
+         {
+            this.seleksi[0] = this.data[i];
+            j++;
+            
+         }   
+    }
+
+    //  if(response.status=="200"){
+        //this.dataHomestay = response.data;      //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        //this.sumhome = response.data2;
+        //this.sumrate = this.sumhome[0].sum;
+        this.id_homestay = this.seleksi[0].id;
+        this.namaHomestay = this.seleksi[0].nama_homestay;
+        this.foto1 = this.seleksi[0].foto_1;
+        this.hargaHomestay = this.seleksi[0].price;
+        this.alamat = this.seleksi[0].address;
        
 
        // this.nilaiRating = (10+1)/3;
        // this.nilaiRating.toFixed(2);
-      }
-      else{
-        console.log("Error coy");
-      }
+    //  }
+      //else{
+        //console.log("Error coy");
+      //}
     });
 
   }
@@ -190,7 +207,8 @@ export class HomestayPage {
                   loading.present();
                   let input = JSON.stringify({
                     id_homestays: this.id_homestay,
-                    id_user: this.iduser,
+                    //id_user: this.iduser,
+                      id_user: 1,
                     nama_homestay: this.namaHomestay,
                     nama_user: this.namauser,
                     durasi_nginap: this.navParams.get('duration'),
@@ -220,9 +238,10 @@ export class HomestayPage {
   order2(){
     this.navCtrl.push(OrderPage, {
                     id_homestays: this.id_homestay,
-                    id_user: this.iduser,
+                    //id_user: this.navParams.get('email'),
+                    id_user: 1,
                     nama_homestay: this.namaHomestay,
-                    nama_user: this.namauser,
+                    nama_user: this.navParams.get('email'),
                     durasi_nginap: this.navParams.get('duration'),
                     checkin: this.navParams.get('checkin'),
                     sumkamar: this.navParams.get('sumkamar'),

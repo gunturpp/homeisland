@@ -77,29 +77,33 @@ export class OrderPage {
     confirm.present();
   }
 
-  order()
+   order()
   {
 
-  		let loading = this.loadCtrl.create({
+      let loading = this.loadCtrl.create({
                     content: 'Tunggu sebentar...'
                 });
 
-				                  
+                          
                   loading.present();
-                  let input = JSON.stringify({
-                    id_homestays: this.navParams.get('id_homestays'),
+                  let input = ({
+                    id_homestay: this.navParams.get('id_homestays'),
                     id_user: this.navParams.get('id_user'),
-                    nama_homestay: this.navParams.get('nama_homestay'),
-                    nama_user: this.navParams.get('nama_user'),
-                    durasi_nginap: this.navParams.get('durasi_nginap'),
-                    checkin: this.navParams.get('checkin'),
-                    sumkamar: this.navParams.get('sumkamar'),
-                    harga: this.navParams.get('harga')
+                    status:0,
+                 //   nama_homestay: this.navParams.get('nama_homestay'),
+                 //   nama_user: this.navParams.get('nama_user'),
+                  //  durasi_nginap: this.navParams.get('durasi_nginap'),
+                    //checkin: this.navParams.get('checkin'),
+                    //sumkamar: this.navParams.get('sumkamar'),
+                    total_price: this.navParams.get('harga')
                    // durasi_nginap: this.navParams.get('');
                   });
-                  this.http.post("http://127.0.0.1/homeisland/backend/order.php",input).subscribe(data => {
+                  let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
+                  //this.http.post("http://127.0.0.1/homeisland/backend/order.php",input).subscribe(data => {
+                    this.http.post("http://127.0.0.1:8000/api/post-bookings",input, headers).subscribe(data => {   
                        loading.dismiss();
                        let response = data.json();
+                       console.log(response);
                        if(response.status == 200){
                         // let user=response.data;
                         // this.userDataProvider.login(user.id,user.username,user.status);

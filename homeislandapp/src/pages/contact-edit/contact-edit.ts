@@ -21,7 +21,7 @@ export class ContactEditPage {
   akun : any;
   username : string;
   nama : string;
-  kelamin : string;
+  gender : string;
   hp : string;
   email : string;
   iduser : any;
@@ -48,27 +48,47 @@ export class ContactEditPage {
 
   ionViewWillEnter() {
     
-    this.getUsername();
     this.getiduser();    
     this.getPassword();
-    // this.getKelamin();
-    // this.getEmail();
-    // this.getPhoneNumber();
-    // this.getdataAkun();
+    this.getGender();
+     this.getEmail();
+     this.getHp();
+    this.getNama();
    }
 
    getiduser(){
     this.data.getIDuser().then((id) => {
     this.iduser = id;
     console.log(id);
-    this.getdataAkun();
+    // this.getdataAkun();
   });
 }
 
-   getUsername() {
-    this.data.getUsername().then((user) => {
-      this.username = user;
-      console.log(this.username);
+   getNama() {
+    this.data.getNama().then((nama) => {
+      this.nama = nama;
+      console.log(this.nama);
+    });
+  }
+
+  getEmail() {
+    this.data.getEmail().then((email) => {
+      this.email = email;
+      console.log(this.email);
+    });
+  }
+
+  getGender() {
+    this.data.getGender().then((gender) => {
+      this.gender = gender;
+      console.log(this.gender);
+    });
+  }
+
+  getHp() {
+    this.data.getPhoneNumber().then((hp) => {
+      this.hp = hp;
+      console.log(this.hp);
     });
   }
 
@@ -79,24 +99,24 @@ export class ContactEditPage {
     });
   }
 
-  getdataAkun(){
-    let data = JSON.stringify({
-      username: this.username 
-  });
+  // getdataAkun(){
+  //   let data = JSON.stringify({
+  //     username: this.username 
+  // });
 
     
-    this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?id="+ this.iduser).subscribe(data => {
-      let response = data.json();
-      console.log(response);
-      if(response.status=="200"){
-        this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
-        this.hp = this.akun[0].hp;
-        this.email = this.akun[0].email;
-        this.kelamin = this.akun[0].kelamin;
-        this.nama = this.akun[0].nama;
-      }
-    });
-   }
+  //   this.http.get("http://127.0.0.1/homeisland/backend/getAkun.php?id="+ this.iduser).subscribe(data => {
+  //     let response = data.json();
+  //     console.log(response);
+  //     if(response.status=="200"){
+  //       this.akun = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+  //       this.hp = this.akun[0].hp;
+  //       this.email = this.akun[0].email;
+  //       this.kelamin = this.akun[0].kelamin;
+  //       this.nama = this.akun[0].nama;
+  //     }
+  //   });
+  //  }
 
    showAlert(message){
     let toast = this.toastCtrl.create({

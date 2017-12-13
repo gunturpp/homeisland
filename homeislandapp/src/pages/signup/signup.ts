@@ -54,7 +54,7 @@ export class SignupPage {
                     // username: this.user.username,
                     password: this.user.password,
                     c_password: this.c_password,
-                    // kelamin  : this.user.kelamin,
+                    gender  : this.user.kelamin,
                     email: this.user.email,
                     hp : this.user.hp,
                     // status: this.user.role="tourist"

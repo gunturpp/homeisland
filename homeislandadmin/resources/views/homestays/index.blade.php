@@ -44,27 +44,27 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Admin</th>
+            <th>Kabupaten</th>
             <th>Nama Homestay</th>
             <th>Harga</th>
             <th>Kuota</th>
-            <th>Langitude</th>
+            <th>Latitude</th>
             <th>Longitude</th>
-            <th>Foto1</th>
-            <th>Foto2</th>
-            <th>Foto3</th>
+            <th>Foto 1</th>
             <th width="140px">Action</th>
         </tr>
     @foreach ($homestays as $homestay)
     <tr>
         <td>{{ ++$i }}</td>
+        <td>{{ $homestay->admin}}</td>
+        <td>{{ $homestay->kabupaten}}</td>
         <td>{{ $homestay->nama_homestay}}</td>
-        <td>{{ $homestay->harga}}</td>
+        <td>{{ $homestay->price}}</td>
         <td>{{ $homestay->kuota}}</td>
-        <td>{{ $homestay->lang}}</td>
+        <td>{{ $homestay->lat}}</td>
         <td>{{ $homestay->long}}</td>
         <td><img src="{{ $homestay -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
-        <td><img src="{{ $homestay -> foto_2 }}" style="height:50px;width:50px;text-align:center"></td>
-        <td><img src="{{ $homestay -> foto_3 }}" style="height:50px;width:50px;text-align:center"></td>
         <td>
             <a class="btn btn-info" href="{{ route('homestays.show',$homestay->id) }}">Show</a>
             <a class="btn btn-primary" href="{{ route('homestays.edit',$homestay->id) }}">Edit</a>
