@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Show News Detail</h2>
+                <h2> Show Explore Detail</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('explore.index') }}"> Back</a>
@@ -13,6 +13,7 @@
     </div>
 
     <div class="row">
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kabupaten:</strong>
@@ -20,15 +21,13 @@
             </div>
         </div>
 
-    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Category:</strong>
+                <strong>Kategori:</strong>
                 {{ $explores->category}}
             </div>
         </div>
 
-    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama Tempat Wisata:</strong>
@@ -39,18 +38,18 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Open Sale:</strong>
-                {{ $souvenirs->open_sale_hour}}
+                {{ $explores->open_sale_hour}}
                 :
-                {{ $souvenirs->open_sale_minute}}
+                {{ $explores->open_sale_minute}}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Closed Sale:</strong>
-                {{ $souvenirs->close_sale_hour}}
+                {{ $explores->close_sale_hour}}
                 :
-                {{ $souvenirs->close_sale_minute}}
+                {{ $explores->close_sale_minute}}
             </div>
         </div>
 

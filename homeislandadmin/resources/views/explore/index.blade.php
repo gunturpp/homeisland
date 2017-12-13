@@ -36,20 +36,21 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
+                    <th>admin</th>
                     <th>Nama Tempat Wisata</th>
-                    {{--  <th>Writter</th>  --}}
                     <th>Foto</th>
                     <th>Alamat</th>
                     <th>Kabupaten</th>
-                    <th>Langitude</th>
                     <th>Latitude</th>
+                    <th>Longitude</th>
                     <th width="280px">Action</th>
                 </tr>
             @foreach($explores as $explore)
             <tr>
                 <td>{{ ++$i }}</td>
+                <td>{{ $explore->admin}}</td>
                 <td>{{ $explore->nama_tempat}}</td>
-                <td><img src="{{ $explore -> foto }}" style="height:50px;width:50px;text-align:center"></td>
+                <td><img src="{{ $explore -> foto_1 }}" style="height:50px;width:50px;text-align:center"></td>
                 <td>{{ $explore->alamat}}</td>
                 <td>{{ $explore->kabupaten}}</td>
                 <td>{{ $explore->lat}}</td>

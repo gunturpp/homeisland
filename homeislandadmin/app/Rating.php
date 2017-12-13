@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class Rating extends Model
 {
-    protected $table = 'bookings';
+    protected $table = 'ratings';
     
     /**
      * The attributes that are mass assignable.
@@ -14,12 +14,14 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'kode_booking',
-        'total_price',
+        'id',
         'id_user',
         'id_homestay',
-        'id_user',
-        'status',
+        'rating',
+        'comment',
+        'hide',
+        'average',
+        'created_at',
     ];
 
     /**

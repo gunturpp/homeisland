@@ -29,7 +29,6 @@ class CreateExploresTable extends Migration
             $table->string('alamat');
             $table->decimal('lat');
             $table->decimal('long');            
-            $table->string('alamat');
             $table->timestamps();
         });
     }

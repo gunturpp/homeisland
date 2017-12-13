@@ -22,14 +22,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-<<<<<<< HEAD
-                <strong>Foto:</strong>
-                {{--  {{ $newss->handphone_number}}  --}}
-                <img src="{{ $events -> foto_1 }}" style="height:50px;width:50px;text-align:center">
-=======
                 <strong>Date Start:</strong>
                 {{ $events->date_start}}
->>>>>>> 4c12a8ef7168df329a9fbac486402605aaf02d4f
             </div>
         </div>
 

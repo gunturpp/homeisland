@@ -4,22 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class Bank extends Model
 {
-    protected $table = 'bookings';
-    
+    protected $table = 'banks';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'kode_booking',
-        'total_price',
-        'id_user',
+        'id',
         'id_homestay',
-        'id_user',
-        'status',
+        'no_rekening',
+        'jenis_bank'
     ];
 
     /**
@@ -28,6 +25,6 @@ class Booking extends Model
      * @var array
      */
     protected $hidden = [
-        'remember_token',
+        // 'remember_token',
     ];
 }

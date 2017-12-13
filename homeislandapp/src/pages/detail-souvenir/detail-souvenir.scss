@@ -16,6 +16,7 @@ page-detail-souvenir {
         padding:0px;
         margin-top: 0.6rem;
         margin-bottom: 0rem;
+        padding-left: 4px;
       }
       img.pic{
         width:350px; height:180px;
@@ -49,6 +50,7 @@ page-detail-souvenir {
       .slide-image {
         max-width: 100%;
         padding: 0px;
+        width: 360px;
         // margin: 1vw 0;
       }
     
@@ -87,6 +89,7 @@ page-detail-souvenir {
       .card .note {
       font-size: 2rem;
       align: right;
+
     }
     
     .back-button {
@@ -98,6 +101,7 @@ page-detail-souvenir {
       font-size: 1rem;
       height: 2rem;
       padding:0px;
+      padding-left: 4px;
       }
     .scroll-content {
         padding: 0px;
@@ -107,6 +111,7 @@ page-detail-souvenir {
     }
     h6.h6{
         color:grey;
+        padding-left: 4px;
     }
 
 

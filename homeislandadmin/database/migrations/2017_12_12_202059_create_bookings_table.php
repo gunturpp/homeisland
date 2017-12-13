@@ -20,6 +20,7 @@ class CreateBookingsTable extends Migration
             $table->string('kode_booking');
             $table->string('total_price');
             $table->string('id_user');
+            $table->string('id_homestay');
             $table->boolean('status');
             $table->timestamps();
         });

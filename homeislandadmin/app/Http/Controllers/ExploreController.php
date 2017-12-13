@@ -60,7 +60,7 @@ class ExploreController extends Controller
         request()->validate([
             'kabupaten' => 'required',
             'category' => 'required|max:15',
-            'nama_tempat' => 'required',
+            'nama_tempat' => 'required|max:100',
             'open_sale_hour' => 'required|min:2|max:2',
             'open_sale_minute' => 'required|min:2|max:2',
             'close_sale_hour' => 'required|min:2|max:2',
@@ -72,7 +72,7 @@ class ExploreController extends Controller
             'foto_2' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             ]);
-            $data = $request->only('kabupaten','category','nama_wisata',
+            $data = $request->only('kabupaten','category','nama_tempat',
             'open_sale_hour', 'open_sale_minute', 'close_sale_hour', 'close_sale_minute', 
             'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3' );
             
@@ -172,7 +172,7 @@ class ExploreController extends Controller
             'foto_2' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             'foto_3' => 'nullable|required|mimes:jpeg,png,jpg|max:15000',
             ]);
-            $data = $request->only('kabupaten','category','nama_wisata',
+            $data = $request->only('kabupaten','category','nama_tempat',
             'open_sale_hour', 'open_sale_minute', 'close_sale_hour', 'close_sale_minute', 
             'alamat', 'lat', 'long', 'foto_1', 'foto_2', 'foto_3' );
             
