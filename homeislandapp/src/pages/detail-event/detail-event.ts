@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 /**
  * Generated class for the DetailEventPage page.
@@ -20,9 +20,13 @@ export class DetailEventPage {
   tgl : any;
   isi : any;
   foto : any;
+  star: number;
 
   constructor(public navCtrl: NavController, 
-  	public navParams: NavParams, public http:Http) {
+              public navParams: NavParams, 
+              public http:Http,
+              public alertCtrl: AlertController
+            ) {
       this.data = this.navParams.data;
       this.judul = this.data.judul;
       this.isi = this.data.deskripsi;
@@ -32,6 +36,20 @@ export class DetailEventPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailEventPage');
+  }
+
+  Favorit(){
+    this.star++;
+    this.showAlert('Terima Kasih', 'Terima kasih telah memilih event ini sebagai favorit');
+  }
+
+  showAlert(title: string, text: string) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

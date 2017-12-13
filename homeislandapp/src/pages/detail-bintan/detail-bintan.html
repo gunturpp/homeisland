@@ -7,7 +7,7 @@
 <ion-header>
     
       <ion-navbar>
-        <ion-title>Pulau {{nama_kabupaten}}</ion-title>
+        <ion-title>Pulau {{data.kabupaten}}</ion-title>
       </ion-navbar>
     
     </ion-header>
@@ -20,27 +20,26 @@
                 <ion-slide>
                   <ion-toolbar>
                   </ion-toolbar>
-                    <img src="../assets/img/1.jpg" class="slide-image"/>
+                    <img src="http://127.0.0.1:8000/{{data.foto_1}}" class="slide-image"/>
                 
                 </ion-slide>
             
                 <ion-slide>
                   <ion-toolbar>
                   </ion-toolbar>
-                    <img src="../assets/img/2.jpg" class="slide-image"/>
+                    <img src="http://127.0.0.1:8000/{{data.foto_2}}" class="slide-image"/>
                 </ion-slide>
             
                 <ion-slide>
                   <ion-toolbar>
                   </ion-toolbar>
-                    <img src="assets/pic/market1.jpg" class="slide-image"/>
+                    <img src="http://127.0.0.1:8000/{{data.foto_3}}"class="slide-image"/>
                 </ion-slide>
               </ion-slides>
     
-              <h5 class="h5">{{nama_wisata}}</h5>
-              <ion-note class="note">{{alamat}}</ion-note><br>
-              <ion-note><button ion-button>OPEN NOW</button>08.00AM-12.00PM</ion-note>
-            
+              <h5 class="h5">{{data.nama_tempat}}</h5>
+              <ion-note class="note">{{data.alamat}}</ion-note><br>
+              <ion-note><button ion-button *ngIf='status==1'>OPEN NOW</button> <button ion-button color="danger" *ngIf='status==0'>CLOSED</button>{{data.open_sale_hour}}.{{data.open_sale_minute}}-{{data.close_sale_hour}}.{{data.close_sale_minute}}</ion-note>            
             
             <br>
             <br>
