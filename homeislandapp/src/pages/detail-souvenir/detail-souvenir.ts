@@ -40,7 +40,11 @@ export class DetailSouvenirPage {
   foto_2: any;
   foto_3: any;
   hours : any;
-  minutes : any;  
+  minutes : any;
+  status : number = 0;
+  times : number;
+  tutup : number;
+  buka : number;  
 
   constructor(public navCtrl: NavController, 
               public http:Http, 
@@ -62,7 +66,14 @@ export class DetailSouvenirPage {
     this.hours = new Date().getHours();
     this.minutes = new Date().getMinutes();
     
-    if(this.hours < 2)
+    this.times = (this.hours*3600 + this.minutes*60);
+    this.buka = (this.data.open_hour*3600 + this.data.open_minute*60);
+    this.tutup = (this.data.close_hour*3600 + this.data.close_minute*60);
+    console.log(this.times);
+    console.log(this.buka);
+    console.log(this.tutup);
+    
+    this.cekBuka(this.times, this.buka, this.tutup);
     console.log(this.hours);
   }
 
@@ -107,6 +118,13 @@ export class DetailSouvenirPage {
   console.log("error : " + err.message)
 });
 
+
+}
+
+cekBuka(times, buka, tutup){
+  if(buka <= times && times <= tutup){
+      this.status = 1;
+  }
 
 }
 

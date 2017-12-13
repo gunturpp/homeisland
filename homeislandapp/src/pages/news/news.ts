@@ -23,9 +23,12 @@ export class NewsPage {
   foto: string;
   data: any;
   events: any;
+  fotofix : any;
+  event: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,
     public toastCtrl: ToastController, public loadCtrl: LoadingController) {
+      this.event = [];
       // let token = localStorage.getItem('token');
 
       // let headers = new Headers({
@@ -69,6 +72,7 @@ export class NewsPage {
       this.news = response.newss;
       this.data = this.news[0];
       this.judul = this.news[0].judul;
+      this.fotofix = this.news[0].foto;
       this.foto  = this.news.foto
       console.log(this.news.foto);
       if(response.status=="200"){
@@ -90,9 +94,15 @@ export class NewsPage {
     //  this.judul = this.news[0].judul;
     //  this.foto  = this.news.foto
      console.log("events", response);
-     if(response.status=="200"){
-      //  this.news = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+      console.log(this.events.length);
+
+     for(var i=0 , j=0 ; i < this.events.length ; i++){
+        if(j<=3){
+          this.event[j] = this.events[i];
+        }
+        j++;
      }
+     console.log(this.event)
    });
 
    
