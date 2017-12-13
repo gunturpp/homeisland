@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController,LoadingController } from 'ionic-angular';
 import {DetailNewsPage} from '../detail-news/detail-news';
+import {DetailEventPage} from '../detail-event/detail-event';
 import { Http, Headers,RequestOptions } from '@angular/http'
 /**
  * Generated class for the NewsPage page.
@@ -21,6 +22,8 @@ export class NewsPage {
   judul: string;
   foto: string;
   data: any;
+  events: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,
     public toastCtrl: ToastController, public loadCtrl: LoadingController) {
       // let token = localStorage.getItem('token');
@@ -56,6 +59,7 @@ export class NewsPage {
 
   ionViewWillEnter() {
     this.getdataNews();
+    this.getdataEvents();
    }
  getdataNews(){
    
@@ -66,7 +70,7 @@ export class NewsPage {
       this.data = this.news[0];
       this.judul = this.news[0].judul;
       this.foto  = this.news.foto
-      console.log(this.news);
+      console.log(this.news.foto);
       if(response.status=="200"){
         this.news = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
       }
@@ -74,8 +78,32 @@ export class NewsPage {
 
     
  }
+
+ getdataEvents(){
+  
+ // this.http.get("http://127.0.0.1/homeisland/backend/getListNews.php").subscribe(data => {
+   this.http.get("http://127.0.0.1:8000/api/get-events").subscribe(data => {
+     let response = data.json();
+     this.events = response.events
+    //  this.news = response.newss;
+    //  this.data = this.news[0];
+    //  this.judul = this.news[0].judul;
+    //  this.foto  = this.news.foto
+     console.log("events", response);
+     if(response.status=="200"){
+      //  this.news = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+     }
+   });
+
+   
+}
 detailnews(data){
 	this.navCtrl.push(DetailNewsPage,data);
 }
+
+detailevent(data){
+	this.navCtrl.push(DetailEventPage,data);
+}
+
 
 }
