@@ -1,3 +1,4 @@
+import { DetailEventPage } from './../pages/detail-event/detail-event';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -15,6 +16,8 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPositio
 import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 import { IonicStorageModule } from '@ionic/storage';
 import { UpdateAkunPage} from '../pages/update-akun/update-akun';
 import { ListhomePage} from '../pages/listhome/listhome';
@@ -22,6 +25,8 @@ import {HomestayPage} from '../pages/homestay/homestay';
 import {DetailNewsPage} from '../pages/detail-news/detail-news';
 import {OrderPage} from '../pages/order/order';
 import {ContactEditPage} from '../pages/contact-edit/contact-edit';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import {ContactEditPage} from '../pages/contact-edit/contact-edit';
     HomestayPage,
     DetailNewsPage,
     OrderPage,
-    ContactEditPage
+    ContactEditPage,
+    DetailEventPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -61,7 +67,8 @@ import {ContactEditPage} from '../pages/contact-edit/contact-edit';
     HomestayPage,
     DetailNewsPage,
     OrderPage,
-    ContactEditPage
+    ContactEditPage,
+    DetailEventPage
   ],
   providers: [
     StatusBar,
@@ -69,6 +76,7 @@ import {ContactEditPage} from '../pages/contact-edit/contact-edit';
     UserDataProvider,
     GoogleMaps,
     Geolocation,
+    Camera,    
     //Storage,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
