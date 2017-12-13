@@ -22,6 +22,13 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Nomor Rekening:</strong>
+                {!! Form::number('no_rek', null, array('placeholder' => 'Nomor Rekening','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Kuota:</strong>
                 {!! Form::number('kuota', null, array('placeholder' => 'kuota','class' => 'form-control')) !!}
             </div>

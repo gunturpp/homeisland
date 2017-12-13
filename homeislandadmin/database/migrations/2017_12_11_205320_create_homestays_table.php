@@ -20,6 +20,7 @@ class CreateHomestaysTable extends Migration
             $table->string('kabupaten');
             $table->string('nama_homestay');
             $table->decimal('price', 12, 2);
+            $table->integer('no_rek');
             $table->integer('kuota');
             $table->integer('id_fasilitas', 11);
             $table->integer('id_rating', 11);

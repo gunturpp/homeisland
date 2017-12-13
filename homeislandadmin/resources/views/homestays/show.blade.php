@@ -44,6 +44,13 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Nomor Rekening:</strong>
+                {{ $homestay->no_rek}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Kuota:</strong>
                 {{ $homestay->kuota}}
             </div>

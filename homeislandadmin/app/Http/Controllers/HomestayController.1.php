@@ -63,6 +63,7 @@ class HomestayController extends Controller
             'kabupaten' => 'required',
             'nama_homestay' => 'required',
             'price' => 'required',
+            'no_rek' => 'required',
             'kuota' => 'required',
             'id_fasilitas' => 'required|max:11',
             'id_rating' => 'required|max:11',
@@ -74,7 +75,7 @@ class HomestayController extends Controller
             'foto_3' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             ]);
             $data = $request->only(
-                'kabupaten', 'nama_homestay','price', 'kuota', 'id_fasilitas', 'id_rating',
+                'kabupaten', 'nama_homestay','price', 'no_rek', 'kuota', 'id_fasilitas', 'id_rating',
                 'address', 'lat','long','foto_1','foto_2','foto_3');
             
             // $data = $request->except(['image']);
@@ -163,6 +164,7 @@ class HomestayController extends Controller
             'kabupaten' => 'required',
             'nama_homestay' => 'required',
             'price' => 'required',
+            'no_rek' => 'required',
             'kuota' => 'required',
             'id_fasilitas' => 'required|max:11',
             'id_rating' => 'required|max:11',
@@ -174,7 +176,7 @@ class HomestayController extends Controller
             'foto_3' => 'nullable|image|mimes:jpeg,png,jpg|max:15000',
             ]);
             $data = $request->only(
-                'kabupaten', 'nama_homestay','price', 'kuota', 'id_fasilitas', 'id_rating',
+                'kabupaten', 'nama_homestay','price', 'no_rek', 'kuota', 'id_fasilitas', 'id_rating',
                 'address', 'lat','long','foto_1','foto_2','foto_3');
             
             // $data = $request->except(['image']);
