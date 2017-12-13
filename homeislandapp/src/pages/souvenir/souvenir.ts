@@ -48,6 +48,10 @@ export class SouvenirPage {
   foto_3: any;
   hasil: any;
   pindah: any;
+  open_hour : any;
+  open_minute : any;
+  close_hour : any;
+  close_minute : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http : Http, public geolocation : Geolocation) {
     this.fix = [];
@@ -119,6 +123,10 @@ getdataSouvenir(){
        this.foto_1 = this.data[i].foto_1;
        this.foto_2 = this.data[i].foto_2;
        this.foto_3 = this.data[i].foto_3;
+       this.open_hour = this.data[i].open_sale_hour;
+       this.open_minute = this.data[i].open_sale_minute;
+       this.close_hour = this.data[i].close_sale_hour;
+       this.close_minute = this.data[i].close_sale_minute
 
        var jarak = this.hitungjarak(this.long, this.lat);
         this.hasil = jarak.toFixed(2);
@@ -128,6 +136,10 @@ getdataSouvenir(){
          alamat: this.alamat,
          lat: this.lat,
          long: this.long,
+         open_hour : this.open_hour,
+         open_minute : this.open_minute,
+         close_hour : this.close_hour,
+         close_minute : this.close_minute,
          foto_1: this.foto_1,
          foto_2: this.foto_2,
          foto_3: this.foto_3,

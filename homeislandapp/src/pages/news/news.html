@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="Primary">
-    <ion-title>news</ion-title>
+    <ion-title>News</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,7 +17,7 @@
 	<h5 class="h5">News</h5>
 
         <ion-card item (click)="detailnews(data)">
-            <img class="pic" src="../assets/pic/market1.jpg">
+            <img class="pic" src="http://127.0.0.1:8000/{{fotofix}}">
             <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{judul}}</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
           </ion-card>
@@ -46,13 +46,8 @@
 
     <h5 class="h5">Event</h5>
 
-        <ion-card item (click)="detailnews()">
-            <img class="pic" src="../assets/pic/market1.jpg">
-            <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">Kementrian Pariwisata meresmikan cagar budaya Kepri</p></div>
-            <!-- <div class="card-subtitle">2.5KM</div> -->
-          </ion-card>
 
-          <ion-card item (click)="detailevent(data)" *ngFor="let data of events">
+          <ion-card item (click)="detailevent(data)" *ngFor="let data of event">
             <img class="pic" src="http://127.0.0.1:8000/{{data.foto_1}}">
             <div class="card-title"><p style="color: #ffffff; margin-top: 1px;">{{data.judul}}</p></div>
             <!-- <div class="card-subtitle">2.5KM</div> -->
