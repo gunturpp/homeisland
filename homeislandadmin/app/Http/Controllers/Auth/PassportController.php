@@ -63,12 +63,18 @@ class PassportController extends Controller
         return response()->json(['success'=>$success], $this->successStatus);
 
     }
+	public function getUsers(Request $request,  $string=null) {
+		$token = $request->header('Api-key');
+		$user = Auth::user();
+		if($string!=null)
+			$users = User::Where('id','like','%'.$string.'%')->orderBy('id', 'email')->get();
+		else
 
-    public function getDetails()
-    {
-        $user = Auth::user();
-        return response()->json(['success'=>$user], $this->successStatus);
-    }
+			$users = User::orderBy('id', 'email')->get();
+		$status=true;
+		return compact('status','users');
+	}
+   
 
     public function getNews(Request $request,  $string=null)
 	{
@@ -94,7 +100,7 @@ class PassportController extends Controller
 			$status=true;
 			return compact('status','explores');
 	}
-	public function getBank(Request $request,  $string=null)
+	public function getBanks(Request $request,  $string=null)
 	{
 			$token = $request->header('Api-key');
 			$user = Auth::user();
@@ -180,24 +186,57 @@ class PassportController extends Controller
 			return compact('status','ratings');
 	}
 	
-	public function postBookings(Request $request)
-    {   
+	// public function postBookings(Request $request)
+    // {   
         
-        $bookings = Booking::create($request->json()->all());
-		$success = $bookings;  
-		// $bookings['kode_booking'] = '12345';
-		// $bookings['id_user']  = 'mobile@gmail.com';
-		// $bookings['id_homestay'] = 'bintan homestay';
-		// $bookings['status'] = '1';
-		// $bookings['total_price'] = '100000';
-		// $success = $bookings;  
-		// $success->save();		
-        if(!$success) {
-            return \Response::json(['message'=>"error saving"],500);
-        } else { 
+    //     $bookings = Booking::create($request->json()->all());
+	// 	$success = $bookings;  
+	// 	// $bookings['kode_booking'] = '12345';
+	// 	// $bookings['id_user']  = 'mobile@gmail.com';
+	// 	// $bookings['id_homestay'] = 'bintan homestay';
+	// 	// $bookings['status'] = '1';
+	// 	// $bookings['total_price'] = '100000';
+	// 	// $success = $bookings;  
+	// 	// $success->save();		
+    //     if(!$success) {
+    //         return \Response::json(['message'=>"error saving"],500);
+    //     } else { 
             
-            return \Response::json(['message'=>"success"],200);
-        }
+    //         return \Response::json(['message'=>"success"],200);
+    //     }
+	// }
+	public function postBookings(Request $request)
+    {
+		$user = Auth::user();
+        // $validator = Validator::make($request->all(),[
+        //     'kode_booking' => 'required',
+        //     'total_price' => 'required',
+        //     'id_user' => 'required',
+        //     'id_homestay' => 'require|',
+        //     'status' => 'required',
+        // ]);
+
+        // if($validator->fails()){
+        //     return response()->json(['error'=>$validator->
+        //     errors()], 401);
+		// }
+		$data = $request->only(
+			'kode_booking',
+			'total_price',
+			'id_user',
+			'id_homestay',
+			'status'
+		);
+		
+		$data['kode_booking'] = 'athena' . substr(md5(uniqid(mt_rand(), true)) , 0, 4);
+		$data['total_price'] = $request->total_price;
+		$data['id_user'] = $request->id_user;
+		$data['id_homestay'] = $request->id_homestay;
+		$data['status'] = $request->status;
+        $bookings = Booking::create($data);
+        $success = $bookings;
+        return response()->json(['success'=>$success], $this->successStatus);
+
     }
 	// public function postBookings(Request $request)
 	// 	{
