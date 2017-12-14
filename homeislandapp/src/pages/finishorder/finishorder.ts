@@ -19,6 +19,7 @@ export class FinishorderPage {
   panjang: any;
   seleksi: any;
   kode_booking: any;
+  total_harga: any;
 //  id_user: any;
   //id_homestay: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
@@ -54,6 +55,7 @@ export class FinishorderPage {
     }
      console.log(this.seleksi);
      this.kode_booking = this.seleksi.kode_booking
+     this.total_harga = this.navParams.get('total_price');
 
    //  let response = data.json();
 
