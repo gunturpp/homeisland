@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="pull-right" style="margin-top:15px;">
-                        <a class="btn btn-primary" href="{{ route('homestays.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('event.index') }}"> Back</a>
                     </div>
                     <div class="col-lg-12">
                         <center><h1 class="page-header">Edit Event Data</h1></center>
