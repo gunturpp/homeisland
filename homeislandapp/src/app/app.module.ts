@@ -22,6 +22,9 @@ import {HomestayPage} from '../pages/homestay/homestay';
 import {DetailNewsPage} from '../pages/detail-news/detail-news';
 import {OrderPage} from '../pages/order/order';
 import {ContactEditPage} from '../pages/contact-edit/contact-edit';
+//import { OrderPage } from '../pages/order/order';
+import { FinishorderPage } from '../pages/finishorder/finishorder';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import {ContactEditPage} from '../pages/contact-edit/contact-edit';
     HomestayPage,
     DetailNewsPage,
     OrderPage,
-    ContactEditPage
+    ContactEditPage,
+    FinishorderPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -61,7 +65,8 @@ import {ContactEditPage} from '../pages/contact-edit/contact-edit';
     HomestayPage,
     DetailNewsPage,
     OrderPage,
-    ContactEditPage
+    ContactEditPage,
+    FinishorderPage
   ],
   providers: [
     StatusBar,

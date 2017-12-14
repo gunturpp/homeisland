@@ -226,7 +226,12 @@ class PassportController extends Controller
 			'total_price',
 			'id_user',
 			'id_homestay',
-			'status'
+			'status',
+			'nama_pemesan',
+			'nama_homestay',
+			'date_checkin',
+			'sum_menginap',
+			'sum_room'
 		);
 		
 		$data['kode_booking'] = 'athena' . substr(md5(uniqid(mt_rand(), true)) , 0, 4);
@@ -234,8 +239,34 @@ class PassportController extends Controller
 		$data['id_user'] = $request->id_user;
 		$data['id_homestay'] = $request->id_homestay;
 		$data['status'] = $request->status;
+		$data['nama_pemesan'] = $request->nama_pemesan;
+		$data['nama_homestay'] = $request->nama_homestay;
+		$data['date_checkin'] = $request->date_checkin;
+		$data['sum_menginap'] = $request->sum_menginap;
+		$data['sum_room'] = $request->sum_room;
         $bookings = Booking::create($data);
         $success = $bookings;
+        return response()->json(['success'=>$success], $this->successStatus);
+
+	}
+	public function postRatings(Request $request)
+    {
+		$user = Auth::user();
+		$data = $request->only(
+			'id_user',
+			'id_homestay',
+			'rating',
+			'comment',
+			'hide'
+		);
+		
+		$data['rating'] = $request->rating;
+		$data['hide'] = $request->hide;
+		$data['id_user'] = $request->id_user;
+		$data['id_homestay'] = $request->id_homestay;
+		$data['comment'] = $request->comment;
+        $ratings = Rating::create($data);
+        $success = $ratings;
         return response()->json(['success'=>$success], $this->successStatus);
 
     }

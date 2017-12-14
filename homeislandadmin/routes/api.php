@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'Auth\PassportController@login');
 Route::post('register', 'Auth\PassportController@register');
 Route::post('post-bookings', 'Auth\PassportController@postBookings');
+Route::post('post-ratings', 'Auth\PassportController@postRatings');
 
 Route::get('get-users', 'Auth\PassportController@getUsers');
 Route::get('get-banks', 'Auth\PassportController@getBanks');

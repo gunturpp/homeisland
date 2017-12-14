@@ -22,6 +22,11 @@ class CreateBookingsTable extends Migration
             $table->string('id_user');
             $table->string('id_homestay');
             $table->boolean('status');
+            $table->string('nama_pemesan');
+			$table->string('nama_homestay');
+			$table->string('date_checkin');
+			$table->integer('sum_menginap');
+            $table->integer('sum_room');    
             $table->timestamps();
         });
     }

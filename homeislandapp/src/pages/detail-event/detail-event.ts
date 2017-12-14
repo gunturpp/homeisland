@@ -21,6 +21,7 @@ export class DetailEventPage {
   isi : any;
   foto : any;
   star: number;
+  status: number = 0;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -41,6 +42,7 @@ export class DetailEventPage {
   Favorit(){
     this.star++;
     this.showAlert('Terima Kasih', 'Terima kasih telah memilih event ini sebagai favorit');
+    this.status = 1;
   }
 
   showAlert(title: string, text: string) {

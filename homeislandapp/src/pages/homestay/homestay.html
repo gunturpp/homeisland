@@ -40,11 +40,11 @@
 			<ion-col col-8>
 				<ion-grid>
 					<ion-row>
-						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>{{id_homestay}}</h6>
+						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>Ac</h6>
 </ion-col>
 						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-map-marker" aria-hidden="true"></i><h6 style="font-size: 11px;">Parking</h6>
 </ion-col>
-						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>Wifi</h6>
+						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-bath" aria-hidden="true"></i><h6>Bathub</h6>
 </ion-col>
 						<ion-col text-center col-3><i style="font-size: 24px;" class="fa fa-wifi" aria-hidden="true"></i><h6>Wifi</h6>
 </ion-col>
@@ -71,77 +71,77 @@
 </ion-row>
 
 	<h5 text-center>Rating & Reviews</h5>
-	<div text-center style="color: #F7B733; font-size: 55px;">{{ratingAVG}}</div>
+	<div text-center style="color: #F7B733; font-size: 55px;">{{sumhome}}</div>
 	<ion-grid>
 		<ion-row>
 			<ion-col col-2>
 			</ion-col>
 			<ion-col col-8>
 
-	    	<div text-center *ngIf="ratinground == NULL" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == NULL" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 
-	    	<div text-center *ngIf="ratinground == 1" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == 1" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 
-	    	<div text-center *ngIf="ratinground == 2" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == 2" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 
-	    	<div text-center *ngIf="ratinground == 3" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == 3" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 
-	    	<div text-center *ngIf="ratinground == 4" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == 4" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 
-	    	<div text-center *ngIf="ratinground == 5" style="font-size: 35px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    	<div text-center *ngIf="sumhome == 5" style="font-size: 35px; color: #F7B733;">
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
-	    		<h4>from {{sumrate}} people(s)</h4>
+	    		<h4>from {{pembagi}} people(s)</h4>
 	    	</div>
 				<!-- <ion-content *ngIf="!isRating; else Udah"> -->
 					
@@ -156,7 +156,7 @@
 		</ion-row>
 	</ion-grid>
 
-	<ion-content *ngIf="!isRating; else Udah">
+	<div *ngIf="!isRating; else Udah">
 					<form #RatingForm="ngForm" novalidate="">
 				<ion-list>
 							<ion-item>
@@ -177,67 +177,67 @@
 				</ion-list>
 					<button ion-button (click)="Rate(RatingForm)" block Review type="submit">Submit</button>
 					</form>
-	</ion-content>
+	</div>
 
 	<ion-grid>
 
-	  <ion-row *ngFor="let data of listRatings" style="background-color: #F4F4F4;">
+	  <ion-row *ngFor="let data of seleksi2" style="background-color: #F4F4F4;">
 	    <ion-col col-4></ion-col>
 	    <ion-col col-8>
-	    	<div style="font-size: 16px;">{{data.username}}</div>
+	    	<div style="font-size: 16px;">{{data.id_user}}</div>
 	    	<div *ngIf="data.rating == 1" style="font-size: 15px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<!-- <h4>from {{sumrate}} people(s)</h4> -->
+	    		<!-- <h4>from {{pembagi}} people(s)</h4> -->
 	    	</div>
 
 	    	<div *ngIf="data.rating == 2" style="font-size: 15px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<!-- <h4>from {{sumrate}} people(s)</h4> -->
+	    		<!-- <h4>from {{pembagi}} people(s)</h4> -->
 	    	</div>
 
 	    	<div *ngIf="data.rating == 3" style="font-size: 15px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<!-- <h4>from {{sumrate}} people(s)</h4> -->
+	    		<!-- <h4>from {{pembagi}} people(s)</h4> -->
 	    	</div>
 
 	    	<div *ngIf="data.rating == 4" style="font-size: 15px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star-outline"></ion-icon>
-	    		<!-- <h4>from {{sumrate}} people(s)</h4> -->
+	    		<!-- <h4>from {{pembagi}} people(s)</h4> -->
 	    	</div>
 
 	    	<div *ngIf="data.rating == 5" style="font-size: 15px; color: #F7B733;">
-	    		<!-- <p>{{ratinground}}</p> -->
+	    		<!-- <p>{{sumhome}}</p> -->
 
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
 	    		<ion-icon name="star"></ion-icon>
-	    		<!-- <h4>from {{sumrate}} people(s)</h4> -->
+	    		<!-- <h4>from {{pembagi}} people(s)</h4> -->
 	    	</div>
 	    	<div>
 	    		{{data.comment}}
