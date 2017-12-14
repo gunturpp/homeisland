@@ -9,4 +9,4 @@
 1. Guntur Putra Pratama as <b>Backend Developer <i>(Project Manager)</i></b>
 2. Rakish Frisky as <b>Backend Developer</b>
 3. Ryan Azrian as <b>Front Developer</b>
-4. Wiranegara as as <b>Front Developer</b>
+4. Wiranegara as <b>Front Developer</b>
