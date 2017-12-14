@@ -76,31 +76,30 @@
                     {!! Form::file('foto_1', array('class' => 'image')) !!}
                 </div>  --}}
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group {!! $errors->has('foto_1') ? 'has-error' : '' !!}">
-                    <strong>Foto 1:</strong>
-                        {!! Form::file('foto_1') !!}
-                        <br />
-                        {!! Form::label('foto_1', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
-                    </div>
-                </div>
-
-                <div class="form-group {!! $errors->has('foto_2') ? 'has-error' : '' !!}">
-                    <strong>Foto 2:</strong>
-                        {!! Form::file('foto_2') !!}
-                        <br />
-                        {!! Form::label('foto_2', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
-                    </div>
-                </div>
-
-                <div class="form-group {!! $errors->has('foto_3') ? 'has-error' : '' !!}">
-                    <strong>Foto 3:</strong>
-                        {!! Form::file('foto_3') !!}
-                        <br />
-                        {!! Form::label('foto_3', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
-                    </div>
-                </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group {!! $errors->has('foto_1') ? 'has-error' : '' !!}">
+                <strong>Foto 1:</strong>
+                {!! Form::file('foto_1') !!}
+                {!! Form::label('foto_1', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
             </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group {!! $errors->has('foto_2') ? 'has-error' : '' !!}">
+                <strong>Foto 2:</strong>
+                {!! Form::file('foto_2') !!}
+                {!! Form::label('foto_2', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group {!! $errors->has('foto_3') ? 'has-error' : '' !!}">
+                <strong>Foto 3:</strong>
+                {!! Form::file('foto_3') !!}
+                {!! Form::label('foto_3', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
+            </div>
+        </div>
+        
         
         <br />
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

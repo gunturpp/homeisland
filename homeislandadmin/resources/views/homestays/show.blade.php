@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+<table class="table table-bordered">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

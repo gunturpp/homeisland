@@ -1,19 +1,40 @@
 @extends('layout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Event</h2>
+
+<div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="pull-right" style="margin-top:15px;">
+                        <a class="btn btn-primary" href="{{ route('homestays.index') }}"> Back</a>
+                    </div>
+                    <div class="col-lg-12">
+                        <center><h1 class="page-header">Edit Event Data</h1></center>
+                    </div>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('event.index') }}"> Back</a>
-            </div>
+            {{--  <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('homestays.index') }}"> Back</a>
+            </div>  --}}
         </div>
     </div>
 
-    {!! Form::model($events, ['method' => 'PATCH','route' => ['event.update', $events->id], 'files'=>true]) !!}
-        @include('event.form')
-    {!! Form::close() !!}
+    <div style="width: 80%; margin: auto;">
+      	<table class="table centered">
+            {!! Form::model($events, ['method' => 'PATCH','route' => ['event.update', $events->id], 'files'=>true]) !!}
+                @include('event.form')
+            {!! Form::close() !!}
+        </table>
+    </div>
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 @endsection
