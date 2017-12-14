@@ -1,5 +1,5 @@
-<h1><b>HomeIsland Project>/b></h1>
-
+<h1><b>HomeIsland</b></h1>
+<h4>Information System Project</h4>
 - Mobile Application
 - Dashboard Admin
 
