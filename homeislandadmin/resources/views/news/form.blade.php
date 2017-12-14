@@ -18,10 +18,12 @@
         </div>
     </div>
 
-    <div class="form-group">
-    {{--  <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">  --}}
-    {!! Form::label('foto', 'Gambar Penunjang ( jpg,jpeg,png )*') !!}
-    {!! Form::file('foto') !!}
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group {!! $errors->has('foto') ? 'has-error' : '' !!}">
+            <strong>Foto:</strong>
+            {!! Form::file('foto') !!}
+            {!! Form::label('foto', 'Gambar Harus Memiliki Format ( jpg,jpeg,png )*') !!}
+        </div>
     </div>
     <!-- <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
