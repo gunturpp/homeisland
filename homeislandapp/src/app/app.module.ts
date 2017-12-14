@@ -1,5 +1,3 @@
-import { ContactEditPage } from './../pages/contact-edit/contact-edit';
-import { TesPage } from './../pages/tes/tes';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -14,7 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserDataProvider } from '../provider/user-data';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
-//import { GoogleMaps } from '../provider/google-maps';
 import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
@@ -23,9 +20,7 @@ import { UpdateAkunPage} from '../pages/update-akun/update-akun';
 import { ListhomePage} from '../pages/listhome/listhome';
 import {HomestayPage} from '../pages/homestay/homestay';
 import {DetailNewsPage} from '../pages/detail-news/detail-news';
-import {DetailEventPage} from '../pages/detail-event/detail-event';
-
-
+import {OrderPage} from '../pages/order/order';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,9 +34,7 @@ import {DetailEventPage} from '../pages/detail-event/detail-event';
     ListhomePage,
     HomestayPage,
     DetailNewsPage,
-    TesPage,
-    ContactEditPage,
-    DetailEventPage
+    OrderPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -64,9 +57,7 @@ import {DetailEventPage} from '../pages/detail-event/detail-event';
     ListhomePage,
     HomestayPage,
     DetailNewsPage,
-    TesPage,
-    ContactEditPage,
-    DetailEventPage
+    OrderPage
   ],
   providers: [
     StatusBar,
@@ -74,7 +65,6 @@ import {DetailEventPage} from '../pages/detail-event/detail-event';
     UserDataProvider,
     GoogleMaps,
     Geolocation,
-    GoogleMaps,
     //Storage,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
