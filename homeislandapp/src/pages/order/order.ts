@@ -113,7 +113,7 @@ export class OrderPage {
 
                        }
                        this.showAlert(response.message);
-                       this.navCtrl.push(FinishorderPage, {id_user: this.navParams.get('id_user'), id_homestay: this.navParams.get('id_homestays')});
+                       this.navCtrl.push(FinishorderPage, {total_price: this.total_harga, id_user: this.navParams.get('id_user'), id_homestay: this.navParams.get('id_homestays')});
         }, err => {
            loading.dismiss();
            this.showError(err);
