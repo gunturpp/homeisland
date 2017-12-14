@@ -1,9 +1,9 @@
-<h1 style="color:red">HomeIsland Project</h1>
+<h1><b>HomeIsland Project>/b></h1>
 
 - Mobile Application
 - Dashboard Admin
 
-<h3>Homeisland Team :</h3>
+<h3><b>Homeisland Team :</b></h3>
 1. Guntur Putra Pratama
 2. Rakish F
 3. Ryan Azrian
