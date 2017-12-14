@@ -1,26 +1,12 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+<h1><b>HomeIsland</b></h1>
+<h4>Information System Project</h4>
 
-## How to use this template
+- Mobile Application using <b>IONIC 3</b>
+- Dashboard Admin using <b>LARAVEL 5.5 & MYSQL</b>
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+<h3><b>Homeisland Team :</b></h3>
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
-
-Then, to run it, cd into `myTabs` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+1. Guntur Putra Pratama as <b>Backend Developer <i>(Project Manager)</i></b>
+2. Rakish Frisky as <b>Backend Developer</b>
+3. Ryan Azrian as <b>Front Developer</b>
+4. Wiranegara as <b>Front Developer</b>
