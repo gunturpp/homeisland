@@ -6,7 +6,7 @@
 
 <h3><b>Homeisland Team :</b></h3>
 
-1. Guntur Putra Pratama as Backend Developer
-2. Rakish Frisky as Backend Developer
-3. Ryan Azrian as Front Developer
-4. Wiranegara as as Front Developer
+1. Guntur Putra Pratama as Backend Developer <b>(Project Manager)</b>
+2. Rakish Frisky as <b>Backend Developer</b>
+3. Ryan Azrian as <b>Front Developer</b>
+4. Wiranegara as as <b>Front Developer</b>
