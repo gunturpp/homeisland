@@ -39,13 +39,21 @@ export class HomestayPage {
   hargaHomestay: any;
   alamat: any;
   panjang: any;
+  panjang2: any;
   seleksi: any;
+  seleksi2: any;
+  dataratingz: any;
+  email: any;
+  pembagi: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public http: Http, public userDataProvider:UserDataProvider,
               public loadCtrl: LoadingController, public toastCtrl: ToastController
 
               ) {
     this.seleksi = [];
+    this.seleksi2 = [];
+    this.sumrate = 0;
+    this.pembagi = 0;
   }
 
   ionViewDidLoad() {
@@ -79,43 +87,64 @@ export class HomestayPage {
   
   ionViewWillEnter(){
   	this.getdataHomestay();
-   // this.getiduser();
-   // this.getnamauser();
+    this.getiduser();
+    this.getnamauser();
     this.isRating = false;
     console.log(this.iduser);
     this.ambilRating();
     this.listRating();
+   // this.CekReview();
+     this.getemail();
   }
 
   
 
   listRating(){
-    this.http.get("http://127.0.0.1/homeisland/backend/getListRating.php?id="+ this.navParams.get('id_homestay')).subscribe(data => {
+    this.http.get("http://127.0.0.1:8000/api/get-ratings").subscribe(data => {
       let response = data.json();
       console.log(response);
-      if(response.status=="200"){
-        this.listRatings = response.data;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+     // if(response.status=="200"){
+        this.listRatings = response.ratings;   //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+        this.panjang2 = this.listRatings.length;
+      for(var i=0, j=0; i<this.panjang2; i++){
+        if(this.listRatings[i].id_homestay == this.navParams.get('id_homestay') && this.listRatings[i].hide == 0){
+          this.seleksi2[j] = this.listRatings[i];
+          this.sumrate = this.sumrate + this.seleksi2[j].rating;
+          this.pembagi = this.pembagi + 1;
+          j++;
+        }
       }
-      else{
-        console.log("Error coy");
-      }
+      this.sumhome = this.sumrate/this.pembagi;
+      //}
+      //else{
+       // console.log("Error coy");
+     // }
     });
 
   }
 
+  getemail(){
+      this.userDataProvider.getEmail().then((email) => {
+      this.email = email;
+      console.log(this.email);
+      this.CekReview();  
+    });
+  }
+
   getiduser(){
-      this.userDataProvider.getIDuser().then((id) => {
+      this.userDataProvider.getID().then((id) => {
       this.iduser = id;
       console.log(this.iduser);
-      this.CekReview();  
+      //this.CekReview();  
 
     });
   }
 
 
   getnamauser(){
-      this.userDataProvider.getUsername().then((user) => {
+      this.userDataProvider.getNama().then((user) => {
       this.namauser = user;
+      console.log(this.namauser);
     });
   }
 
@@ -127,7 +156,7 @@ export class HomestayPage {
       console.log(response);
       this.panjang = this.data.length;
 
-      for(var i=0, j=0; i<this.panjang;i++){
+      for(var i=0, j=0; i<this.panjang; i++){
          
         
          if(this.data[i].id == this.navParams.get('id_homestay'))
@@ -181,20 +210,18 @@ export class HomestayPage {
 
   CekReview(){
     //let idz = {id: this.iduser}
-    let data = JSON.stringify({
-                      id_user: this.iduser 
-                  });
-    this.http.get("http://127.0.0.1/homeisland/backend/CekRating.php?id="+ this.iduser+"&id_homestay="+ this.navParams.get('id_homestay')).subscribe(data => {
+    this.http.get("http://127.0.0.1:8000/api/get-ratings").subscribe(data => {
       let response = data.json();
-      console.log(response);
-      if(response.status=="200"){
-        this.dataHomestay = response.data;      //ini disimpen ke variabel pasien diatas itu ,, yang udah di delacre
+     // console.log(response);
+      this.dataratingz = response.ratings;
+      this.panjang = this.dataratingz.length;
+
+      for( var i=0; i<this.panjang; i++)
+      if( this.dataratingz[i].id_user == this.email && this.dataratingz[i].id_homestay == this.navParams.get('id_homestay')  ){
+        
         this.isRating = true;
-        //this.komentar = response
       }
-      else{
-        console.log("Error coy");
-      }
+      
     });
   }
 
@@ -208,7 +235,7 @@ export class HomestayPage {
                   let input = JSON.stringify({
                     id_homestays: this.id_homestay,
                     //id_user: this.iduser,
-                      id_user: 1,
+                    id_user: this.iduser,
                     nama_homestay: this.namaHomestay,
                     nama_user: this.namauser,
                     durasi_nginap: this.navParams.get('duration'),
@@ -239,9 +266,9 @@ export class HomestayPage {
     this.navCtrl.push(OrderPage, {
                     id_homestays: this.id_homestay,
                     //id_user: this.navParams.get('email'),
-                    id_user: 1,
+                    id_user: this.iduser,
                     nama_homestay: this.namaHomestay,
-                    nama_user: this.navParams.get('email'),
+                    nama_user: this.namauser,
                     durasi_nginap: this.navParams.get('duration'),
                     checkin: this.navParams.get('checkin'),
                     sumkamar: this.navParams.get('sumkamar'),
@@ -257,16 +284,19 @@ export class HomestayPage {
 
                 
                   loading.present();
-                  let input = JSON.stringify({
-                    id_homestays: this.id_homestay,
-                    id_user: this.iduser,
+                  let input = ({
+                    id_homestay: this.id_homestay,
+                    id_user: this.email,
                     //nama_homestay: this.namaHomestay,
                     //nama_user: this.namauser
                     comment: this.ratingClass.comment,
-                    rating: this.ratingClass.rating
+                    rating: this.ratingClass.rating,
+                    hide: 0
                   });
-                  this.http.post("http://127.0.0.1/homeisland/backend/InputRating.php",input).subscribe(data => {
-                       loading.dismiss();
+                  //this.http.post("http://127.0.0.1/homeisland/backend/InputRating.php",input).subscribe(data => {
+                    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
+                    this.http.post("http://127.0.0.1:8000/api/post-ratings",input, headers).subscribe(data => {
+                        loading.dismiss();
                        let response = data.json();
                        if(response.status == 200){
                         // let user=response.data;
@@ -274,7 +304,7 @@ export class HomestayPage {
                         //  this.navCtrl.setRoot(LocationSelect);
 
                        }
-                       this.showAlert(response.message);
+                       this.showAlert('Berhasil Memberikan Rating !');
                        this.navCtrl.push(HomePage);
         }, err => {
            loading.dismiss();
