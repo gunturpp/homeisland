@@ -7,6 +7,6 @@
 <h3><b>Homeisland Team :</b></h3>
 
 1. <a href="https://www.linkedin.com/in/gunturputprat/">Guntur Putra Pratama</a> as <b>Backend Developer <i>(Project Manager)</i></b>
-2. Rakish Frisky as <b style="color:red">Backend Developer</b>
+2. Rakish Frisky as <b style="font-size:30px;">Backend Developer</b>
 3. Ryan Azrian as <b>Front Developer</b>
 4. Wiranegara as <b>Front Developer</b>
